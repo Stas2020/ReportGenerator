@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd1="http://filias1c.intra.cofemania.ru/1cws" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://filias1c.intra.cofemania.ru/1cws" name="Employees" targetNamespace="http://filias1c.intra.cofemania.ru/1cws" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:xs1="http://filias1c.intra.cofemania.ru/1cws" elementFormDefault="qualified" targetNamespace="http://filias1c.intra.cofemania.ru/1cws" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="SName" type="xs:string" />
+            <xs:element name="MName" type="xs:string" />
+            <xs:element name="Code" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Del">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="EmpCode" type="xs:string" />
+            <xs:element name="DateOfDel" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DelResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnDismiss">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="StaffCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnDismissResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPregnantList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetPregnantListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="AddRequestMessage">
+    <part name="parameters" element="tns:Add" />
+  </message>
+  <message name="AddResponseMessage">
+    <part name="parameters" element="tns:AddResponse" />
+  </message>
+  <message name="DelRequestMessage">
+    <part name="parameters" element="tns:Del" />
+  </message>
+  <message name="DelResponseMessage">
+    <part name="parameters" element="tns:DelResponse" />
+  </message>
+  <message name="UnDismissRequestMessage">
+    <part name="parameters" element="tns:UnDismiss" />
+  </message>
+  <message name="UnDismissResponseMessage">
+    <part name="parameters" element="tns:UnDismissResponse" />
+  </message>
+  <message name="GetPregnantListRequestMessage">
+    <part name="parameters" element="tns:GetPregnantList" />
+  </message>
+  <message name="GetPregnantListResponseMessage">
+    <part name="parameters" element="tns:GetPregnantListResponse" />
+  </message>
+  <portType name="EmployeesPortType">
+    <operation name="Add">
+      <input message="tns:AddRequestMessage" />
+      <output message="tns:AddResponseMessage" />
+    </operation>
+    <operation name="Del">
+      <input message="tns:DelRequestMessage" />
+      <output message="tns:DelResponseMessage" />
+    </operation>
+    <operation name="UnDismiss">
+      <input message="tns:UnDismissRequestMessage" />
+      <output message="tns:UnDismissResponseMessage" />
+    </operation>
+    <operation name="GetPregnantList">
+      <input message="tns:GetPregnantListRequestMessage" />
+      <output message="tns:GetPregnantListResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="EmployeesSoapBinding" type="tns:EmployeesPortType">
+    <soapbind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Add">
+      <soapbind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:Add" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Del">
+      <soapbind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:Del" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="UnDismiss">
+      <soapbind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:UnDismiss" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetPregnantList">
+      <soapbind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:GetPregnantList" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="EmployeesSoap12Binding" type="tns:EmployeesPortType">
+    <soap12bind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Add">
+      <soap12bind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:Add" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Del">
+      <soap12bind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:Del" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="UnDismiss">
+      <soap12bind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:UnDismiss" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetPregnantList">
+      <soap12bind:operation soapAction="http://filias1c.intra.cofemania.ru/1cws#Employees:GetPregnantList" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Employees">
+    <port name="EmployeesSoap" binding="tns:EmployeesSoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
+      </documentation>
+      <soapbind:address location="http://vfiliaszar8/zarp8/ws/emp.1cws" />
+    </port>
+    <port name="EmployeesSoap12" binding="tns:EmployeesSoap12Binding">
+      <soap12bind:address location="http://vfiliaszar8/zarp8/ws/emp.1cws" />
+    </port>
+  </service>
+</definitions>

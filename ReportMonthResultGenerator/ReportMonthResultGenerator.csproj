@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{622E6C4A-0876-4923-B663-FA17D162C5B1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportMonthResultGenerator</RootNamespace>
+    <AssemblyName>ReportMonthResultGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AirReports.cs" />
+    <Compile Include="AlkReport.cs" />
+    <Compile Include="AlWebApi.cs" />
+    <Compile Include="AutoCalc\Calculation.cs" />
+    <Compile Include="AutoCalc\CheckCountSingletone.cs" />
+    <Compile Include="AutoCalc\DesertSpisCalc.cs" />
+    <Compile Include="AutoCalc\DishezCalc.cs" />
+    <Compile Include="AutoCalc\DrinksCalc.cs" />
+    <Compile Include="AutoCalc\OrderTimeCalc.cs" />
+    <Compile Include="AutoCalc\RashMatCalc.cs" />
+    <Compile Include="AutoCalc\ShiftSpeesCalc.cs" />
+    <Compile Include="AutoCalc\WTSCalc.cs" />
+    <Compile Include="BaristaLong.cs" />
+    <Compile Include="BTest.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BTest.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CFCCommonData\CFCQueries.cs" />
+    <Compile Include="CFCCommonData\DBCFC.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBCFC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckLongTestDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckLongTestDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ChecksCountOnPlace.cs" />
+    <Compile Include="CoffeeOnChk.cs" />
+    <Compile Include="CoffeeToGo.cs" />
+    <Compile Include="Cube2005.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cube2005.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CubeData.cs" />
+    <Compile Include="DbfData\DBFExtractor.cs" />
+    <Compile Include="DbfData\DBFSpeedOfQueue.cs" />
+    <Compile Include="DesertsOnChk.cs" />
+    <Compile Include="DesertsOnStop.cs" />
+    <Compile Include="DismissalPercent.cs" />
+    <Compile Include="ExcelRepGenerate.cs" />
+    <Compile Include="ForNY.cs" />
+    <Compile Include="Fot.cs" />
+    <Compile Include="HRFOOL.cs" />
+    <Compile Include="KissTheCook.cs" />
+    <Compile Include="KitchenMoneyPercent.cs" />
+    <Compile Include="MainClass.cs" />
+    <Compile Include="NYQSR.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="QSR\QSRTiming.cs" />
+    <Compile Include="QSR\ServTimeXml.cs" />
+    <Compile Include="RashMat.cs" />
+    <Compile Include="ReportBase.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportBase.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDN.cs" />
+    <Compile Include="ReportTableUpdater.cs" />
+    <Compile Include="Service References\Ges3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\S2010\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SrvOrderTimes\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Staff\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebSrvSpisanie\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\StaffEmpl\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TimeOfPrep\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Spisanie.cs" />
+    <Compile Include="StaffBase.cs" />
+    <Compile Include="StaffWtToExcel.cs" />
+    <Compile Include="Tasks\MenuAllItemsUpdaterTask.cs" />
+    <Compile Include="TimeOfPrep.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="VoidResult.cs" />
+    <Compile Include="Voiting.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Voiting.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="WaiterPower.cs" />
+    <Compile Include="Web References\vfiliasut8\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\vfiliaszar8\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WorkTimeOnChk.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BTest.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BTest.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CFCCommonData\DBCFC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBCFC.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CFCCommonData\DBCFC.dbml.layout">
+      <DependentUpon>DBCFC.dbml</DependentUpon>
+    </None>
+    <None Include="CheckLongTestDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CheckLongTestDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cube2005.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Cube2005.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportBase.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ReportBase.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Ges3\Ges3Services.wsdl" />
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.chek_biznes_data_tmp2Row.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.ExportDataForSubdivisions_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.ExportReturnDocumentForNumber_T_GoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.ExportWriteOffForSubdivisions_T_spisRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GestoriCashByDay_T_cashRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GestoriCustomerSalesByMonth_T_naklRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GestoriGetZakazGoods_ZakazGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GestoriGoodCalculationWithQuantity_CalculationGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GetGestoriBalanceAll_ResultGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.get_check_sales_by_code_T_salesRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.get_GestoriGoods_T_GestoriGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GoodsOfFiliasPurchase_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GoodsOfFiliasReturn_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.GoodsOfFiliasVozvrat_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.RealShops_tmp_podrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.ReturnDocumentList_T_naklRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.ShopsGoodTime_T_goodtimeRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.sostav_goods_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.SouseLost_tmp2Row.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.storage_times_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.transferForSubdivisions_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Ges3\ReportMonthResultGenerator.Ges3.virt_obj_T_shopsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.DepartmentInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.DepInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.DimTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.FACT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.FACT3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\ReportMonthResultGenerator.S2010.TestsHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\S2010\Xrep.wsdl" />
+    <None Include="Service References\SrvOrderTimes\ReportMonthResultGenerator.SrvOrderTimes.AddOrderTimeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SrvOrderTimes\SrvOrderTimes2.wsdl" />
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.COUNTCUP_ResultCUPRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.GetEmploeeWorkTime_ListCookRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.GetEmploeeWorkTime_ListCookWorkTimeRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.GetEmploeeWorkTime_ListDisplayRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.GetListQSR_T_QSR_LISTRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.povar_COOK_TEMPRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.working_time_T_wrkRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.division_pay_EMPLOEE_PARAMRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.Emploee_pay_WORKTIME_TEMPRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.GetEmploeeWorkTime_ListCookRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.GetEmploeeWorkTime_ListCookWorkTimeRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.GetEmploeeWorkTime_ListDisplayRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.GetListQSR_T_QSR_LISTRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.get_response_t_RESPONSERow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.povar_COOK_TEMPRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\ReportMonthResultGenerator.Staff.procedure_for_history_t_emphistoryRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Staff\StaffEmployeeParameters.wsdl" />
+    <None Include="Service References\WebSrvSpisanie\Ges3ServicesUTF8.wsdl" />
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.division_pay_EMPLOEE_PARAMRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.Emploee_pay_WORKTIME_TEMPRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.get_response_t_RESPONSERow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\ReportMonthResultGenerator.StaffEmpl.procedure_for_history_t_emphistoryRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StaffEmpl\StaffEmployeeParameters.wsdl" />
+    <None Include="Service References\TimeOfPrep\Ges3Services.wsdl" />
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.ExportDataForSubdivisions_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.ExportReturnDocumentForNumber_T_GoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.ExportWriteOffForSubdivisions_T_spisRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GestoriCashByDay_T_cashRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GestoriCustomerSalesByMonth_T_naklRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GestoriGetZakazGoods_ZakazGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GestoriGoodCalculationWithQuantity_CalculationGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GetGes3FirmCodesList_temp2Row.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GetGestoriBalanceAll_ResultGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.get_check_sales_by_code_T_salesRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.get_GestoriGoods_T_GestoriGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.get_ML_recipe_RecipeDetailsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.get_ML_recipe_RecipeHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GoodsOfFiliasPurchase_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GoodsOfFiliasReturn_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.GoodsOfFiliasVozvrat_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.RealShops_tmp_podrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.ReturnDocumentList_T_naklRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.ShopsGoodTime_T_goodtimeRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.SouseLost_tmp2Row.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TimeOfPrep\ReportMonthResultGenerator.TimeOfPrep.transferForSubdivisions_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.AllStockItems_StockItemsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.getBaseCalc_BarcodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.getBaseCalc_CalcHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.getBaseCalc_CalcSpecRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.GetInvoiceGestori_InvoiceDetailRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.GetInvoiceGestori_InvoiceHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.GetTransferGestori_InvoiceDetailRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.GetTransferGestori_InvoiceHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barc_BarcodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barc_RecipeDetailsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barc_RecipeHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_long_with_prod_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_long_with_prod_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_long_with_prod_T_prodRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_short_with_prod_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_short_with_prod_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_short_with_prod_T_prodRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_cash_sales_by_code_T_salesRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_client_returns_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_client_return_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_client_return_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_client_return_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_client_return_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_costprice_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_costs_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_disassembles_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_disassemble_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_disassemble_by_code_T_ingrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_GestoriGoods_T_GestoriGoodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_inventory_shortage_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_inventory_surpluses_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoices_extended_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoices_intercompany_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoices_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoice_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoice_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoice_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_invoice_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_losses_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_loss_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_loss_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_loss_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_loss_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_classif_TmpGrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_classif_TmpSgrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_recipe_barc_BarcodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_recipe_barc_RecipeDetailsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_recipe_barc_RecipeHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_recipe_podr_RecipeDetailsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_recipe_podr_RecipeHeaderRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_ML_sales_podr_TmpSalesRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_productions_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_production_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_production_by_code_T_ingrRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_returns_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_return_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_return_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_return_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_return_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_return_costprice_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sales_intercompany_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sales_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_stocks_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_stocks_long_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_stocks_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_stocks_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfers_total_T_AmountTabRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_by_code_long_T_alcoRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_by_code_long_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_by_code_short_T_byNDSRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_by_code_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_list_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.get_transfer_list_T_NumberInvoiceRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112_MatrixRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.report_from_dol_sp_T_goodsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebSrvSpisanie\ReportMonthResultGenerator.WebSrvSpisanie.TransferDocTorg13_T_rezultsRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Voiting.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Voiting.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\vfiliasut8\ExchangePeskovFotoGallery.wsdl" />
+    <None Include="Web References\vfiliasut8\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\vfiliaszar8\Employees.wsdl" />
+    <None Include="Web References\vfiliaszar8\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Ges3\" />
+    <WCFMetadataStorage Include="Service References\S2010\" />
+    <WCFMetadataStorage Include="Service References\SrvOrderTimes\" />
+    <WCFMetadataStorage Include="Service References\Staff\" />
+    <WCFMetadataStorage Include="Service References\WebSrvSpisanie\" />
+    <WCFMetadataStorage Include="Service References\StaffEmpl\" />
+    <WCFMetadataStorage Include="Service References\TimeOfPrep\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\S2010\Xrep.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\S2010\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\S2010\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\S2010\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReportBase.dbml.layout">
+      <DependentUpon>ReportBase.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://vfiliasut8/ut8/ws/ExchangePeskovFotoGallery.1cws%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\vfiliasut8\</RelPath>
+      <UpdateFromURL>http://vfiliasut8/ut8/ws/ExchangePeskovFotoGallery.1cws%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ReportMonthResultGenerator_vfiliasut8_ExchangePeskovFotoGallery</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://vfiliaszar8/zarp8/ws/emp.1cws%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\vfiliaszar8\</RelPath>
+      <UpdateFromURL>http://vfiliaszar8/zarp8/ws/emp.1cws%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ReportMonthResultGenerator_vfiliaszar8_Employees</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeOfPrep\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeOfPrep\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TimeOfPrep\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Ges3\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Ges3\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Ges3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StaffEmpl\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StaffEmpl\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StaffEmpl\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BTest.dbml.layout">
+      <DependentUpon>BTest.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebSrvSpisanie\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebSrvSpisanie\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebSrvSpisanie\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Cube2005.dbml.layout">
+      <DependentUpon>Cube2005.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль Microsoft .NET Framework 4 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Voiting.dbml.layout">
+      <DependentUpon>Voiting.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Staff\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Staff\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Staff\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SrvOrderTimes\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SrvOrderTimes\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SrvOrderTimes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SrvOrderTimes\SrvOrderTimes2.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CheckLongTestDb.dbml.layout">
+      <DependentUpon>CheckLongTestDb.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

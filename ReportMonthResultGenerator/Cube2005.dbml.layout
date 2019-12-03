@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 12.5" name="Cube2005">
+  <DataContextMoniker Name="/Cube2005DataContext" />
+  <nestedChildShapes>
+    <classShape Id="fd83fc40-f1fb-4a8b-b4b1-46f3a4810399" absoluteBounds="0.5, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/Cube2005DataContext/StaffEmployee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a5038bf-5a9c-4ddf-b642-60985399d7c7" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d2c95c2-0181-4772-91b3-0132ecebb8c0" absoluteBounds="0.75, 6, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/Cube2005DataContext/StaffEmployeeEx" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5ead62b-5778-48c2-9375-1bafb9e4830a" absoluteBounds="0.765, 6.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af73213e-b689-46b2-a6fa-f33810ff0d80" absoluteBounds="0.75, 4, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/Cube2005DataContext/Staffposition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4a16142-843a-4194-a222-1ed4e9e3d857" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d9822ca-1f16-472b-8bdf-3e49c2d946dc" absoluteBounds="7.75, 1, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/Cube2005DataContext/StaffDepartments" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1821477c-d064-4274-bfd8-332bc8a41602" absoluteBounds="7.765, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.44621064828726 : 5.19399251302083); (1.44621064828726 : 5.44399251302083); (2.06825551131811 : 5.44399251302083); (2.06825551131811 : 5.19399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Cube2005DataContext/Staffposition/Staffposition_Staffposition" />
+      <nodes>
+        <classShapeMoniker Id="af73213e-b689-46b2-a6fa-f33810ff0d80" />
+        <classShapeMoniker Id="af73213e-b689-46b2-a6fa-f33810ff0d80" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cc21d347-a6b1-4470-a5b2-26b40f10452d" absoluteBounds="7.5, 3.5, 2, 8.6937483723958326">
+      <DataClassMoniker Name="/Cube2005DataContext/XmlChecks" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0fd9159-32a4-44bd-a8d7-ea8ea1da3d44" absoluteBounds="7.515, 3.96, 1.9700000000000002, 8.1337483723958321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.5 : 6.47480714142628); (7.25 : 6.47480714142628); (7.25 : 9.28427775691106); (7.5 : 9.28427775691106)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Cube2005DataContext/XmlChecks/XmlChecks_XmlChecks" />
+      <nodes>
+        <classShapeMoniker Id="cc21d347-a6b1-4470-a5b2-26b40f10452d" />
+        <classShapeMoniker Id="cc21d347-a6b1-4470-a5b2-26b40f10452d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="666d037c-c423-4067-b8b0-87fa4cd9b665" absoluteBounds="11.75, 5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/Cube2005DataContext/XmlChecksDishes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aace23a2-7b02-4e16-b886-b34c61f1b236" absoluteBounds="11.765, 5.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 6.27005126953125); (11.75 : 6.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Cube2005DataContext/XmlChecks/XmlChecks_XmlChecksDishes" />
+      <nodes>
+        <classShapeMoniker Id="cc21d347-a6b1-4470-a5b2-26b40f10452d" />
+        <classShapeMoniker Id="666d037c-c423-4067-b8b0-87fa4cd9b665" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

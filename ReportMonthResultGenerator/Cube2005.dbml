@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CHKComp" Class="Cube2005DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=cube2005;Initial Catalog=CHKComp;User ID=manager" SettingsObjectName="ReportMonthResultGenerator.Properties.Settings" SettingsPropertyName="DiogenConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.StaffEmployee" Member="StaffEmployees">
+    <Type Name="StaffEmployee">
+      <Column Name="SUBDIVISION_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="MIDDLE_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="Position_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffEmployeeEx" Member="StaffEmployeeEx">
+    <Type Name="StaffEmployeeEx">
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="MIDDLE_NAME" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="SUBDIVISION_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DISMISSAL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ENTRY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staffposition" Member="Staffposition">
+    <Type Name="Staffposition">
+      <Column Name="POSITION_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Staffposition_Staffposition" Member="Staffposition2" ThisKey="POSITION_ID" OtherKey="POSITION_ID" Type="Staffposition" Cardinality="One" />
+      <Association Name="Staffposition_Staffposition" Member="Staffposition1" ThisKey="POSITION_ID" OtherKey="POSITION_ID" Type="Staffposition" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffDepartments" Member="StaffDepartments">
+    <Type Name="StaffDepartments">
+      <Column Name="DepID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DepName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XmlChecks" Member="XmlChecks">
+    <Type Name="XmlChecks">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SystemDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BusinessDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SystemDateOfOpen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Card" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Credit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Summ" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="RealSumm" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="RealCash" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IsChange" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PredcheckCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiscountCard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiscountMGR_NUMBER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DegustationMGR_NUMBER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoyaltyCard" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LoyaltyBonus" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Comp" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CompId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Vozvr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Waiter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cassir" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TerminalId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TableNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TableName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TableId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Guests" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KkmNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EKLZNum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FiskalFileName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PedcheckTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlohaCheckNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CheckTimeLong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckTimeLongSec" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShortCheckNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LongCheckNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnDepNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="XmlChecks_XmlChecks" Member="XmlChecks2" ThisKey="Id" OtherKey="Id" Type="XmlChecks" Cardinality="One" />
+      <Association Name="XmlChecks_XmlChecksDishes" Member="XmlChecksDishes" ThisKey="Id" OtherKey="CheckId" Type="XmlChecksDishes" />
+      <Association Name="XmlChecks_XmlChecks" Member="XmlChecks1" ThisKey="Id" OtherKey="Id" Type="XmlChecks" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XmlChecksDishes" Member="XmlChecksDishes">
+    <Type Name="XmlChecksDishes">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Qty" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PriceOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CheckId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="XmlChecks_XmlChecksDishes" Member="XmlChecks" ThisKey="CheckId" OtherKey="Id" Type="XmlChecks" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

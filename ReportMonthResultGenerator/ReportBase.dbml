@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Diogen" Class="ReportBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov" SettingsObjectName="ReportMonthResultGenerator.Properties.Settings" SettingsPropertyName="DiogenConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ReportMonthResult" Member="ReportMonthResults">
+    <Type Name="ReportMonthResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Month" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Department" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Value3" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DepName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaMenuITM" Member="AlohaMenuITMs">
+    <Type Name="AlohaMenuITM">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DELAYTIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Category" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaMenuItemCatsLink" Member="AlohaMenuItemCatsLinks">
+    <Type Name="AlohaMenuItemCatsLink">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CatNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportDayQSRTime" Member="ReportDayQSRTimes">
+    <Type Name="ReportDayQSRTime">
+      <Column Name="Day" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrdersCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WrongCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WrongTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Department" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="FactSummOfWrong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NormaSummOfWrong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportWaitersPower" Member="ReportWaitersPowers">
+    <Type Name="ReportWaitersPower">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Waiters" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Checks" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DayOfWeak" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TimeOfDay" Type="System.String" DbType="VarChar(5)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DishList" Member="DishLists">
+    <Type Name="DishList">
+      <Column Name="DishName" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="DishBarCode" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GuestCount" Member="GuestCounts">
+    <Type Name="GuestCount">
+      <Column Name="GuestCount" Member="GuestCount1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckLongNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SystemDateOfOpen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SystemDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BusinessDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AlohaCheckNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DepNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaDepPlaces" Member="AlohaDepPlaces">
+    <Type Name="AlohaDepPlace">
+      <Column Name="DepNum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PosMest" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportDBFDishes" Member="ReportDBFDishes">
+    <Type Name="ReportDBFDishes">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CheckId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BusinessDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Empl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EntryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportDBFFilesComplited" Member="ReportDBFFilesComplited">
+    <Type Name="ReportDBFFilesComplited">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Dep" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportDayQSRTimeByOrders" Member="ReportDayQSRTimeByOrders">
+    <Type Name="ReportDayQSRTimeByOrders">
+      <Column Name="Day" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrdersCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WrongCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WrongTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Department" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="FactSummOfWrong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NormaSummOfWrong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportDayResult" Member="ReportDayResult">
+    <Type Name="ReportDayResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Summ" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Count" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DepName" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReportTypeIds" Member="ReportTypeIds">
+    <Type Name="ReportTypeIds">
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TypeSystemName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Format" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaMenuItemsAll" Member="AlohaMenuItemsAll">
+    <Type Name="AlohaMenuItemsAll">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsDish" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDrink" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaMenuCatAll" Member="AlohaMenuCatAll">
+    <Type Name="AlohaMenuCatAll">
+      <Column Name="Cat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlohaMenuComps" Member="AlohaMenuComps">
+    <Type Name="AlohaMenuComps">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AlohaCompId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderTimes" Member="OrderTimes">
+    <Type Name="OrderTimes">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemCookTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TransactionNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderFirstDisplayedTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderLastBumpTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VirtualDisplayId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderStartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Dep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BusinessDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderEndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TableNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DiffTime4" Method="DiffTime4" IsComposable="true">
+    <Parameter Name="DayStart" Parameter="dayStart" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DayEnd" Parameter="dayEnd" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DepNum" Parameter="depNum" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DishNum" Parameter="dishNum" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

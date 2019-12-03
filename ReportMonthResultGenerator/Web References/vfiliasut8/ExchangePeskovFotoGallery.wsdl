@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd1="ExchangePeskovFotoGallery" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="ExchangePeskovFotoGallery" name="ExchangePeskovFotoGallery" targetNamespace="ExchangePeskovFotoGallery" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:xs1="ExchangePeskovFotoGallery" elementFormDefault="qualified" targetNamespace="ExchangePeskovFotoGallery" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getCosts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="codeUnion" type="xs:integer" />
+            <xs:element name="dateStart" type="xs:date" />
+            <xs:element name="dateEnd" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCostsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCostsList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="codeUnion" type="xs:integer" />
+            <xs:element name="dateStart" type="xs:date" />
+            <xs:element name="dateEnd" type="xs:date" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCostsListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="getCostsRequestMessage">
+    <part name="parameters" element="tns:getCosts" />
+  </message>
+  <message name="getCostsResponseMessage">
+    <part name="parameters" element="tns:getCostsResponse" />
+  </message>
+  <message name="getCostsListRequestMessage">
+    <part name="parameters" element="tns:getCostsList" />
+  </message>
+  <message name="getCostsListResponseMessage">
+    <part name="parameters" element="tns:getCostsListResponse" />
+  </message>
+  <portType name="ExchangePeskovFotoGalleryPortType">
+    <operation name="getCosts">
+      <input message="tns:getCostsRequestMessage" />
+      <output message="tns:getCostsResponseMessage" />
+    </operation>
+    <operation name="getCostsList">
+      <input message="tns:getCostsListRequestMessage" />
+      <output message="tns:getCostsListResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="ExchangePeskovFotoGallerySoapBinding" type="tns:ExchangePeskovFotoGalleryPortType">
+    <soapbind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getCosts">
+      <soapbind:operation soapAction="" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCostsList">
+      <soapbind:operation soapAction="" style="document" />
+      <input>
+        <soapbind:body use="literal" />
+      </input>
+      <output>
+        <soapbind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="ExchangePeskovFotoGallerySoap12Binding" type="tns:ExchangePeskovFotoGalleryPortType">
+    <soap12bind:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getCosts">
+      <soap12bind:operation soapAction="" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCostsList">
+      <soap12bind:operation soapAction="" style="document" />
+      <input>
+        <soap12bind:body use="literal" />
+      </input>
+      <output>
+        <soap12bind:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ExchangePeskovFotoGallery">
+    <port name="ExchangePeskovFotoGallerySoap" binding="tns:ExchangePeskovFotoGallerySoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
+      </documentation>
+      <soapbind:address location="http://vfiliasut8/ut8/ws/ExchangePeskovFotoGallery.1cws" />
+    </port>
+    <port name="ExchangePeskovFotoGallerySoap12" binding="tns:ExchangePeskovFotoGallerySoap12Binding">
+      <soap12bind:address location="http://vfiliasut8/ut8/ws/ExchangePeskovFotoGallery.1cws" />
+    </port>
+  </service>
+</definitions>

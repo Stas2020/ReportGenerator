@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 27.875" name="DBCFC">
+  <DataContextMoniker Name="/DBCFCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="48f43599-38f9-4276-ac9b-67bc8870647f" absoluteBounds="5.75, 1.5, 2, 25.616274414062502">
+      <DataClassMoniker Name="/DBCFCDataContext/Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="663e2f44-2697-44e4-bf7c-87e510ee491a" absoluteBounds="5.765, 1.96, 1.9700000000000002, 25.0562744140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.45923076923077 : 27.1162744140625); (6.45923076923077 : 27.3662744140625); (7.05461538461539 : 27.3662744140625); (7.05461538461539 : 27.1162744140625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Item/Item_Item" />
+      <nodes>
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.45923076923077 : 1.5); (6.45923076923077 : 1.25); (7.05461538461539 : 1.25); (7.05461538461539 : 1.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Item/Item_Item1" />
+      <nodes>
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7357bada-1008-4d42-9574-993236e8d097" absoluteBounds="8.875, 3.75, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/DBCFCDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed2e15a7-3c0b-4545-a203-b23692430c98" absoluteBounds="8.89, 4.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.83625 : 8.21311686197917); (10.83625 : 21.5034814453125); (7.75 : 21.5034814453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBCFCDataContext/Category/Category_Item" />
+      <nodes>
+        <classShapeMoniker Id="7357bada-1008-4d42-9574-993236e8d097" />
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.58423076923077 : 3.75); (9.58423076923077 : 3.5); (10.1796153846154 : 3.5); (10.1796153846154 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Category/Category_Category" />
+      <nodes>
+        <classShapeMoniker Id="7357bada-1008-4d42-9574-993236e8d097" />
+        <classShapeMoniker Id="7357bada-1008-4d42-9574-993236e8d097" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="67b6fb18-6c51-4dc7-b32a-9e934340abe3" absoluteBounds="2.375, 4.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBCFCDataContext/CategoryItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be2ea21d-e03b-4e69-93a2-0b1e5ac245c9" absoluteBounds="2.3899999999999997, 4.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.875 : 5.98155843098958); (8 : 5.98155843098958); (8 : 1); (3.375 : 1); (3.375 : 4.125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBCFCDataContext/Category/Category_CategoryItem" />
+      <nodes>
+        <classShapeMoniker Id="7357bada-1008-4d42-9574-993236e8d097" />
+        <classShapeMoniker Id="67b6fb18-6c51-4dc7-b32a-9e934340abe3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 4.45714884440104); (4.375 : 4.45714884440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBCFCDataContext/Item/Item_CategoryItem" />
+      <nodes>
+        <classShapeMoniker Id="48f43599-38f9-4276-ac9b-67bc8870647f" />
+        <classShapeMoniker Id="67b6fb18-6c51-4dc7-b32a-9e934340abe3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" absoluteBounds="8.75, 1.75, 2, 14.0781884765625">
+      <DataClassMoniker Name="/DBCFCDataContext/Comp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba39217d-535e-4d05-bda1-92f115ddf624" absoluteBounds="8.765, 2.21, 1.9700000000000002, 13.5181884765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.875 : 5.98155843098958); (11.125 : 5.98155843098958); (11.125 : 8.78909423828125); (10.9195833333333 : 8.78909423828125 : JumpStart); (10.7529166666667 : 8.78909423828125 : JumpEnd); (10.75 : 8.78909423828125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Category/Category_Comp" />
+      <nodes>
+        <classShapeMoniker Id="7357bada-1008-4d42-9574-993236e8d097" />
+        <classShapeMoniker Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.45923076923077 : 15.8281884765625); (9.45923076923077 : 16.0781884765625); (10.0546153846154 : 16.0781884765625); (10.0546153846154 : 15.8281884765625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Comp/Comp_Comp" />
+      <nodes>
+        <classShapeMoniker Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" />
+        <classShapeMoniker Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.45923076923077 : 1.75); (9.45923076923077 : 1.5); (10.0546153846154 : 1.5); (10.0546153846154 : 1.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBCFCDataContext/Comp/Comp_Comp1" />
+      <nodes>
+        <classShapeMoniker Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" />
+        <classShapeMoniker Id="50b277a2-6c10-4313-9eed-86ea739bfeb2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

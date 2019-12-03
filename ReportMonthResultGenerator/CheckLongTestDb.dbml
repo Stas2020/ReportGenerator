@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ParserOut" Class="CheckLongTestDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=s2010;Initial Catalog=ParserOut;User ID=v.piskov" SettingsObjectName="ReportMonthResultGenerator.Properties.Settings" SettingsPropertyName="ParserOutConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Items" Member="Items">
+    <Type Name="Items">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ParentNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="SysDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="TableId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Turns" Member="Turns">
+    <Type Name="Turns">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="OpenTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="CloseTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="TableId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TurnsDr" Member="TurnsDr">
+    <Type Name="TurnsDr">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="SysDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

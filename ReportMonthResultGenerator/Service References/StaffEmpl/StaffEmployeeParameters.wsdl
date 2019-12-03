@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:coffeemanania:staffEmployee" xmlns:prodata="urn:schemas-progress-com:xml-prodata:0001" xmlns:S1="urn:soap-fault:details" xmlns:S2="urn:coffeemanania:staffEmployee:StaffEmployeeParameters" xmlns="http://schemas.xmlsoap.org/wsdl/" name="StaffEmployeeParameters" targetNamespace="urn:coffeemanania:staffEmployee" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Author=Volkov, EncodingType=DOC_LITERAL, Proxygen_Product=Progress Version 10.1C</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="urn:soap-fault:details">
+      <xsd:element name="FaultDetail">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="errorMessage" type="xsd:string" />
+            <xsd:element name="requestID" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:coffeemanania:staffEmployee:StaffEmployeeParameters">
+      <xsd:complexType name="COUNTCUP_ResultCUPRow">
+        <xsd:sequence>
+          <xsd:element name="datecup" nillable="true" type="xsd:date" />
+          <xsd:element name="countcup" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="COUNTCUP_ResultCUPParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ResultCUPRow" type="S2:COUNTCUP_ResultCUPRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="division_pay_EMPLOEE_LISTRow">
+        <xsd:sequence>
+          <xsd:element name="emploee_id" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="division_pay_EMPLOEE_LISTParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EMPLOEE_LISTRow" type="S2:division_pay_EMPLOEE_LISTRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="division_pay_EMPLOEE_PARAMRow">
+        <xsd:sequence>
+          <xsd:element name="emploee_id" nillable="true" type="xsd:int" />
+          <xsd:element name="subdivision_id" nillable="true" type="xsd:int" />
+          <xsd:element name="position_id" nillable="true" type="xsd:int" />
+          <xsd:element name="DayHourCount" nillable="true" type="xsd:decimal" />
+          <xsd:element name="NighHourCount" nillable="true" type="xsd:decimal" />
+          <xsd:element name="sallary" nillable="true" type="xsd:decimal" />
+          <xsd:element name="PAYROLL_TYPE_ID" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="division_pay_EMPLOEE_PARAMParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EMPLOEE_PARAMRow" type="S2:division_pay_EMPLOEE_PARAMRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Emploee_pay_WORKTIME_TEMPRow">
+        <xsd:sequence>
+          <xsd:element name="emploee_id" nillable="true" type="xsd:int" />
+          <xsd:element name="ValTimeSecond" nillable="true" type="xsd:int" />
+          <xsd:element name="sallary" nillable="true" type="xsd:decimal" />
+          <xsd:element name="PAYROLL_TYPE_ID" nillable="true" type="xsd:decimal" />
+          <xsd:element name="PAYROLL" nillable="true" type="xsd:decimal" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="arrival" nillable="true" type="xsd:dateTime" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="departure" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Emploee_pay_WORKTIME_TEMPParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="WORKTIME_TEMPRow" type="S2:Emploee_pay_WORKTIME_TEMPRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Emploee_working_PositionIDRow">
+        <xsd:sequence>
+          <xsd:element name="id" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Emploee_working_PositionIDParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PositionIDRow" type="S2:Emploee_working_PositionIDRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeList_T_byNDSRow">
+        <xsd:sequence>
+          <xsd:element name="EmpId" nillable="true" type="xsd:int" />
+          <xsd:element name="summa" nillable="true" type="xsd:decimal" />
+          <xsd:element name="ExpenseId" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeList_T_byNDSParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_byNDSRow" type="S2:EmployeeList_T_byNDSRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_response_t_RESPONSERow">
+        <xsd:sequence>
+          <xsd:element name="response_id" nillable="true" type="xsd:int" />
+          <xsd:element name="date" nillable="true" type="xsd:date" />
+          <xsd:element name="user_id" nillable="true" type="xsd:int" />
+          <xsd:element name="response" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_response_t_RESPONSEParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="t_RESPONSERow" type="S2:get_response_t_RESPONSERow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListCookWorkTimeRow">
+        <xsd:sequence>
+          <xsd:element name="EMPLOYEE_ID" nillable="true" type="xsd:int" />
+          <xsd:element name="DISPLAY_ID" nillable="true" type="xsd:int" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="dt_start" nillable="true" type="xsd:dateTime" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="dt_end" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListCookWorkTimeParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ListCookWorkTimeRow" type="S2:GetEmploeeWorkTime_ListCookWorkTimeRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListCookRow">
+        <xsd:sequence>
+          <xsd:element name="EMPLOYEE_ID" nillable="true" type="xsd:int" />
+          <xsd:element name="names" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListCookParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ListCookRow" type="S2:GetEmploeeWorkTime_ListCookRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListDisplayRow">
+        <xsd:sequence>
+          <xsd:element name="display_ID" nillable="true" type="xsd:int" />
+          <xsd:element name="names_display" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetEmploeeWorkTime_ListDisplayParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ListDisplayRow" type="S2:GetEmploeeWorkTime_ListDisplayRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetListQSR_T_QSR_LISTRow">
+        <xsd:sequence>
+          <xsd:element name="QSR_id" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_QSR" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetListQSR_T_QSR_LISTParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_QSR_LISTRow" type="S2:GetListQSR_T_QSR_LISTRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="povar_COOK_TEMPRow">
+        <xsd:sequence>
+          <xsd:element name="emploee_id" nillable="true" type="xsd:int" />
+          <xsd:element name="NAMES" nillable="true" type="xsd:string" />
+          <xsd:element name="ENTRY_DATE" nillable="true" type="xsd:date" />
+          <xsd:element name="TRAINING_DATE" nillable="true" type="xsd:date" />
+          <xsd:element name="RESULT" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="povar_COOK_TEMPParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="COOK_TEMPRow" type="S2:povar_COOK_TEMPRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="procedure_for_history_t_emphistoryRow">
+        <xsd:sequence>
+          <xsd:element name="employee_id" nillable="true" type="xsd:int" />
+          <xsd:element name="position_id" nillable="true" type="xsd:int" />
+          <xsd:element name="subdivision_id" nillable="true" type="xsd:int" />
+          <xsd:element name="position_name" nillable="true" type="xsd:string" />
+          <xsd:element name="subdivision_name" nillable="true" type="xsd:string" />
+          <xsd:element name="work_from_date" nillable="true" type="xsd:date" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="procedure_for_history_t_emphistoryParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="t_emphistoryRow" type="S2:procedure_for_history_t_emphistoryRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SetListQSR_T_QSR_LISTRow">
+        <xsd:sequence>
+          <xsd:element name="QSR_id" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_QSR" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SetListQSR_T_QSR_LISTParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_QSR_LISTRow" type="S2:SetListQSR_T_QSR_LISTRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="working_time_T_wrkRow">
+        <xsd:sequence>
+          <xsd:element name="emp_id" nillable="true" type="xsd:int" />
+          <xsd:element name="s_id" nillable="true" type="xsd:int" />
+          <xsd:element name="p_id" nillable="true" type="xsd:int" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="dtm_st" nillable="true" type="xsd:dateTime" />
+          <xsd:element prodata:dataType="prodata:dateTime" name="dtm_fn" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="q_ch" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="working_time_T_wrkParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_wrkRow" type="S2:working_time_T_wrkRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="COUNTCUP">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phonenumber" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="COUNTCUPResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="ResultCUP" nillable="true" type="S2:COUNTCUP_ResultCUPParam" />
+            <xsd:element name="FIRST_name" nillable="true" type="xsd:string" />
+            <xsd:element name="ResultText" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="division_pay">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sub_division_id" nillable="true" type="xsd:int" />
+            <xsd:element name="SelectDATE" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="EMPLOEE_LIST" nillable="true" type="S2:division_pay_EMPLOEE_LISTParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="division_payResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="FOT" nillable="true" type="xsd:decimal" />
+            <xsd:element name="EMPLOEE_PARAM" nillable="true" type="S2:division_pay_EMPLOEE_PARAMParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_is_working">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sub_division_id" nillable="true" type="xsd:int" />
+            <xsd:element name="DateDay" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="employee_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_is_workingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="Emp_is_working" nillable="true" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetAllEmployeeParameters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="empId" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetAllEmployeeParametersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="pFirst_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pMiddle_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pLast_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pPhone" nillable="true" type="xsd:string" />
+            <xsd:element name="pDate_update" nillable="true" type="xsd:date" />
+            <xsd:element name="pDate_entry" nillable="true" type="xsd:date" />
+            <xsd:element name="pDate_enrol" nillable="true" type="xsd:date" />
+            <xsd:element name="pDate_dism" nillable="true" type="xsd:date" />
+            <xsd:element name="pReason_dism" nillable="true" type="xsd:string" />
+            <xsd:element name="pPayroll_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pPayroll_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pSalary" nillable="true" type="xsd:decimal" />
+            <xsd:element name="pDate_salary" nillable="true" type="xsd:date" />
+            <xsd:element name="pPosition_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pPosition_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pDivision_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pDivision_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pBirthday" nillable="true" type="xsd:date" />
+            <xsd:element name="pSize_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pSex" nillable="true" type="xsd:string" />
+            <xsd:element name="ErrorText" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="download_image">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CurrentUserID" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="download_imageResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="res" nillable="true" type="xsd:boolean" />
+            <xsd:element name="Link_image" nillable="true" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_pay">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sub_division_id" nillable="true" type="xsd:int" />
+            <xsd:element name="DateDay" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_payResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="WORKTIME_TEMP" nillable="true" type="S2:Emploee_pay_WORKTIME_TEMPParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_working">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sub_division_id" nillable="true" type="xsd:int" />
+            <xsd:element name="DateDay" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="PositionID" nillable="true" type="S2:Emploee_working_PositionIDParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Emploee_workingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="val" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EmployeeList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DocId" nillable="true" type="xsd:string" />
+            <xsd:element name="dt1" nillable="true" type="xsd:date" />
+            <xsd:element name="T_byNDS" nillable="true" type="S2:EmployeeList_T_byNDSParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EmployeeListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="varEmployeeId" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_responseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="t_RESPONSE" nillable="true" type="S2:get_response_t_RESPONSEParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetEmploeeWorkTime">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="p_subdivision_id" nillable="true" type="xsd:int" />
+            <xsd:element name="DATE_start" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="date_end" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetEmploeeWorkTimeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="ListCookWorkTime" nillable="true" type="S2:GetEmploeeWorkTime_ListCookWorkTimeParam" />
+            <xsd:element name="ListCook" nillable="true" type="S2:GetEmploeeWorkTime_ListCookParam" />
+            <xsd:element name="ListDisplay" nillable="true" type="S2:GetEmploeeWorkTime_ListDisplayParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetListQSR">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="subdivision_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetListQSRResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_QSR_LIST" nillable="true" type="S2:GetListQSR_T_QSR_LISTParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MoveToUnemployed">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="empid" nillable="true" type="xsd:int" />
+            <xsd:element name="MOVE_date" nillable="true" type="xsd:date" />
+            <xsd:element name="MOVE_reason" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MoveToUnemployedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OpenWorkingTime">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SUBDIVISION_ID" nillable="true" type="xsd:int" />
+            <xsd:element name="EMPLOYEE_ID" nillable="true" type="xsd:int" />
+            <xsd:element name="DateStart" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="DateEnd" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="ACTION_ID" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OpenWorkingTimeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="Results" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="person_salary">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="p_employee_id" nillable="true" type="xsd:int" />
+            <xsd:element name="p_subdivision_id" nillable="true" type="xsd:int" />
+            <xsd:element name="p_position_id" nillable="true" type="xsd:int" />
+            <xsd:element name="p_month" nillable="true" type="xsd:int" />
+            <xsd:element name="p_year" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="person_salaryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="P_RESULT" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="povar">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="shop_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="povarResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="COOK_TEMP" nillable="true" type="S2:povar_COOK_TEMPParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="procedure_for_history">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="varEmployeeId" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="procedure_for_historyResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="t_emphistory" nillable="true" type="S2:procedure_for_history_t_emphistoryParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PutAllEmployeeParameters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="empId" nillable="true" type="xsd:int" />
+            <xsd:element name="pFirst_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pMiddle_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pLast_name" nillable="true" type="xsd:string" />
+            <xsd:element name="pPhone" nillable="true" type="xsd:string" />
+            <xsd:element name="pDate_entry" nillable="true" type="xsd:date" />
+            <xsd:element name="pDate_enrol" nillable="true" type="xsd:date" />
+            <xsd:element name="pDate_dism" nillable="true" type="xsd:date" />
+            <xsd:element name="pReason_dism" nillable="true" type="xsd:string" />
+            <xsd:element name="pPayroll_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pSalary" nillable="true" type="xsd:decimal" />
+            <xsd:element name="pDate_salary" nillable="true" type="xsd:date" />
+            <xsd:element name="pPosition_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pDivision_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pBirthday" nillable="true" type="xsd:date" />
+            <xsd:element name="pSize_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pSex" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PutAllEmployeeParametersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="ErrorText" nillable="true" type="xsd:string" />
+            <xsd:element name="NewEmpId" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReturnFromUnemployed">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="empid" nillable="true" type="xsd:int" />
+            <xsd:element name="MOVE_date" nillable="true" type="xsd:date" />
+            <xsd:element name="pPayroll_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pSalary" nillable="true" type="xsd:decimal" />
+            <xsd:element name="pPosition_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pDivision_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ReturnFromUnemployedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SetListQSR">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="subdivision_id" nillable="true" type="xsd:int" />
+            <xsd:element name="T_QSR_LIST" nillable="true" type="S2:SetListQSR_T_QSR_LISTParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SetListQSRResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WORKHOUR">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="dtStart" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="dtEnd" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="subdivision_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WORKHOURResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="Hour" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="working_time">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DT1" nillable="true" type="xsd:date" />
+            <xsd:element name="DT2" nillable="true" type="xsd:date" />
+            <xsd:element name="subd_id" nillable="true" type="xsd:int" />
+            <xsd:element name="pos_id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="working_timeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_wrk" nillable="true" type="S2:working_time_T_wrkParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="StaffEmployeeParameters_GetEmploeeWorkTime">
+    <wsdl:part name="parameters" element="S2:GetEmploeeWorkTime" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_procedure_for_historyResponse">
+    <wsdl:part name="parameters" element="S2:procedure_for_historyResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_PutAllEmployeeParameters">
+    <wsdl:part name="parameters" element="S2:PutAllEmployeeParameters" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_PutAllEmployeeParametersResponse">
+    <wsdl:part name="parameters" element="S2:PutAllEmployeeParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_GetEmploeeWorkTimeResponse">
+    <wsdl:part name="parameters" element="S2:GetEmploeeWorkTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_SetListQSRResponse">
+    <wsdl:part name="parameters" element="S2:SetListQSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_workingResponse">
+    <wsdl:part name="parameters" element="S2:Emploee_workingResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_download_image">
+    <wsdl:part name="parameters" element="S2:download_image" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_is_working">
+    <wsdl:part name="parameters" element="S2:Emploee_is_working" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_working_timeResponse">
+    <wsdl:part name="parameters" element="S2:working_timeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_OpenWorkingTime">
+    <wsdl:part name="parameters" element="S2:OpenWorkingTime" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_ReturnFromUnemployedResponse">
+    <wsdl:part name="parameters" element="S2:ReturnFromUnemployedResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_is_workingResponse">
+    <wsdl:part name="parameters" element="S2:Emploee_is_workingResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_SetListQSR">
+    <wsdl:part name="parameters" element="S2:SetListQSR" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_povarResponse">
+    <wsdl:part name="parameters" element="S2:povarResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_division_payResponse">
+    <wsdl:part name="parameters" element="S2:division_payResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_GetListQSRResponse">
+    <wsdl:part name="parameters" element="S2:GetListQSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_person_salary">
+    <wsdl:part name="parameters" element="S2:person_salary" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_payResponse">
+    <wsdl:part name="parameters" element="S2:Emploee_payResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_OpenWorkingTimeResponse">
+    <wsdl:part name="parameters" element="S2:OpenWorkingTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_get_responseResponse">
+    <wsdl:part name="parameters" element="S2:get_responseResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_povar">
+    <wsdl:part name="parameters" element="S2:povar" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_COUNTCUP">
+    <wsdl:part name="parameters" element="S2:COUNTCUP" />
+  </wsdl:message>
+  <wsdl:message name="FaultDetailMessage">
+    <wsdl:part name="FaultDetail" element="S1:FaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_GetAllEmployeeParameters">
+    <wsdl:part name="parameters" element="S2:GetAllEmployeeParameters" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_working_time">
+    <wsdl:part name="parameters" element="S2:working_time" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_GetListQSR">
+    <wsdl:part name="parameters" element="S2:GetListQSR" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_working">
+    <wsdl:part name="parameters" element="S2:Emploee_working" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_Emploee_pay">
+    <wsdl:part name="parameters" element="S2:Emploee_pay" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_GetAllEmployeeParametersResponse">
+    <wsdl:part name="parameters" element="S2:GetAllEmployeeParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_MoveToUnemployed">
+    <wsdl:part name="parameters" element="S2:MoveToUnemployed" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_WORKHOURResponse">
+    <wsdl:part name="parameters" element="S2:WORKHOURResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_COUNTCUPResponse">
+    <wsdl:part name="parameters" element="S2:COUNTCUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_ReturnFromUnemployed">
+    <wsdl:part name="parameters" element="S2:ReturnFromUnemployed" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_MoveToUnemployedResponse">
+    <wsdl:part name="parameters" element="S2:MoveToUnemployedResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_WORKHOUR">
+    <wsdl:part name="parameters" element="S2:WORKHOUR" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_division_pay">
+    <wsdl:part name="parameters" element="S2:division_pay" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_person_salaryResponse">
+    <wsdl:part name="parameters" element="S2:person_salaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_download_imageResponse">
+    <wsdl:part name="parameters" element="S2:download_imageResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_EmployeeListResponse">
+    <wsdl:part name="parameters" element="S2:EmployeeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_get_response">
+    <wsdl:part name="parameters" element="S2:get_response" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_EmployeeList">
+    <wsdl:part name="parameters" element="S2:EmployeeList" />
+  </wsdl:message>
+  <wsdl:message name="StaffEmployeeParameters_procedure_for_history">
+    <wsdl:part name="parameters" element="S2:procedure_for_history" />
+  </wsdl:message>
+  <wsdl:portType name="StaffEmployeeParametersObj">
+    <wsdl:operation name="COUNTCUP">
+      <wsdl:input message="tns:StaffEmployeeParameters_COUNTCUP" />
+      <wsdl:output message="tns:StaffEmployeeParameters_COUNTCUPResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="division_pay">
+      <wsdl:input message="tns:StaffEmployeeParameters_division_pay" />
+      <wsdl:output message="tns:StaffEmployeeParameters_division_payResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_is_working">
+      <wsdl:input message="tns:StaffEmployeeParameters_Emploee_is_working" />
+      <wsdl:output message="tns:StaffEmployeeParameters_Emploee_is_workingResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeParameters">
+      <wsdl:input message="tns:StaffEmployeeParameters_GetAllEmployeeParameters" />
+      <wsdl:output message="tns:StaffEmployeeParameters_GetAllEmployeeParametersResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="download_image">
+      <wsdl:input message="tns:StaffEmployeeParameters_download_image" />
+      <wsdl:output message="tns:StaffEmployeeParameters_download_imageResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_pay">
+      <wsdl:input message="tns:StaffEmployeeParameters_Emploee_pay" />
+      <wsdl:output message="tns:StaffEmployeeParameters_Emploee_payResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_working">
+      <wsdl:input message="tns:StaffEmployeeParameters_Emploee_working" />
+      <wsdl:output message="tns:StaffEmployeeParameters_Emploee_workingResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeList">
+      <wsdl:input message="tns:StaffEmployeeParameters_EmployeeList" />
+      <wsdl:output message="tns:StaffEmployeeParameters_EmployeeListResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_response">
+      <wsdl:input message="tns:StaffEmployeeParameters_get_response" />
+      <wsdl:output message="tns:StaffEmployeeParameters_get_responseResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmploeeWorkTime">
+      <wsdl:input message="tns:StaffEmployeeParameters_GetEmploeeWorkTime" />
+      <wsdl:output message="tns:StaffEmployeeParameters_GetEmploeeWorkTimeResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListQSR">
+      <wsdl:input message="tns:StaffEmployeeParameters_GetListQSR" />
+      <wsdl:output message="tns:StaffEmployeeParameters_GetListQSRResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveToUnemployed">
+      <wsdl:input message="tns:StaffEmployeeParameters_MoveToUnemployed" />
+      <wsdl:output message="tns:StaffEmployeeParameters_MoveToUnemployedResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorkingTime">
+      <wsdl:input message="tns:StaffEmployeeParameters_OpenWorkingTime" />
+      <wsdl:output message="tns:StaffEmployeeParameters_OpenWorkingTimeResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="person_salary">
+      <wsdl:input message="tns:StaffEmployeeParameters_person_salary" />
+      <wsdl:output message="tns:StaffEmployeeParameters_person_salaryResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="povar">
+      <wsdl:input message="tns:StaffEmployeeParameters_povar" />
+      <wsdl:output message="tns:StaffEmployeeParameters_povarResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="procedure_for_history">
+      <wsdl:input message="tns:StaffEmployeeParameters_procedure_for_history" />
+      <wsdl:output message="tns:StaffEmployeeParameters_procedure_for_historyResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutAllEmployeeParameters">
+      <wsdl:input message="tns:StaffEmployeeParameters_PutAllEmployeeParameters" />
+      <wsdl:output message="tns:StaffEmployeeParameters_PutAllEmployeeParametersResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnFromUnemployed">
+      <wsdl:input message="tns:StaffEmployeeParameters_ReturnFromUnemployed" />
+      <wsdl:output message="tns:StaffEmployeeParameters_ReturnFromUnemployedResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetListQSR">
+      <wsdl:input message="tns:StaffEmployeeParameters_SetListQSR" />
+      <wsdl:output message="tns:StaffEmployeeParameters_SetListQSRResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WORKHOUR">
+      <wsdl:input message="tns:StaffEmployeeParameters_WORKHOUR" />
+      <wsdl:output message="tns:StaffEmployeeParameters_WORKHOURResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="working_time">
+      <wsdl:input message="tns:StaffEmployeeParameters_working_time" />
+      <wsdl:output message="tns:StaffEmployeeParameters_working_timeResponse" />
+      <wsdl:fault name="StaffEmployeeParametersFault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StaffEmployeeParametersObj" type="tns:StaffEmployeeParametersObj">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="COUNTCUP">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="division_pay">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_is_working">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployeeParameters">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="download_image">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_pay">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Emploee_working">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="get_response">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmploeeWorkTime">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetListQSR">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MoveToUnemployed">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorkingTime">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="person_salary">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="povar">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="procedure_for_history">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PutAllEmployeeParameters">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnFromUnemployed">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetListQSR">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="WORKHOUR">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="working_time">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StaffEmployeeParametersFault">
+        <soap:fault use="literal" name="StaffEmployeeParametersFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StaffEmployeeParametersService">
+    <wsdl:port name="StaffEmployeeParametersObj" binding="tns:StaffEmployeeParametersObj">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+      <soap:address location="http://vfiliasesb0:2580/process/StaffEmployeeParametersProc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

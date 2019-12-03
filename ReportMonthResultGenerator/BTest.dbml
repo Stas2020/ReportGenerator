@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Btest" Class="BTestDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager" SettingsObjectName="ReportMonthResultGenerator.Properties.Settings" SettingsPropertyName="BtestConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Продажи" Member="Продажиs">
+    <Type Name="Продажи">
+      <Column Name="Глоб" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ДатаВремя" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="НомерКассы" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="НомерЧека" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="НомерСтроки" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Колич" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="КодВалюты" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="КурсВалюты" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="НомерОфицианта" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="НомерКассира" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="КассовоеМесто" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="НомерКлиента" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ВидОплаты" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Стол" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ВидСкидки" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Скидка" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="СуммаИтог" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="СуммаИтогРуб" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="СуммаИтогДолл" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="СуммаИтогЕвро" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ПоКредКарте" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="БарКод1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="БарКод10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Год" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Месяц" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Число" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Час" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ДеньНедели" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="АбсНомерСтроки" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="АбсНомерЧека" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="СквознойНомерЧека" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="СквНомСтроки" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="ДоляЛокКода" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="СебестоимЛок" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Локкод" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="СебестоимБар" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="КодПодразд" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Терминал" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

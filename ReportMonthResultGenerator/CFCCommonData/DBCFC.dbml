@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CFCInStoreDB" Class="DBCFCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NEWSQUARE1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=sa" SettingsObjectName="ReportMonthResultGenerator.Properties.Settings" SettingsPropertyName="CFCInStoreDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Item" Member="Item">
+    <Type Name="Item">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShortName" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="ChitName" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LongName" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BOHName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AllowSiteOverridePrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MinimumPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaximumPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PrintOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NeverPrintOnChit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrintRecipe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CombineOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HighlightIfModifier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SurchargeModifier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AskForDescription" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsRefill" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_SlaveToItem" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DefaultModifierWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeeklyPMIXReportMultiplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifierPriceMultiple" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ModifierPriceMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmountToMultiplyBasePriceBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PercentToMultiplyBasePriceBy" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AutoMenuPriority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoGratuity" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AutoDisplayRecipe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Recipe" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="FK_RecipeImageMediaFile" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FK_RecipeMovieMediaFile" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FK_ButtonImageMediaFile" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PrintIndependently" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_PriceLevel" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PrintIfHeldItem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotShowOnVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotShowModifierOnVideoSummary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ShowIndependently" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ItemHighlight" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotShowModifierOnVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_Label" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IsRevenueItem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_Concept" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ConsolidateFirstModifier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ChitJustification" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChitBold" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ShowOnTrackingSummary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotShowOnVideoSummary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GiftCardType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiftCertTracking" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TokenOverride" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TokenQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GuestCountWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="FOHReport" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AutoInventory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpenDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AddDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsageDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WasteDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CloseDisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProjectionItem" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="QuantityPrecision" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_Tare" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AffectsInventory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_TaxGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ZeroPriceIfModifier" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UseBackgroundColor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BackgroundColor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UseTextColor" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TextColor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayBitmap" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FK_QuickComboMediaFile" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="HideText" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ApplyQuantityToModifiers" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChitNameAlternate" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="LongNameAlternate" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PrepTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssemblyTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FK_ContextSensitivePanel" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IsTopping" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsPizza" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InitialTopping" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToppingUnitOfMeasure" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FK_PizzaSize" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IsFraction" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FractionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FractionPricingOverride" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FractionSumsMustEqualWhole" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayContextPanel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FK_SalesCategory" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IndependentModParentPrintBehavior" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoldAsFSItem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Portion" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ChildFactor" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="OrderWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ReorderWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MaxNumberReorders" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaxMinutesReorder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PremiumItemPrice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AdultPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ChildPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="FixedPriceEligible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TeenFactor" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ChildUnderFiveFactor" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="AdultPriceMethod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeenPriceMethod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeenPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ChildPriceMethod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ChildUnderFivePriceMethod" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ChildUnderFivePrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="KitchenHighlight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Primary" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FK_StoreGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DataVersion" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Owner" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ExportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CardProvider" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CampusCardPlan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CampusCardType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExternalId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="IsAvailableForOnline" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OnlineName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OnlineDescription" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="OnlineImageLink" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="HidePriceWhenZero" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Item_Item" Member="Item2" ThisKey="Id" OtherKey="FK_Primary" Type="Item" />
+      <Association Name="Item_Item1" Member="Item4" ThisKey="Id" OtherKey="FK_SlaveToItem" Type="Item" />
+      <Association Name="Item_CategoryItem" Member="CategoryItem" ThisKey="Id" OtherKey="FK_ItemId" Type="CategoryItem" />
+      <Association Name="Item_Item" Member="Item1" ThisKey="FK_Primary" OtherKey="Id" Type="Item" IsForeignKey="true" />
+      <Association Name="Item_Item1" Member="Item3" ThisKey="FK_SlaveToItem" OtherKey="Id" Type="Item" IsForeignKey="true" />
+      <Association Name="Category_Item" Member="Category" ThisKey="FK_SalesCategory" OtherKey="Id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Category">
+    <Type Name="Category">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Suggestive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tipshare" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PMSSalesCategoryNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ARSalesCategoryNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaxPerCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroceryItemCategory" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AutoReleaseFSItem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Primary" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FK_StoreGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DataVersion" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Owner" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Tipsales" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExternalId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UniqueId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Category_Item" Member="Item" ThisKey="Id" OtherKey="FK_SalesCategory" Type="Item" />
+      <Association Name="Category_Category" Member="Category2" ThisKey="Id" OtherKey="FK_Primary" Type="Category" />
+      <Association Name="Category_CategoryItem" Member="CategoryItem" ThisKey="Id" OtherKey="FK_CategoryId" Type="CategoryItem" />
+      <Association Name="Category_Comp" Member="Comp" ThisKey="Id" OtherKey="FK_Category" Type="Comp" />
+      <Association Name="Category_Category" Member="Category1" ThisKey="FK_Primary" OtherKey="Id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryItem" Member="CategoryItem">
+    <Type Name="CategoryItem">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FK_CategoryId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FK_ItemId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Owner" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Category_CategoryItem" Member="Category" ThisKey="FK_CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
+      <Association Name="Item_CategoryItem" Member="Item" ThisKey="FK_ItemId" OtherKey="Id" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comp" Member="Comp">
+    <Type Name="Comp">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CheckName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Method" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_ReportAsComp" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SelectItems" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CostPlusPercentMarkup" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EnterUnit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EnterName" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RequireIdentificationForName" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ManagerRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrintCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OpenDrawer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Maximum" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Rate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MinPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaxPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ButtonPositionRow" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ButtonPositionColumn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstAvailablePosition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_Category" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Taxable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SecondaryTaxable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TaxFoodCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TaxFoodCostPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FK_TaxType" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VendorTaxable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VendorTaxFoodCost" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VendorTaxFoodCostPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GuestPaysTax" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsePromoItems" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UseCompItems" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApplyCompSurcharge" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tippable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NumberAllowedPerCheck" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberAllowedPerTable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllowPriorPromoOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowPriorPromoOnTable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowSubsequentPromoOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowSubsequentPromoOnTable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowPriorCompOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowPriorCompOnTable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowSubsequentCompOnCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AllowSubsequentCompOnTable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK_RestrictedCompCode" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ApplyAutoGratuity" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdNumeric" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RestrictLength" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValidateCompThruAlohaLoyalty" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ValidateCompMemberInfoRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PostToPMS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PostToPMSOffline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PMSAccountNumber" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ExcludeInclusiveTax" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CardPrefix" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="PrintVoucherInvalidCard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TextEntryRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LowCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="HighCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Primary" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FK_StoreGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DataVersion" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="FK_Owner" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AllowOnZeroBalanceCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Comp_Comp" Member="Comp2" ThisKey="Id" OtherKey="FK_Primary" Type="Comp" />
+      <Association Name="Comp_Comp1" Member="Comp4" ThisKey="Id" OtherKey="FK_ReportAsComp" Type="Comp" />
+      <Association Name="Category_Comp" Member="Category" ThisKey="FK_Category" OtherKey="Id" Type="Category" IsForeignKey="true" />
+      <Association Name="Comp_Comp" Member="Comp1" ThisKey="FK_Primary" OtherKey="Id" Type="Comp" IsForeignKey="true" />
+      <Association Name="Comp_Comp1" Member="Comp3" ThisKey="FK_ReportAsComp" OtherKey="Id" Type="Comp" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

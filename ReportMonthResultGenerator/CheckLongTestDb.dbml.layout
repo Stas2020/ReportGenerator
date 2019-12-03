@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.125, 8.5" name="CheckLongTestDb">
+  <DataContextMoniker Name="/CheckLongTestDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9666cb1a-8071-484c-b874-20a24a418f01" absoluteBounds="6.625, 2.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/CheckLongTestDbDataContext/Items" />
+      <nestedChildShapes>
+        <elementListCompartment Id="faca4cd6-59fc-4b08-8335-da7d4693c2b2" absoluteBounds="6.64, 2.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a73b972-506f-45e7-b728-06701241e7c8" absoluteBounds="11.875, 3.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/CheckLongTestDbDataContext/Turns" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a052dee-6949-4ceb-97a6-645cb14b6e6e" absoluteBounds="11.89, 4.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e033fc09-8bcd-4818-9a7b-59169021a71e" absoluteBounds="4.25, 2.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/CheckLongTestDbDataContext/TurnsDr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94efb032-bbd1-4e1c-8c6e-13819df6dfd9" absoluteBounds="4.265, 2.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
