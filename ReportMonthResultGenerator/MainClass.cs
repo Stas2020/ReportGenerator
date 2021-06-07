@@ -23,7 +23,13 @@ namespace ReportMonthResultGenerator
             ReportTableUpdater.OrderTimeUpdate(TimeOfPreparation.GetTimeOfPrepOrder(dt, dt.AddMonths(1)), dt);
 
         }
-       public static void UpdateRashMatPercent(DateTime dt)
+        public static void UpdateOrderTimeWODeliveryPercent(DateTime dt)
+        {
+            //ReportTableUpdater.OrderTimeUpdate (TimeOfPreparation.GetTimeOfPrep(dt, dt.AddMonths(1)), dt);
+            ReportTableUpdater.OrderTimeWODeliveryUpdate(TimeOfPreparation.GetTimeOfPrepOrder(dt, dt.AddMonths(1), true), dt);
+
+        }
+        public static void UpdateRashMatPercent(DateTime dt)
        {
            ReportTableUpdater.RashMatUpdate ((сRashMat.GetRashMat(dt, dt.AddMonths(1))),dt);
 

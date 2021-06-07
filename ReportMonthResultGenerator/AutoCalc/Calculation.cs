@@ -20,7 +20,8 @@ namespace ReportMonthResultGenerator.AutoCalc
             calculationsList.Add(new AutoCalc.ShiftSpeesCalc());
 
             calculationsList.Add(new AutoCalc.OrderTimeCalc());
-            
+            calculationsList.Add(new AutoCalc.OrderTimeWODeliveryCalc());
+
             calculationsList.Add(new AutoCalc.DesertSpisCalc());
             
             calculationsList.Add(new AutoCalc.RashMatCalc());

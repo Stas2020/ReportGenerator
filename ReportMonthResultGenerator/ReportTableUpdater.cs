@@ -226,6 +226,35 @@ namespace ReportMonthResultGenerator
             RepBase.SubmitChanges();
 
         }
+        public static void OrderTimeWODeliveryUpdate(List<PrepTime> Dp, DateTime Month)
+        {
+            int type = 11;
+
+            foreach (PrepTime Sd in Dp)
+            {
+
+                IQueryable<ReportMonthResult> res = from o in RepBase.ReportMonthResults where (o.Month == Month && o.Department == Sd.Dep && o.Type == type) select o;
+
+                if (res.Count() > 0)
+                {
+                    RepBase.ReportMonthResults.DeleteAllOnSubmit(res);
+                    RepBase.SubmitChanges();
+                }
+                ReportMonthResult RmR = new ReportMonthResult()
+                {
+                    Department = Sd.Dep,
+                    Month = Month,
+                    Type = type,
+                    Value = Sd.WrongSecond,
+                    Value2 = Sd.AllCount,
+                    Value3 = Sd.WrongCount,
+                    DepName = Sd.DepName
+                };
+                RepBase.ReportMonthResults.InsertOnSubmit(RmR);
+            }
+            RepBase.SubmitChanges();
+
+        }
         public static List<ReportMonthResult> GetRashMaterials(DateTime Month)
         {
             List<RashMaterials> Tmp = new List<RashMaterials>();

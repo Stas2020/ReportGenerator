@@ -63,6 +63,8 @@ namespace ReportMonthResultGenerator
                    MainClass.UpdateDesertSpisaniePercent(EStartDate); 
                    MainClass.UpdateOrderTimePercent(EStartDate);
                    
+                   MainClass.UpdateOrderTimeWODeliveryPercent(EStartDate);
+
                    MainClass.UpdateRashMatPercent(EStartDate);
                   
 

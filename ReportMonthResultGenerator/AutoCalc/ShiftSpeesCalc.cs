@@ -45,6 +45,9 @@ namespace ReportMonthResultGenerator.AutoCalc
                     sos.Parse(outPath);
                     System.IO.Directory.Delete(outPath, true);
                     var chks = AirReports.GetQSChecks(Dii.Number, day, day.AddDays(1));
+                    // Искл из списка чеки с пятого терминала
+                    chks = chks.Where(_chk => _chk.CheckNum == 0 || int.Parse(_chk.CheckNum.ToString("D7").Substring(0, 3)) != /* >>>>>>> */ 5 /* <<<<<<< */).ToList();
+                    //
                     int chCount = chks.Where(a => (a.TClose - a.FirstDishOpenTime).TotalSeconds < limitSecs && (a.TClose - a.FirstDishOpenTime).TotalSeconds > 0).Count();
                     double tCount = chks.Where(a => (a.TClose - a.FirstDishOpenTime).TotalSeconds < limitSecs && (a.TClose - a.FirstDishOpenTime).TotalSeconds > 0).Sum(a => (a.TClose - a.FirstDishOpenTime).TotalSeconds);
                     ReportDayResult res = GetReportDayResult(Dii);

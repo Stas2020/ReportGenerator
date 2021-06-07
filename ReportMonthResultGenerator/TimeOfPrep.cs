@@ -164,7 +164,16 @@ namespace ReportMonthResultGenerator
 
        }
 
-        internal static List<OrderTimes> GetOrdersOfDepAndDate(DateTime Fdt, DateTime Edt, int Dep, List<int> Items)
+        // ToDo можно перейти на C#8.0 (.Net 4.8), там диапазоны реализованы штатно
+        public class Range
+        {
+            public int Min;
+            public int Max;
+            public Range(int _min, int _max) { Min = _min; Max = _max; }
+            public bool InRange(int _value) { return (_value >= Min && _value <= Max); }
+        }
+
+        internal static List<OrderTimes> GetOrdersOfDepAndDate(DateTime Fdt, DateTime Edt, int Dep, List<int> Items, List<Range> ExcludeTables = null)
         {
             List<OrderTimes> Res = new List<OrderTimes>();
             ReportBaseDataContext db = new ReportBaseDataContext();
@@ -172,7 +181,13 @@ namespace ReportMonthResultGenerator
             Items.Add(0);
             var Recs = db.OrderTimes.Where(a => a.OrderEndTime.Value >= Fdt && a.OrderEndTime.Value <= Edt && a.Dep.Value == Dep ).ToList();
             Recs = Recs.Where(a=>Items.Contains(a.ItemId.Value)).ToList();
-           // var Recs = db.OrderTimes.Where(a => a.OrderEndTime.Value >= Fdt && a.OrderEndTime.Value <= Edt && a.Dep.Value == Dep && Items.Contains(a.ItemNumber.Value)).ToList();
+            // var Recs = db.OrderTimes.Where(a => a.OrderEndTime.Value >= Fdt && a.OrderEndTime.Value <= Edt && a.Dep.Value == Dep && Items.Contains(a.ItemNumber.Value)).ToList();
+
+            if (ExcludeTables != null)
+            {
+                // Искл. из списка диапазоны столов доставки
+                Recs = Recs.Where(a => ExcludeTables.All(_range => a.TableNum == null || !_range.InRange(a.TableNum.Value))).ToList();
+            }
 
             foreach (DateTime dt in Recs.Select(a=>a.BusinessDate).Distinct())
             {
@@ -408,11 +423,18 @@ namespace ReportMonthResultGenerator
        }
 
 
-        internal static List<PrepTime> GetTimeOfPrepOrder(DateTime Fdt, DateTime Edt)
+        internal static List<PrepTime> GetTimeOfPrepOrder(DateTime Fdt, DateTime Edt, bool ExcludeDeliveryTables = false)
         {
             List<PrepTime> Tmp = new List<PrepTime>();
             S2010.XrepSoapClient Serv = new S2010.XrepSoapClient();
             List<int> KitchenItems = CubeData.GetKitchenD().Split(',').ToList().Select(a => Convert.ToInt32(a)).ToList();
+
+
+            // ToDo - это хард, диапазоны столов доставки надо брать из базы
+            List<Range> excludeTables = null;
+            if (ExcludeDeliveryTables)
+                excludeTables = new List<Range>() { new Range(146, 254), new Range(900, 929) };
+
 
             S2010.DepartmentInfo[] DepList = Serv.GetPointList3();
 
@@ -420,7 +442,7 @@ namespace ReportMonthResultGenerator
 
             foreach (S2010.DepartmentInfo Dii in DepList)
             {
-                List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Fdt, Edt, Dii.Number, KitchenItems);
+                List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Fdt, Edt, Dii.Number, KitchenItems, excludeTables);
                 PrepTime Pt = new PrepTime()
                 {
                     Dep = Dii.Number,

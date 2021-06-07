@@ -49,7 +49,7 @@ namespace ReportMonthResultGenerator.DbfData
 
                             try
                             {
-                                var dtTest = dbfTest.Execute(@"select TOP (1) CHECK from " + folder + "\\GNDTURN.DBF");
+                                var dtTest = dbfTest.Execute(@"select TOP 1 CHECK from " + folder + "\\GNDTURN.DBF");
 
                                 foreach (DataRow dRow in dtTest.Rows)
                                 {
