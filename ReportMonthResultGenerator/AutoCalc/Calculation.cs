@@ -16,19 +16,42 @@ namespace ReportMonthResultGenerator.AutoCalc
             //calculationsList.Add(new AutoCalc.RashMatCalc());
             //calculationsList.Add(new AutoCalc.DesertSpisCalc());
 
-            
+
             calculationsList.Add(new AutoCalc.ShiftSpeesCalc());
 
             calculationsList.Add(new AutoCalc.OrderTimeCalc());
             calculationsList.Add(new AutoCalc.OrderTimeWODeliveryCalc());
 
             calculationsList.Add(new AutoCalc.DesertSpisCalc());
-            
+
             calculationsList.Add(new AutoCalc.RashMatCalc());
-            
+
             calculationsList.Add(new AutoCalc.DrinksCalc());
             calculationsList.Add(new AutoCalc.DishesCalc());
-            
+
+
+
+        }
+        public static void InitForDebug_08_06_21()
+        {
+            ////calculationsList.Add(new AutoCalc.ShiftSpeesCalc());
+            ////calculationsList.Add(new AutoCalc.DrinksCalc());
+            ////calculationsList.Add(new AutoCalc.RashMatCalc());
+            ////calculationsList.Add(new AutoCalc.DesertSpisCalc());
+
+
+            //calculationsList.Add(new AutoCalc.ShiftSpeesCalc());
+
+            //calculationsList.Add(new AutoCalc.OrderTimeCalc());
+            //calculationsList.Add(new AutoCalc.OrderTimeWODeliveryCalc());
+
+            //calculationsList.Add(new AutoCalc.DesertSpisCalc());
+
+            calculationsList.Add(new AutoCalc.RashMatCalc());
+
+            calculationsList.Add(new AutoCalc.DrinksCalc());
+            calculationsList.Add(new AutoCalc.DishesCalc());
+
 
 
         }

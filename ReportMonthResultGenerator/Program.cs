@@ -142,8 +142,31 @@ namespace ReportMonthResultGenerator
                     }
 
                 }
+            else if (args[0] == "PahDayDEGUB_08_06_21")
+            {
+                DateTime dtS = DateTime.Now.Date.AddDays(-1);
+                int dDeep = 1;
+                try
+                {
+                    if (args.Length > 1)
+                    {
+                        dDeep = -Convert.ToInt32(args[1]);
+
+                    }
+                }
+                catch { }
+                DateTime dtE = dtS.AddDays(dDeep);
+                Console.WriteLine($"Расчет пахаря DEGUB 08.06.2021 {dtS.ToShortDateString()} - {dtE.ToShortDateString()}");
+
+                AutoCalc.Calculation.InitForDebug_08_06_21();
+                for (DateTime dt = dtS; dt >= dtE; dt = dt.AddDays(-1))
+                {
+                    AutoCalc.Calculation.DayCalc(dt);
+                }
 
             }
+
+        }
             else
             {
 
