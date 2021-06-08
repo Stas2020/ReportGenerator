@@ -235,7 +235,15 @@ namespace ReportMonthResultGenerator
                 if ((Dii.Number != 200) && (Dii.Number != 310))
                 {
                     int? r;
-                    cl.obj_virt(Dii.Number, out r);
+                    try
+                    {
+                        cl.obj_virt(Dii.Number, out r);
+                    }
+                    catch(Exception ex)
+                    {
+                        Utils.ToLog($"Не удалось получить бухгалтерский номер участка {Dii.Number}. Метод Ges3Services.obj_virt. Сообщение об ошибке: {ex.Message}", true);
+                        continue;
+                    }
                     BuhDepNum = r.Value;
                 }
 
