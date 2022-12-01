@@ -297,6 +297,10 @@ namespace ReportMonthResultGenerator.S2010 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ReportMonthResultGenerator.S2010.ArrayOfMKassaInfo KassezField;
         
+        private System.Nullable<int> ParentDepNumberField;
+        
+        private System.Nullable<long> CompanyIdField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -446,6 +450,32 @@ namespace ReportMonthResultGenerator.S2010 {
                 if ((object.ReferenceEquals(this.KassezField, value) != true)) {
                     this.KassezField = value;
                     this.RaisePropertyChanged("Kassez");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        public System.Nullable<int> ParentDepNumber {
+            get {
+                return this.ParentDepNumberField;
+            }
+            set {
+                if ((this.ParentDepNumberField.Equals(value) != true)) {
+                    this.ParentDepNumberField = value;
+                    this.RaisePropertyChanged("ParentDepNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public System.Nullable<long> CompanyId {
+            get {
+                return this.CompanyIdField;
+            }
+            set {
+                if ((this.CompanyIdField.Equals(value) != true)) {
+                    this.CompanyIdField = value;
+                    this.RaisePropertyChanged("CompanyId");
                 }
             }
         }

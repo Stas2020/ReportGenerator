@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:coffeemania:Ges3ServicesUTF8" xmlns:prodata="urn:schemas-progress-com:xml-prodata:0001" xmlns:S1="urn:soap-fault:details" xmlns:S2="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ges3ServicesUTF8" targetNamespace="urn:coffeemania:Ges3ServicesUTF8" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Author=VolkovGostev, EncodingType=DOC_LITERAL, Proxygen_Product=Progress Version 10.1C</wsdl:documentation>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:coffeemania:Ges3ServicesUTF8" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:S2="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8" xmlns:S1="urn:soap-fault:details" xmlns:prodata="urn:schemas-progress-com:xml-prodata:0001" name="Ges3ServicesUTF8" targetNamespace="urn:coffeemania:Ges3ServicesUTF8" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Author=VolkovGostev, EncodingType=DOC_LITERAL, WSA_Product=11.7.4 - Wed Oct 10 18:13:07 EDT 2018</wsdl:documentation>
   <wsdl:types>
     <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="urn:soap-fault:details">
       <xsd:element name="FaultDetail">
@@ -13,6 +13,31 @@
       </xsd:element>
     </xsd:schema>
     <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8">
+      <xsd:complexType name="AllMenuForSite_T_barcRow">
+        <xsd:sequence>
+          <xsd:element name="bar_cod" nillable="true" type="xsd:string" />
+          <xsd:element name="NAME" nillable="true" type="xsd:string" />
+          <xsd:element name="Belki" nillable="true" type="xsd:int" />
+          <xsd:element name="Zhiri" nillable="true" type="xsd:int" />
+          <xsd:element name="Uglev" nillable="true" type="xsd:int" />
+          <xsd:element name="Kalor" nillable="true" type="xsd:int" />
+          <xsd:element name="Dostavka" nillable="true" type="xsd:int" />
+          <xsd:element name="List_price" nillable="true" type="xsd:string" />
+          <xsd:element name="List_shops" nillable="true" type="xsd:string" />
+          <xsd:element name="NDS" nillable="true" type="xsd:int" />
+          <xsd:element name="PrigTime" nillable="true" type="xsd:int" />
+          <xsd:element name="weight" nillable="true" type="xsd:string" />
+          <xsd:element name="weightNumb" nillable="true" type="xsd:string" />
+          <xsd:element name="weightText" nillable="true" type="xsd:string" />
+          <xsd:element name="vesovoy" nillable="true" type="xsd:int" />
+          <xsd:element name="SOSTAV" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AllMenuForSite_T_barcParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_barcRow" type="S2:AllMenuForSite_T_barcRow" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="AllStockItems_StockItemsRow">
         <xsd:sequence>
           <xsd:element name="ItemId" nillable="true" type="xsd:decimal" />
@@ -24,6 +49,20 @@
       <xsd:complexType name="AllStockItems_StockItemsParam">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="StockItemsRow" type="S2:AllStockItems_StockItemsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CalculationForBarcod_CalculationGoodsRow">
+        <xsd:sequence>
+          <xsd:element name="comp_Code" nillable="true" type="xsd:string" />
+          <xsd:element name="comp_name" nillable="true" type="xsd:string" />
+          <xsd:element name="comp_meas" nillable="true" type="xsd:string" />
+          <xsd:element name="comp_quant" nillable="true" type="xsd:decimal" />
+          <xsd:element name="comp_netto" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CalculationForBarcod_CalculationGoodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CalculationGoodsRow" type="S2:CalculationForBarcod_CalculationGoodsRow" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="CreateTransferInGestori_DetailRow">
@@ -52,6 +91,44 @@
       <xsd:complexType name="get_GestoriGoods_T_GestoriGoodsParam">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_GestoriGoodsRow" type="S2:get_GestoriGoods_T_GestoriGoodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GestoriInredients_T_GestoriGoodsRow">
+        <xsd:sequence>
+          <xsd:element name="bar_cod" nillable="true" type="xsd:int" />
+          <xsd:element name="good_name" nillable="true" type="xsd:string" />
+          <xsd:element name="unit" nillable="true" type="xsd:string" />
+          <xsd:element name="isMade" nillable="true" type="xsd:boolean" />
+          <xsd:element name="price_madiana" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_max" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_min" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_average" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_Last" nillable="true" type="xsd:decimal" />
+          <xsd:element name="dt_Last" nillable="true" type="xsd:date" />
+          <xsd:element name="Kalor" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GestoriInredients_T_GestoriGoodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_GestoriGoodsRow" type="S2:GestoriInredients_T_GestoriGoodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GestoriInredients2_T_GestoriGoodsRow">
+        <xsd:sequence>
+          <xsd:element name="bar_cod" nillable="true" type="xsd:int" />
+          <xsd:element name="good_name" nillable="true" type="xsd:string" />
+          <xsd:element name="unit" nillable="true" type="xsd:string" />
+          <xsd:element name="isMade" nillable="true" type="xsd:boolean" />
+          <xsd:element name="price_av1" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_av2" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price_last" nillable="true" type="xsd:decimal" />
+          <xsd:element name="dt_last" nillable="true" type="xsd:date" />
+          <xsd:element name="Kalor" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GestoriInredients2_T_GestoriGoodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_GestoriGoodsRow" type="S2:GestoriInredients2_T_GestoriGoodsRow" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="get_actual_recipe_barc_RecipeHeaderRow">
@@ -99,6 +176,18 @@
       <xsd:complexType name="get_actual_recipe_barc_BarcodsParam">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="BarcodsRow" type="S2:get_actual_recipe_barc_BarcodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_alco_sales_by_day_T_goodsRow">
+        <xsd:sequence>
+          <xsd:element name="codGood" nillable="true" type="xsd:int" />
+          <xsd:element name="NameGood" nillable="true" type="xsd:string" />
+          <xsd:element name="pVolume" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_alco_sales_by_day_T_goodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_goodsRow" type="S2:get_alco_sales_by_day_T_goodsRow" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="get_cash_sales_by_code_T_salesRow">
@@ -810,6 +899,23 @@
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_goodsRow" type="S2:get_sale_by_code_T_goodsRow" />
         </xsd:sequence>
       </xsd:complexType>
+      <xsd:complexType name="get_sale_by_code_ext_T_goodsRow">
+        <xsd:sequence>
+          <xsd:element name="cod_good" nillable="true" type="xsd:decimal" />
+          <xsd:element name="NAME_good" nillable="true" type="xsd:string" />
+          <xsd:element name="NAME_meas" nillable="true" type="xsd:string" />
+          <xsd:element name="quantity" nillable="true" type="xsd:decimal" />
+          <xsd:element name="price" nillable="true" type="xsd:decimal" />
+          <xsd:element name="NDSproc" nillable="true" type="xsd:int" />
+          <xsd:element name="NDSsum" nillable="true" type="xsd:decimal" />
+          <xsd:element name="TOVsum" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_sale_by_code_ext_T_goodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_goodsRow" type="S2:get_sale_by_code_ext_T_goodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="get_sale_by_code_long_T_alcoRow">
         <xsd:sequence>
           <xsd:element name="cod_good" nillable="true" type="xsd:decimal" />
@@ -867,6 +973,44 @@
       <xsd:complexType name="get_sales_T_NumberInvoiceParam">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_NumberInvoiceRow" type="S2:get_sales_T_NumberInvoiceRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_sales_ext_T_NumberInvoiceRow">
+        <xsd:sequence>
+          <xsd:element name="num_nakl" nillable="true" type="xsd:decimal" />
+          <xsd:element name="dt_docum" nillable="true" type="xsd:date" />
+          <xsd:element name="amount" nillable="true" type="xsd:decimal" />
+          <xsd:element name="CODE_post" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_post" nillable="true" type="xsd:string" />
+          <xsd:element name="INN_post" nillable="true" type="xsd:string" />
+          <xsd:element name="KPP_post" nillable="true" type="xsd:string" />
+          <xsd:element name="CODE_firm" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="INN_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="KPP_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="okpo_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="adres_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="bik_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="n_chet_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="korr_ch_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="CODE_pol" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="INN_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="KPP_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="okpo_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="adres_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="bik_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="n_chet_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="korr_ch_pol" nillable="true" type="xsd:string" />
+          <xsd:element name="cNumFact" nillable="true" type="xsd:string" />
+          <xsd:element name="dt_fact" nillable="true" type="xsd:date" />
+          <xsd:element name="cod_shp" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_shp" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="get_sales_ext_T_NumberInvoiceParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_NumberInvoiceRow" type="S2:get_sales_ext_T_NumberInvoiceRow" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="get_sales_intercompany_T_NumberInvoiceRow">
@@ -1162,6 +1306,48 @@
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="MatrixRow" type="S2:Matrix_112_MatrixRow" />
         </xsd:sequence>
       </xsd:complexType>
+      <xsd:complexType name="OpenZakazPost_TzakpRow">
+        <xsd:sequence>
+          <xsd:element name="num_nakl" nillable="true" type="xsd:decimal" />
+          <xsd:element name="summa" nillable="true" type="xsd:decimal" />
+          <xsd:element name="CodPost" nillable="true" type="xsd:int" />
+          <xsd:element name="dt_nakl" nillable="true" type="xsd:date" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OpenZakazPost_TzakpParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TzakpRow" type="S2:OpenZakazPost_TzakpRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OpenZakazPost_TgoodsRow">
+        <xsd:sequence>
+          <xsd:element name="num_nakl" nillable="true" type="xsd:decimal" />
+          <xsd:element name="barcodt" nillable="true" type="xsd:string" />
+          <xsd:element name="nds" nillable="true" type="xsd:int" />
+          <xsd:element name="price" nillable="true" type="xsd:decimal" />
+          <xsd:element name="quant" nillable="true" type="xsd:decimal" />
+          <xsd:element name="c_meas" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OpenZakazPost_TgoodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TgoodsRow" type="S2:OpenZakazPost_TgoodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="put_alco_invoice_T_goodsRow">
+        <xsd:sequence>
+          <xsd:element name="codGood" nillable="true" type="xsd:int" />
+          <xsd:element name="kol_vo" nillable="true" type="xsd:decimal" />
+          <xsd:element name="r_price" nillable="true" type="xsd:decimal" />
+          <xsd:element name="nds_st" nillable="true" type="xsd:int" />
+          <xsd:element name="nds_sum" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="put_alco_invoice_T_goodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_goodsRow" type="S2:put_alco_invoice_T_goodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="PutOrderInGestori_DetailRow">
         <xsd:sequence>
           <xsd:element name="ItemCode" nillable="true" type="xsd:int" />
@@ -1223,6 +1409,47 @@
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_rezultsRow" type="S2:TransferDocTorg13_T_rezultsRow" />
         </xsd:sequence>
       </xsd:complexType>
+      <xsd:complexType name="TransferList_T_naklRow">
+        <xsd:sequence>
+          <xsd:element name="num_nakl" nillable="true" type="xsd:decimal" />
+          <xsd:element name="cod_firm" nillable="true" type="xsd:int" />
+          <xsd:element name="NAME_firm" nillable="true" type="xsd:string" />
+          <xsd:element name="fflag" nillable="true" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransferList_T_naklParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_naklRow" type="S2:TransferList_T_naklRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransferList_T_goodsRow">
+        <xsd:sequence>
+          <xsd:element name="num_nakl" nillable="true" type="xsd:decimal" />
+          <xsd:element name="nn_pos" nillable="true" type="xsd:int" />
+          <xsd:element name="bar_cod" nillable="true" type="xsd:int" />
+          <xsd:element name="bar_name" nillable="true" type="xsd:string" />
+          <xsd:element name="kol_upak" nillable="true" type="xsd:decimal" />
+          <xsd:element name="kol_v_up" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TransferList_T_goodsParam">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="T_goodsRow" type="S2:TransferList_T_goodsRow" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="AllMenuForSite">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AllMenuForSiteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_barc" nillable="true" type="S2:AllMenuForSite_T_barcParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="AllStockItems">
         <xsd:complexType>
           <xsd:sequence />
@@ -1251,6 +1478,38 @@
             <xsd:element name="name_item" nillable="true" type="xsd:string" />
             <xsd:element name="name_unit" nillable="true" type="xsd:string" />
             <xsd:element name="quantity" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculationForBarcod">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="BarCod_Tovara" nillable="true" type="xsd:string" />
+            <xsd:element name="Cod_Podrazdelenia" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CalculationForBarcodResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="Error_String" nillable="true" type="xsd:string" />
+            <xsd:element name="CalculationGoods" nillable="true" type="S2:CalculationForBarcod_CalculationGoodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CompositeGood">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ibar_cod" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CompositeGoodResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="sostav" nillable="true" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -1309,6 +1568,32 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="GestoriInredients">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GestoriInredientsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_GestoriGoods" nillable="true" type="S2:GestoriInredients_T_GestoriGoodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GestoriInredients2">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GestoriInredients2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_GestoriGoods" nillable="true" type="S2:GestoriInredients2_T_GestoriGoodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="get_actual_recipe_barc">
         <xsd:complexType>
           <xsd:sequence>
@@ -1325,6 +1610,22 @@
             <xsd:element name="RecipeHeader" nillable="true" type="S2:get_actual_recipe_barc_RecipeHeaderParam" />
             <xsd:element name="RecipeDetails" nillable="true" type="S2:get_actual_recipe_barc_RecipeDetailsParam" />
             <xsd:element name="Barcods" nillable="true" type="S2:get_actual_recipe_barc_BarcodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_alco_sales_by_day">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CODE_subdivision" nillable="true" type="xsd:int" />
+            <xsd:element name="DT1" nillable="true" type="xsd:date" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_alco_sales_by_dayResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_goods" nillable="true" type="S2:get_alco_sales_by_day_T_goodsParam" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -2021,6 +2322,22 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="get_sale_by_code_ext">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CODE_invoice" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_sale_by_code_extResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="CODE_100" nillable="true" type="xsd:decimal" />
+            <xsd:element name="T_goods" nillable="true" type="S2:get_sale_by_code_ext_T_goodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="get_sale_by_code_long">
         <xsd:complexType>
           <xsd:sequence>
@@ -2072,6 +2389,23 @@
           <xsd:sequence>
             <xsd:element name="result" nillable="true" type="xsd:string" />
             <xsd:element name="T_NumberInvoice" nillable="true" type="S2:get_sales_T_NumberInvoiceParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_sales_ext">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="dateStart" nillable="true" type="xsd:date" />
+            <xsd:element name="dateEnd" nillable="true" type="xsd:date" />
+            <xsd:element name="CODE_Union" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="get_sales_extResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_NumberInvoice" nillable="true" type="S2:get_sales_ext_T_NumberInvoiceParam" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -2301,6 +2635,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="IsMeasLiterOrNot">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="codGood" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="IsMeasLiterOrNotResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="iRezult" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="Matrix_112">
         <xsd:complexType>
           <xsd:sequence />
@@ -2311,6 +2660,24 @@
           <xsd:sequence>
             <xsd:element name="result" nillable="true" type="xsd:string" />
             <xsd:element name="Matrix" nillable="true" type="S2:Matrix_112_MatrixParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OpenZakazPost">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DT1" nillable="true" type="xsd:date" />
+            <xsd:element name="DT2" nillable="true" type="xsd:date" />
+            <xsd:element name="Cod_Podr" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OpenZakazPostResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="Tzakp" nillable="true" type="S2:OpenZakazPost_TzakpParam" />
+            <xsd:element name="Tgoods" nillable="true" type="S2:OpenZakazPost_TgoodsParam" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -2332,6 +2699,26 @@
             <xsd:element name="cMeas" nillable="true" type="xsd:string" />
             <xsd:element name="qPr" nillable="true" type="xsd:decimal" />
             <xsd:element name="qSp" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="put_alco_invoice">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CODE_subdivision" nillable="true" type="xsd:int" />
+            <xsd:element name="CODE_post" nillable="true" type="xsd:int" />
+            <xsd:element name="numb_doc" nillable="true" type="xsd:string" />
+            <xsd:element name="DT1" nillable="true" type="xsd:date" />
+            <xsd:element name="T_goods" nillable="true" type="S2:put_alco_invoice_T_goodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="put_alco_invoiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="numb_nakl" nillable="true" type="xsd:string" />
+            <xsd:element name="cError" nillable="true" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -2420,379 +2807,254 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="TransferList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CSH" nillable="true" type="xsd:int" />
+            <xsd:element name="DT1" nillable="true" type="xsd:date" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferListResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="T_nakl" nillable="true" type="S2:TransferList_T_naklParam" />
+            <xsd:element name="T_goods" nillable="true" type="S2:TransferList_T_goodsParam" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringCreate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="per_nakl" nillable="true" type="xsd:decimal" />
+            <xsd:element name="pbarcod" nillable="true" type="xsd:int" />
+            <xsd:element name="par_upak" nillable="true" type="xsd:decimal" />
+            <xsd:element name="par_v_up" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringCreateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="stError" nillable="true" type="xsd:string" />
+            <xsd:element name="nn_pos" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringDelete">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="per_nakl" nillable="true" type="xsd:decimal" />
+            <xsd:element name="per_nn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringDeleteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="stError" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringEdit">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="per_nakl" nillable="true" type="xsd:decimal" />
+            <xsd:element name="per_nn" nillable="true" type="xsd:int" />
+            <xsd:element name="par_upak" nillable="true" type="xsd:decimal" />
+            <xsd:element name="par_v_up" nillable="true" type="xsd:decimal" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransferStringEditResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="xsd:string" />
+            <xsd:element name="stError" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_codeResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_subdivision_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_subdivision_by_codeResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_inventory_surplusesResponse">
-    <wsdl:part name="parameters" element="S2:get_inventory_surplusesResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_return_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_short">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_code_short" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_code_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriResponse">
-    <wsdl:part name="parameters" element="S2:PutOrderInGestoriResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_loss_by_code_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_short">
-    <wsdl:part name="parameters" element="S2:get_return_by_code_short" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_partner_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_partner_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sales_intercompanyResponse">
-    <wsdl:part name="parameters" element="S2:get_sales_intercompanyResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriShopResponse">
-    <wsdl:part name="parameters" element="S2:PutOrderInGestoriShopResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_sale_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_item_by_code">
-    <wsdl:part name="parameters" element="S2:get_ML_item_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_Barcode_LocationResponse">
-    <wsdl:part name="parameters" element="S2:Barcode_LocationResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_GetInvoiceGestoriResponse">
-    <wsdl:part name="parameters" element="S2:GetInvoiceGestoriResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_productions">
-    <wsdl:part name="parameters" element="S2:get_productions" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_returns">
-    <wsdl:part name="parameters" element="S2:get_returns" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_CreateTransferInGestoriResponse">
-    <wsdl:part name="parameters" element="S2:CreateTransferInGestoriResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocks_longResponse">
-    <wsdl:part name="parameters" element="S2:get_stocks_longResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_listResponse">
-    <wsdl:part name="parameters" element="S2:get_transfer_listResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoices_extendedResponse">
-    <wsdl:part name="parameters" element="S2:get_invoices_extendedResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_report_from_dol_sp">
-    <wsdl:part name="parameters" element="S2:report_from_dol_sp" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_disassemble_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_disassemble_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_actual_recipe_barcResponse">
-    <wsdl:part name="parameters" element="S2:get_actual_recipe_barcResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_sales_podrResponse">
-    <wsdl:part name="parameters" element="S2:get_ML_sales_podrResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocks_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_stocks_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_item_by_code">
-    <wsdl:part name="parameters" element="S2:get_item_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PrihAndSpis">
-    <wsdl:part name="parameters" element="S2:PrihAndSpis" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_code_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_return_by_code_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code">
-    <wsdl:part name="parameters" element="S2:get_return_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_podr">
-    <wsdl:part name="parameters" element="S2:get_ML_recipe_podr" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_costpriceResponse">
-    <wsdl:part name="parameters" element="S2:get_costpriceResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_Matrix_112">
-    <wsdl:part name="parameters" element="S2:Matrix_112" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_short">
-    <wsdl:part name="parameters" element="S2:get_sale_by_code_short" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_disassemble_by_code">
-    <wsdl:part name="parameters" element="S2:get_disassemble_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_disassemblesResponse">
-    <wsdl:part name="parameters" element="S2:get_disassemblesResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_returnsResponse">
-    <wsdl:part name="parameters" element="S2:get_returnsResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_sales_podr">
-    <wsdl:part name="parameters" element="S2:get_ML_sales_podr" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_TransferDocTorg13">
-    <wsdl:part name="parameters" element="S2:TransferDocTorg13" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_GestoriGoodsResponse">
-    <wsdl:part name="parameters" element="S2:get_GestoriGoodsResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_getBaseCalcResponse">
-    <wsdl:part name="parameters" element="S2:getBaseCalcResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_disassembles">
-    <wsdl:part name="parameters" element="S2:get_disassembles" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_GestoriGoods">
-    <wsdl:part name="parameters" element="S2:get_GestoriGoods" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_GetTransferGestori">
-    <wsdl:part name="parameters" element="S2:GetTransferGestori" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocks">
-    <wsdl:part name="parameters" element="S2:get_stocks" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoices_intercompanyResponse">
-    <wsdl:part name="parameters" element="S2:get_invoices_intercompanyResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocks_long">
-    <wsdl:part name="parameters" element="S2:get_stocks_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_FindGestoriGoods">
-    <wsdl:part name="parameters" element="S2:FindGestoriGoods" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_loss_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_TransferDocTorg13Response">
-    <wsdl:part name="parameters" element="S2:TransferDocTorg13Response" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_production_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_production_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocks_short">
-    <wsdl:part name="parameters" element="S2:get_stocks_short" />
+  <wsdl:message name="Ges3ServicesUTF8_TransferList">
+    <wsdl:part name="parameters" element="S2:TransferList" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_short">
     <wsdl:part name="parameters" element="S2:get_loss_by_code_short" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_longResponse">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_code_longResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_Matrix_112Response">
+    <wsdl:part name="parameters" element="S2:Matrix_112Response" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sales_intercompany">
-    <wsdl:part name="parameters" element="S2:get_sales_intercompany" />
+  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriShopResponse">
+    <wsdl:part name="parameters" element="S2:PutOrderInGestoriShopResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_Barcode_Location">
-    <wsdl:part name="parameters" element="S2:Barcode_Location" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_subdivision_by_code">
-    <wsdl:part name="parameters" element="S2:get_subdivision_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_AllStockItems">
-    <wsdl:part name="parameters" element="S2:AllStockItems" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_inventory_shortageResponse">
-    <wsdl:part name="parameters" element="S2:get_inventory_shortageResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_getBaseCalc">
-    <wsdl:part name="parameters" element="S2:getBaseCalc" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_longResponse">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_code_longResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_short">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_code_short" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_subdivision_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_subdivision_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_salesResponse">
-    <wsdl:part name="parameters" element="S2:get_salesResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_actual_recipe_barc">
-    <wsdl:part name="parameters" element="S2:get_actual_recipe_barc" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_code_long" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_short">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_code_short" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PrihAndSpisResponse">
-    <wsdl:part name="parameters" element="S2:PrihAndSpisResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_classifResponse">
-    <wsdl:part name="parameters" element="S2:get_ML_classifResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_longResponse">
-    <wsdl:part name="parameters" element="S2:get_loss_by_code_longResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_sale_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_returns">
-    <wsdl:part name="parameters" element="S2:get_client_returns" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_stocksResponse">
-    <wsdl:part name="parameters" element="S2:get_stocksResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sales">
-    <wsdl:part name="parameters" element="S2:get_sales" />
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_list">
+    <wsdl:part name="parameters" element="S2:get_transfer_list" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_barcResponse">
     <wsdl:part name="parameters" element="S2:get_ML_recipe_barcResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_returnsResponse">
-    <wsdl:part name="parameters" element="S2:get_client_returnsResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_salesResponse">
+    <wsdl:part name="parameters" element="S2:get_salesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_inventory_shortageResponse">
+    <wsdl:part name="parameters" element="S2:get_inventory_shortageResponse" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_longResponse">
     <wsdl:part name="parameters" element="S2:get_sale_by_code_longResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_AllStockItemsResponse">
-    <wsdl:part name="parameters" element="S2:AllStockItemsResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_code_long" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_longResponse">
-    <wsdl:part name="parameters" element="S2:get_return_by_code_longResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code">
+    <wsdl:part name="parameters" element="S2:get_return_by_code" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_GetTransferGestoriResponse">
-    <wsdl:part name="parameters" element="S2:GetTransferGestoriResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_stocks">
+    <wsdl:part name="parameters" element="S2:get_stocks" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_costpriceResponse">
-    <wsdl:part name="parameters" element="S2:get_return_costpriceResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_code_shortResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_barc">
-    <wsdl:part name="parameters" element="S2:get_ML_recipe_barc" />
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_short">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_code_short" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_podrResponse">
-    <wsdl:part name="parameters" element="S2:get_ML_recipe_podrResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_podr">
+    <wsdl:part name="parameters" element="S2:get_ML_recipe_podr" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_production_by_code">
-    <wsdl:part name="parameters" element="S2:get_production_by_code" />
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringCreateResponse">
+    <wsdl:part name="parameters" element="S2:TransferStringCreateResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code" />
+  <wsdl:message name="Ges3ServicesUTF8_get_GestoriGoodsResponse">
+    <wsdl:part name="parameters" element="S2:get_GestoriGoodsResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_long">
-    <wsdl:part name="parameters" element="S2:get_sale_by_code_long" />
+  <wsdl:message name="Ges3ServicesUTF8_get_inventory_surplusesResponse">
+    <wsdl:part name="parameters" element="S2:get_inventory_surplusesResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoices">
-    <wsdl:part name="parameters" element="S2:get_invoices" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_productionsResponse">
-    <wsdl:part name="parameters" element="S2:get_productionsResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestori">
-    <wsdl:part name="parameters" element="S2:PutOrderInGestori" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_long_with_prodResponse">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_long_with_prodResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_loss_by_code_shortResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_report_from_dol_spResponse">
-    <wsdl:part name="parameters" element="S2:report_from_dol_spResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_FindGestoriGoodsResponse">
-    <wsdl:part name="parameters" element="S2:FindGestoriGoodsResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_inventory_surpluses">
-    <wsdl:part name="parameters" element="S2:get_inventory_surpluses" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_losses">
-    <wsdl:part name="parameters" element="S2:get_losses" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_return_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_return_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriShop">
-    <wsdl:part name="parameters" element="S2:PutOrderInGestoriShop" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfers_totalResponse">
-    <wsdl:part name="parameters" element="S2:get_transfers_totalResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoices_extended">
-    <wsdl:part name="parameters" element="S2:get_invoices_extended" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_CreateTransferInGestori">
-    <wsdl:part name="parameters" element="S2:CreateTransferInGestori" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_client_return_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_item_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_item_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code">
-    <wsdl:part name="parameters" element="S2:get_loss_by_code" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_item_by_codeResponse">
-    <wsdl:part name="parameters" element="S2:get_ML_item_by_codeResponse" />
-  </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_costsResponse">
-    <wsdl:part name="parameters" element="S2:get_costsResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_subdivision_by_code">
+    <wsdl:part name="parameters" element="S2:get_subdivision_by_code" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_short">
     <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_short" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_short_with_prodResponse">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_short_with_prodResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_longResponse">
+    <wsdl:part name="parameters" element="S2:get_loss_by_code_longResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_Matrix_112Response">
-    <wsdl:part name="parameters" element="S2:Matrix_112Response" />
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_short">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_code_short" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_shortResponse">
-    <wsdl:part name="parameters" element="S2:get_invoice_by_code_shortResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_CalculationForBarcod">
+    <wsdl:part name="parameters" element="S2:CalculationForBarcod" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sales">
+    <wsdl:part name="parameters" element="S2:get_sales" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_stocks_longResponse">
+    <wsdl:part name="parameters" element="S2:get_stocks_longResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_OpenZakazPost">
+    <wsdl:part name="parameters" element="S2:OpenZakazPost" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_sale_by_code_long" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_sales_podr">
+    <wsdl:part name="parameters" element="S2:get_ML_sales_podr" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_extResponse">
+    <wsdl:part name="parameters" element="S2:get_sale_by_code_extResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_short_with_prod">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_short_with_prod" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_sale_by_code_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_return_by_code_long" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_stocks_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_stocks_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_item_by_code">
+    <wsdl:part name="parameters" element="S2:get_ML_item_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_CreateTransferInGestori">
+    <wsdl:part name="parameters" element="S2:CreateTransferInGestori" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_productions">
+    <wsdl:part name="parameters" element="S2:get_productions" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_listResponse">
+    <wsdl:part name="parameters" element="S2:get_transfer_listResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_short">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_code_short" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_item_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_item_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriShop">
+    <wsdl:part name="parameters" element="S2:PutOrderInGestoriShop" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_FindGestoriGoodsResponse">
+    <wsdl:part name="parameters" element="S2:FindGestoriGoodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FaultDetailMessage">
+    <wsdl:part name="FaultDetail" element="S1:FaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_OpenZakazPostResponse">
+    <wsdl:part name="parameters" element="S2:OpenZakazPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_costpriceResponse">
+    <wsdl:part name="parameters" element="S2:get_costpriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferListResponse">
+    <wsdl:part name="parameters" element="S2:TransferListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_client_returnsResponse">
+    <wsdl:part name="parameters" element="S2:get_client_returnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_item_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_ML_item_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_stocksResponse">
+    <wsdl:part name="parameters" element="S2:get_stocksResponse" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_transfers_total">
     <wsdl:part name="parameters" element="S2:get_transfers_total" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_ML_classif">
-    <wsdl:part name="parameters" element="S2:get_ML_classif" />
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_code_shortResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_costprice">
-    <wsdl:part name="parameters" element="S2:get_costprice" />
+  <wsdl:message name="Ges3ServicesUTF8_IsMeasLiterOrNot">
+    <wsdl:part name="parameters" element="S2:IsMeasLiterOrNot" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_partner_by_code">
-    <wsdl:part name="parameters" element="S2:get_partner_by_code" />
+  <wsdl:message name="Ges3ServicesUTF8_get_disassemble_by_code">
+    <wsdl:part name="parameters" element="S2:get_disassemble_by_code" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_longResponse">
-    <wsdl:part name="parameters" element="S2:get_transfer_by_code_longResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_invoices_intercompany">
+    <wsdl:part name="parameters" element="S2:get_invoices_intercompany" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_costs">
-    <wsdl:part name="parameters" element="S2:get_costs" />
+  <wsdl:message name="Ges3ServicesUTF8_Barcode_Location">
+    <wsdl:part name="parameters" element="S2:Barcode_Location" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_client_returns">
+    <wsdl:part name="parameters" element="S2:get_client_returns" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_podrResponse">
+    <wsdl:part name="parameters" element="S2:get_ML_recipe_podrResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoices_extendedResponse">
+    <wsdl:part name="parameters" element="S2:get_invoices_extendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_long_with_prod">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_long_with_prod" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code">
     <wsdl:part name="parameters" element="S2:get_sale_by_code" />
@@ -2800,34 +3062,324 @@
   <wsdl:message name="Ges3ServicesUTF8_GetInvoiceGestori">
     <wsdl:part name="parameters" element="S2:GetInvoiceGestori" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_lossesResponse">
-    <wsdl:part name="parameters" element="S2:get_lossesResponse" />
+  <wsdl:message name="Ges3ServicesUTF8_get_invoices">
+    <wsdl:part name="parameters" element="S2:get_invoices" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_long_with_prod">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_long_with_prod" />
+  <wsdl:message name="Ges3ServicesUTF8_put_alco_invoiceResponse">
+    <wsdl:part name="parameters" element="S2:put_alco_invoiceResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_invoices_intercompany">
-    <wsdl:part name="parameters" element="S2:get_invoices_intercompany" />
+  <wsdl:message name="Ges3ServicesUTF8_CalculationForBarcodResponse">
+    <wsdl:part name="parameters" element="S2:CalculationForBarcodResponse" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_inventory_shortage">
-    <wsdl:part name="parameters" element="S2:get_inventory_shortage" />
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_code_long" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_transfer_list">
-    <wsdl:part name="parameters" element="S2:get_transfer_list" />
+  <wsdl:message name="Ges3ServicesUTF8_get_disassembles">
+    <wsdl:part name="parameters" element="S2:get_disassembles" />
   </wsdl:message>
-  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_short_with_prod">
-    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_short_with_prod" />
+  <wsdl:message name="Ges3ServicesUTF8_getBaseCalcResponse">
+    <wsdl:part name="parameters" element="S2:getBaseCalcResponse" />
   </wsdl:message>
-  <wsdl:message name="FaultDetailMessage">
-    <wsdl:part name="FaultDetail" element="S1:FaultDetail" />
+  <wsdl:message name="Ges3ServicesUTF8_get_alco_sales_by_day">
+    <wsdl:part name="parameters" element="S2:get_alco_sales_by_day" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_stocks_long">
+    <wsdl:part name="parameters" element="S2:get_stocks_long" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_classifResponse">
+    <wsdl:part name="parameters" element="S2:get_ML_classifResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GestoriInredients2">
+    <wsdl:part name="parameters" element="S2:GestoriInredients2" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_return_by_code_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_stocks_short">
+    <wsdl:part name="parameters" element="S2:get_stocks_short" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_put_alco_invoice">
+    <wsdl:part name="parameters" element="S2:put_alco_invoice" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringDeleteResponse">
+    <wsdl:part name="parameters" element="S2:TransferStringDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_costprice">
+    <wsdl:part name="parameters" element="S2:get_costprice" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sales_intercompanyResponse">
+    <wsdl:part name="parameters" element="S2:get_sales_intercompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_short_with_prodResponse">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_short_with_prodResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_production_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_production_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GetInvoiceGestoriResponse">
+    <wsdl:part name="parameters" element="S2:GetInvoiceGestoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GetTransferGestori">
+    <wsdl:part name="parameters" element="S2:GetTransferGestori" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_costs">
+    <wsdl:part name="parameters" element="S2:get_costs" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_inventory_surpluses">
+    <wsdl:part name="parameters" element="S2:get_inventory_surpluses" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_item_by_code">
+    <wsdl:part name="parameters" element="S2:get_item_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_PrihAndSpisResponse">
+    <wsdl:part name="parameters" element="S2:PrihAndSpisResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_CreateTransferInGestoriResponse">
+    <wsdl:part name="parameters" element="S2:CreateTransferInGestoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_GestoriGoods">
+    <wsdl:part name="parameters" element="S2:get_GestoriGoods" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_longResponse">
+    <wsdl:part name="parameters" element="S2:get_return_by_code_longResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestori">
+    <wsdl:part name="parameters" element="S2:PutOrderInGestori" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_FindGestoriGoods">
+    <wsdl:part name="parameters" element="S2:FindGestoriGoods" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_AllStockItemsResponse">
+    <wsdl:part name="parameters" element="S2:AllStockItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_ext">
+    <wsdl:part name="parameters" element="S2:get_sale_by_code_ext" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sales_extResponse">
+    <wsdl:part name="parameters" element="S2:get_sales_extResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_report_from_dol_sp">
+    <wsdl:part name="parameters" element="S2:report_from_dol_sp" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_sale_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_AllMenuForSite">
+    <wsdl:part name="parameters" element="S2:AllMenuForSite" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GestoriInredients2Response">
+    <wsdl:part name="parameters" element="S2:GestoriInredients2Response" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_partner_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_partner_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_code_short">
+    <wsdl:part name="parameters" element="S2:get_return_by_code_short" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sales_intercompany">
+    <wsdl:part name="parameters" element="S2:get_sales_intercompany" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_PutOrderInGestoriResponse">
+    <wsdl:part name="parameters" element="S2:PutOrderInGestoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_actual_recipe_barc">
+    <wsdl:part name="parameters" element="S2:get_actual_recipe_barc" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_Matrix_112">
+    <wsdl:part name="parameters" element="S2:Matrix_112" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_AllStockItems">
+    <wsdl:part name="parameters" element="S2:AllStockItems" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_transfers_totalResponse">
+    <wsdl:part name="parameters" element="S2:get_transfers_totalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_report_from_dol_spResponse">
+    <wsdl:part name="parameters" element="S2:report_from_dol_spResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_costsResponse">
+    <wsdl:part name="parameters" element="S2:get_costsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GestoriInredientsResponse">
+    <wsdl:part name="parameters" element="S2:GestoriInredientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_costpriceResponse">
+    <wsdl:part name="parameters" element="S2:get_return_costpriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoices_extended">
+    <wsdl:part name="parameters" element="S2:get_invoices_extended" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_disassemble_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_disassemble_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_alco_sales_by_dayResponse">
+    <wsdl:part name="parameters" element="S2:get_alco_sales_by_dayResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_code_long" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_returns">
+    <wsdl:part name="parameters" element="S2:get_returns" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringDelete">
+    <wsdl:part name="parameters" element="S2:TransferStringDelete" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_getBaseCalc">
+    <wsdl:part name="parameters" element="S2:getBaseCalc" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_CompositeGoodResponse">
+    <wsdl:part name="parameters" element="S2:CompositeGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_code_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code_longResponse">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_code_longResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GetTransferGestoriResponse">
+    <wsdl:part name="parameters" element="S2:GetTransferGestoriResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_IsMeasLiterOrNotResponse">
+    <wsdl:part name="parameters" element="S2:IsMeasLiterOrNotResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_codeResponse" />
   </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_return_costprice">
     <wsdl:part name="parameters" element="S2:get_return_costprice" />
   </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_long">
+    <wsdl:part name="parameters" element="S2:get_loss_by_code_long" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_AllMenuForSiteResponse">
+    <wsdl:part name="parameters" element="S2:AllMenuForSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_inventory_shortage">
+    <wsdl:part name="parameters" element="S2:get_inventory_shortage" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_code_longResponse">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_code_longResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_sales_podrResponse">
+    <wsdl:part name="parameters" element="S2:get_ML_sales_podrResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_productionsResponse">
+    <wsdl:part name="parameters" element="S2:get_productionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_PrihAndSpis">
+    <wsdl:part name="parameters" element="S2:PrihAndSpis" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_GestoriInredients">
+    <wsdl:part name="parameters" element="S2:GestoriInredients" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringEdit">
+    <wsdl:part name="parameters" element="S2:TransferStringEdit" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_losses">
+    <wsdl:part name="parameters" element="S2:get_losses" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_actual_recipe_barcResponse">
+    <wsdl:part name="parameters" element="S2:get_actual_recipe_barcResponse" />
+  </wsdl:message>
   <wsdl:message name="Ges3ServicesUTF8_get_invoicesResponse">
     <wsdl:part name="parameters" element="S2:get_invoicesResponse" />
   </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_loss_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code">
+    <wsdl:part name="parameters" element="S2:get_loss_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_transfer_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_transfer_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferDocTorg13Response">
+    <wsdl:part name="parameters" element="S2:TransferDocTorg13Response" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferDocTorg13">
+    <wsdl:part name="parameters" element="S2:TransferDocTorg13" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_recipe_barc">
+    <wsdl:part name="parameters" element="S2:get_ML_recipe_barc" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringCreate">
+    <wsdl:part name="parameters" element="S2:TransferStringCreate" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_TransferStringEditResponse">
+    <wsdl:part name="parameters" element="S2:TransferStringEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_disassemblesResponse">
+    <wsdl:part name="parameters" element="S2:get_disassemblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_partner_by_code">
+    <wsdl:part name="parameters" element="S2:get_partner_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_loss_by_code_shortResponse">
+    <wsdl:part name="parameters" element="S2:get_loss_by_code_shortResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_cash_sales_by_code_long_with_prodResponse">
+    <wsdl:part name="parameters" element="S2:get_cash_sales_by_code_long_with_prodResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_Barcode_LocationResponse">
+    <wsdl:part name="parameters" element="S2:Barcode_LocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sale_by_code_short">
+    <wsdl:part name="parameters" element="S2:get_sale_by_code_short" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_ML_classif">
+    <wsdl:part name="parameters" element="S2:get_ML_classif" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_returnsResponse">
+    <wsdl:part name="parameters" element="S2:get_returnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoice_by_code_longResponse">
+    <wsdl:part name="parameters" element="S2:get_invoice_by_code_longResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_invoices_intercompanyResponse">
+    <wsdl:part name="parameters" element="S2:get_invoices_intercompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_lossesResponse">
+    <wsdl:part name="parameters" element="S2:get_lossesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_production_by_code">
+    <wsdl:part name="parameters" element="S2:get_production_by_code" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_sales_ext">
+    <wsdl:part name="parameters" element="S2:get_sales_ext" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_return_by_codeResponse">
+    <wsdl:part name="parameters" element="S2:get_return_by_codeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_CompositeGood">
+    <wsdl:part name="parameters" element="S2:CompositeGood" />
+  </wsdl:message>
+  <wsdl:message name="Ges3ServicesUTF8_get_client_return_by_code">
+    <wsdl:part name="parameters" element="S2:get_client_return_by_code" />
+  </wsdl:message>
   <wsdl:portType name="Ges3ServicesUTF8Obj">
+    <wsdl:operation name="AllMenuForSite">
+      <wsdl:input message="tns:Ges3ServicesUTF8_AllMenuForSite" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_AllMenuForSiteResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AllStockItems">
       <wsdl:input message="tns:Ges3ServicesUTF8_AllStockItems" />
       <wsdl:output message="tns:Ges3ServicesUTF8_AllStockItemsResponse" />
@@ -2836,6 +3388,16 @@
     <wsdl:operation name="Barcode_Location">
       <wsdl:input message="tns:Ges3ServicesUTF8_Barcode_Location" />
       <wsdl:output message="tns:Ges3ServicesUTF8_Barcode_LocationResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculationForBarcod">
+      <wsdl:input message="tns:Ges3ServicesUTF8_CalculationForBarcod" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_CalculationForBarcodResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompositeGood">
+      <wsdl:input message="tns:Ges3ServicesUTF8_CompositeGood" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_CompositeGoodResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateTransferInGestori">
@@ -2853,9 +3415,24 @@
       <wsdl:output message="tns:Ges3ServicesUTF8_FindGestoriGoodsResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GestoriInredients">
+      <wsdl:input message="tns:Ges3ServicesUTF8_GestoriInredients" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_GestoriInredientsResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GestoriInredients2">
+      <wsdl:input message="tns:Ges3ServicesUTF8_GestoriInredients2" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_GestoriInredients2Response" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
     <wsdl:operation name="get_actual_recipe_barc">
       <wsdl:input message="tns:Ges3ServicesUTF8_get_actual_recipe_barc" />
       <wsdl:output message="tns:Ges3ServicesUTF8_get_actual_recipe_barcResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_alco_sales_by_day">
+      <wsdl:input message="tns:Ges3ServicesUTF8_get_alco_sales_by_day" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_get_alco_sales_by_dayResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
     <wsdl:operation name="get_cash_sales_by_code">
@@ -3053,6 +3630,11 @@
       <wsdl:output message="tns:Ges3ServicesUTF8_get_sale_by_codeResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
+    <wsdl:operation name="get_sale_by_code_ext">
+      <wsdl:input message="tns:Ges3ServicesUTF8_get_sale_by_code_ext" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_get_sale_by_code_extResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
     <wsdl:operation name="get_sale_by_code_long">
       <wsdl:input message="tns:Ges3ServicesUTF8_get_sale_by_code_long" />
       <wsdl:output message="tns:Ges3ServicesUTF8_get_sale_by_code_longResponse" />
@@ -3066,6 +3648,11 @@
     <wsdl:operation name="get_sales">
       <wsdl:input message="tns:Ges3ServicesUTF8_get_sales" />
       <wsdl:output message="tns:Ges3ServicesUTF8_get_salesResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="get_sales_ext">
+      <wsdl:input message="tns:Ges3ServicesUTF8_get_sales_ext" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_get_sales_extResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
     <wsdl:operation name="get_sales_intercompany">
@@ -3133,14 +3720,29 @@
       <wsdl:output message="tns:Ges3ServicesUTF8_GetTransferGestoriResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsMeasLiterOrNot">
+      <wsdl:input message="tns:Ges3ServicesUTF8_IsMeasLiterOrNot" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_IsMeasLiterOrNotResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Matrix_112">
       <wsdl:input message="tns:Ges3ServicesUTF8_Matrix_112" />
       <wsdl:output message="tns:Ges3ServicesUTF8_Matrix_112Response" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
+    <wsdl:operation name="OpenZakazPost">
+      <wsdl:input message="tns:Ges3ServicesUTF8_OpenZakazPost" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_OpenZakazPostResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PrihAndSpis">
       <wsdl:input message="tns:Ges3ServicesUTF8_PrihAndSpis" />
       <wsdl:output message="tns:Ges3ServicesUTF8_PrihAndSpisResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="put_alco_invoice">
+      <wsdl:input message="tns:Ges3ServicesUTF8_put_alco_invoice" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_put_alco_invoiceResponse" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
     <wsdl:operation name="PutOrderInGestori">
@@ -3163,9 +3765,41 @@
       <wsdl:output message="tns:Ges3ServicesUTF8_TransferDocTorg13Response" />
       <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
     </wsdl:operation>
+    <wsdl:operation name="TransferList">
+      <wsdl:input message="tns:Ges3ServicesUTF8_TransferList" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_TransferListResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringCreate">
+      <wsdl:input message="tns:Ges3ServicesUTF8_TransferStringCreate" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_TransferStringCreateResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringDelete">
+      <wsdl:input message="tns:Ges3ServicesUTF8_TransferStringDelete" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_TransferStringDeleteResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringEdit">
+      <wsdl:input message="tns:Ges3ServicesUTF8_TransferStringEdit" />
+      <wsdl:output message="tns:Ges3ServicesUTF8_TransferStringEditResponse" />
+      <wsdl:fault name="Ges3ServicesUTF8Fault" message="tns:FaultDetailMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Ges3ServicesUTF8Obj" type="tns:Ges3ServicesUTF8Obj">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AllMenuForSite">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="AllStockItems">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
@@ -3179,6 +3813,30 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Barcode_Location">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CalculationForBarcod">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CompositeGood">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
@@ -3226,7 +3884,43 @@
         <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GestoriInredients">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GestoriInredients2">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="get_actual_recipe_barc">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="get_alco_sales_by_day">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
@@ -3706,6 +4400,18 @@
         <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="get_sale_by_code_ext">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="get_sale_by_code_long">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
@@ -3731,6 +4437,18 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="get_sales">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="get_sales_ext">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
@@ -3898,6 +4616,18 @@
         <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="IsMeasLiterOrNot">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="Matrix_112">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
@@ -3910,7 +4640,31 @@
         <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="OpenZakazPost">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="PrihAndSpis">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="put_alco_invoice">
       <soap:operation soapAction="" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
@@ -3970,11 +4724,60 @@
         <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="TransferList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringCreate">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringDelete">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TransferStringEdit">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Ges3ServicesUTF8Fault">
+        <soap:fault use="literal" name="Ges3ServicesUTF8Fault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Ges3ServicesUTF8Service">
     <wsdl:port name="Ges3ServicesUTF8Obj" binding="tns:Ges3ServicesUTF8Obj">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
-      <soap:address location="http://vfiliasesb0:2580/process/Ges3ServicesUTF8Proc" />
+      <wsdl:documentation>
+      </wsdl:documentation>
+      <soap:address location="http://app:8000/process/process" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

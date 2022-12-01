@@ -12,7 +12,7 @@ namespace ReportMonthResultGenerator.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -89,7 +89,7 @@ namespace ReportMonthResultGenerator.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=Voiting;User ID=v.piskov;Password=Eit160t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=Voiting;User ID=quasiadm;Password=Fil123fil123")]
         public string VoitingConnectionString {
             get {
                 return ((string)(this["VoitingConnectionString"]));
@@ -99,7 +99,7 @@ namespace ReportMonthResultGenerator.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123")]
         public string DiogenConnectionString1 {
             get {
                 return ((string)(this["DiogenConnectionString1"]));
@@ -109,7 +109,8 @@ namespace ReportMonthResultGenerator.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=ParserOut;User ID=v.piskov;Password=Eit160t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=s2010;Initial Catalog=ParserOut;User ID=quasiadm;Password=Fil123fil12" +
+            "3")]
         public string ParserOutConnectionString {
             get {
                 return ((string)(this["ParserOutConnectionString"]));

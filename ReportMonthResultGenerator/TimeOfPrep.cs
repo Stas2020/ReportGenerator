@@ -54,7 +54,7 @@ namespace ReportMonthResultGenerator
             foreach (S2010.DepartmentInfo Dii in DepList)
                {
                    if (!Dii.Enabled) continue;
-                   //if (Dii.Number != 260) continue;
+                   //if (Dii.Number != 350) continue;
                    Console.WriteLine(Dii.Name);
                    Utils.ToLog(String.Format("GetTimeOfPrepByDayAndSuShef Начало расчета подразделение  {0} {1}", Dii.Number, Dii.Name));
                    TimeOfPrep.ShopsGoodTime_T_goodtimeRow[] res = new TimeOfPrep.ShopsGoodTime_T_goodtimeRow[1];
@@ -173,6 +173,17 @@ namespace ReportMonthResultGenerator
             public bool InRange(int _value) { return (_value >= Min && _value <= Max); }
         }
 
+        public class Test
+        {
+            public int trans { get; set; }
+            public int maxTime { get; set; }
+            public Dictionary<int, int> itemTimes { get; set; }
+            //public string itemTimes { get; set; }
+        }
+        public static Dictionary<int, List<Test>> test = new Dictionary<int, List<Test>>();
+        public static Dictionary<int, List<string>> testStrange = new Dictionary<int, List<string>>();
+        public static Dictionary<int, List<string>> testbumps = new Dictionary<int, List<string>>();
+
         internal static List<OrderTimes> GetOrdersOfDepAndDate(DateTime Fdt, DateTime Edt, int Dep, List<int> Items, List<Range> ExcludeTables = null)
         {
             List<OrderTimes> Res = new List<OrderTimes>();
@@ -203,12 +214,21 @@ namespace ReportMonthResultGenerator
                         int MaxPrepTime = Recs2.Where(a => a.ItemCookTime == MaxItemCookTime && a.OrderLastBumpTime > 0)
                             .Select(a => a.OrderLastBumpTime.Value-a.OrderFirstDisplayedTime.Value).Min(); //Первый бамп самого длинного блюда
 
-                        if (Dep == 350)
-                        {
-                            MaxPrepTime = Recs2.Where(a => a.ItemCookTime == MaxItemCookTime && a.OrderLastBumpTime > 0)
-                            .Select(a => a.OrderLastBumpTime.Value - a.OrderFirstDisplayedTime.Value).Max(); //Для метрополиса последний бамп самого длинного блюда
+                        //if (Dep == 350)
+                        //{
+                        //    MaxPrepTime = Recs2.Where(a => a.ItemCookTime == MaxItemCookTime && a.OrderLastBumpTime > 0)
+                        //    .Select(a => a.OrderLastBumpTime.Value - a.OrderFirstDisplayedTime.Value).Max(); //Для метрополиса последний бамп самого длинного блюда
+                        //}
 
+                        if(Dep == 350) //Для метрополиса Первый бамп самого длинного блюда (И отсеивать лишние записи!!!)
+                        {
+                            var prepIgn = Recs2.Where(a => a.ItemCookTime == MaxItemCookTime && a.OrderLastBumpTime > 0)
+                                .Where(_obj => !(_obj.OrderFirstDisplayedTime > 0 && Recs2
+                                                .Any(_itm => _itm.ItemId == _obj.ItemId && _itm.ItemCookTime == _obj.ItemCookTime && _itm.OrderLastBumpTime == _obj.OrderFirstDisplayedTime)));
+                            if (prepIgn.Count() > 0)
+                                MaxPrepTime = prepIgn.Select(a => a.OrderLastBumpTime.Value - a.OrderFirstDisplayedTime.Value).Min();
                         }
+
                         OrderTimes Ot = new OrderTimes()
                         {
                             BusinessDate = dt,
@@ -227,6 +247,10 @@ namespace ReportMonthResultGenerator
                     }
                 }
             }
+            //if (Dep==124)//Dep == 350 || Dep == 375)
+            //{
+            //    ;
+            //}
             return Res;   
 
         }
@@ -240,17 +264,60 @@ namespace ReportMonthResultGenerator
             S2010.XrepSoapClient Serv = new S2010.XrepSoapClient();
             S2010.DepartmentInfo[] DepList = Serv.GetPointList3();
             List<int> KitchenItems =CubeData.GetKitchenDList(); //GetKitchenItems();
-           // TimeOfPrep.Ges3ServicesObjClient PrepSrv = new TimeOfPrep.Ges3ServicesObjClient();
+                                                                // TimeOfPrep.Ges3ServicesObjClient PrepSrv = new TimeOfPrep.Ges3ServicesObjClient();
+
+            
+            //            DepList = new S2010.DepartmentInfo[]   //Подразделения без кубов (пока кубы висят)
+            //            {
+            //                new S2010.DepartmentInfo() { Number = 104, Name = "Никитская", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 111, Name = "4 Ветра", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 122, Name = "WallStreet", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 130, Name = "Кудринская", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 177, Name = "Неглинная", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 180, Name = "КИНКИ", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 190, Name = "Депо", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 195, Name = "Вишневые сады", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 205, Name = "Аврора", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 212, Name = "Шереметьево1", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 222, Name = "ШереметьевоУ", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 224, Name = "ШереметьевоБ", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 226, Name = "ШерB Узбечка", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 235, Name = "Павлово", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 237, Name = "Горки-2", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 255, Name = "Чипсайд", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 260, Name = "Якиманка", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 264, Name = "Мэрия", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 270, Name = "Весна", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 280, Name = "Мосс", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 285, Name = "Усачева", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 290, Name = "Хорошо", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 295, Name = "Комсомольский", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 300, Name = "Дом-2", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 310, Name = "Внуково", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 311, Name = "Новая Рига", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 350, Name = "Метрополис", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 370, Name = "Кутузовский", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 371, Name = "Новая площадь", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 375, Name = "Тверская", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 380, Name = "ГУМ", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 390, Name = "БелаяПлощадь", Enabled = true },
+            //new S2010.DepartmentInfo() { Number = 395, Name = "Покровка", Enabled = true },
+            //            };
+
             foreach (S2010.DepartmentInfo Dii in DepList.Where(a=>a.Enabled))
             {
-             //   if (!Dii.Enabled) continue;
-             if (Dii.Number != 350 ) continue;
-             
+                // //  if (!Dii.Enabled) continue;
+                //if (Dii.Number != 350 ) continue;
+                if (Dii.Number == 197 && Fdt == new DateTime(2021,10,25))
+                {
+                    ;
+                }
                 Console.WriteLine(Dii.Name);
                 Utils.ToLog(String.Format("GetTimeOfPrepByDayAndSuShef Начало расчета подразделение  {0} {1}", Dii.Number, Dii.Name));
 
                 List<OrderTimes> Res = GetOrdersOfDepAndDate(Fdt, Edt, Dii.Number, KitchenItems);
-                
+
+
                 Utils.ToLog($"Подразделение  {Dii.Number} {Dii.Name} получил {Res.Count} записей");
                 foreach (OrderTimes  r in Res)
                 {
@@ -266,9 +333,9 @@ namespace ReportMonthResultGenerator
                         FactSummOfWrong = 0,
                         NormaSummOfWrong = 0
                     };
-                    if (Dii.Number == 350) {
-                        RecTmp.AllTime = r.OrderLastBumpTime;
-                    }
+                    //if (Dii.Number == 350) {
+                    //    RecTmp.AllTime = r.OrderLastBumpTime;
+                    //}
 
                     if (r.OrderLastBumpTime> r.ItemCookTime)
                     {
@@ -279,7 +346,7 @@ namespace ReportMonthResultGenerator
                     }
 
                     DateTime OrderDt = r.OrderEndTime.Value;
-
+                    
                     //Находим все ворктаймы из данного подразделения, к которым относится эта запись
                     List<CEmplWt> WtsOfRec = Wts.Where(a => a.Dep == Dii.Number && a.StartDt < OrderDt && a.StopDt > OrderDt).ToList();
                     //Это для всего подразделения
@@ -327,7 +394,16 @@ namespace ReportMonthResultGenerator
                         {
                             Tmp.Add(Rec);
                         }
-                       
+
+                        //if(Rec.Department == 197 && (new List<DateTime>() { new DateTime(2021, 10, 9), new DateTime(2021, 10, 10), new DateTime(2021, 10, 11) }).Contains((DateTime)Rec.Day))
+                        //{
+                        //    Rec.WrongCount /= 10;
+                        //    Rec.WrongTime /= 10;
+                        //    Rec.FactSummOfWrong /= 10;
+                        //    Rec.NormaSummOfWrong /= 10;
+                        //}
+
+
                     }
 
 
@@ -442,6 +518,9 @@ namespace ReportMonthResultGenerator
 
             foreach (S2010.DepartmentInfo Dii in DepList)
             {
+                //if (Dii.Number != 350 && Dii.Number != 395 && Dii.Number != 375 && Dii.Number != 285 && Dii.Number != 295 && Dii.Number != 371)
+                //    continue;
+
                 List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Fdt, Edt, Dii.Number, KitchenItems, excludeTables);
                 PrepTime Pt = new PrepTime()
                 {
@@ -454,7 +533,7 @@ namespace ReportMonthResultGenerator
                 foreach (OrderTimes r in Res)
                 {
                     Pt.AllCount++;
-
+                    
                     Pt.FactSumm += r.OrderLastBumpTime.Value;
                     Pt.NormaSumm += r.ItemCookTime.Value;
                     
@@ -464,6 +543,9 @@ namespace ReportMonthResultGenerator
                         Pt.WrongSecond += r.OrderLastBumpTime.Value - r.ItemCookTime.Value;
                         Pt.WrongCount++;
                     }
+
+                    //if (Dii.Number == 197 && (new List<DateTime>() { new DateTime(2021, 10, 9), new DateTime(2021, 10, 10), new DateTime(2021, 10, 11) }).Contains(Fdt))
+                    //    Pt.WrongCount /= 10;
                 }
 
              //   decimal AllDCount = Dk.Where(a => a.Dep == Dii.Number).Sum(a => a.Count);
@@ -493,7 +575,7 @@ namespace ReportMonthResultGenerator
            foreach (S2010.DepartmentInfo Dii in DepList)
            {
                if (!Dii.Enabled) continue;
-               //if (Dii.Number != 104) continue;
+               //if (Dii.Number != 197) continue;
 
                Console.WriteLine(Dii.Name);
                
@@ -619,9 +701,10 @@ namespace ReportMonthResultGenerator
        }
 
        internal static List<int> GetKitchenItems()
-       {
-                   ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
-           List<int> KitchenGroups = new List<int>() {8,9,10,12,11,13,14,15,16,23,25,26,27,28,29,30,31,33,34 };
+        {
+            //ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
+            List<int> KitchenGroups = new List<int>() {8,9,10,12,11,13,14,15,16,23,25,26,27,28,29,30,31,33,34 };
            List<int> Tmp = new List<int>();
 
 
@@ -633,9 +716,10 @@ namespace ReportMonthResultGenerator
            return KitchenGroupsItems.Distinct().ToList();
        }
        internal static List<int> GetHotItems()
-       {
-           ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
-           List<int> KitchenGroups = new List<int>() { 9, 12, 11, 13, 14, 15, 16, 23, 25, 26, 27, 28, 29, 30, 31, 33, 34 };
+        {
+            //ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
+            List<int> KitchenGroups = new List<int>() { 9, 12, 11, 13, 14, 15, 16, 23, 25, 26, 27, 28, 29, 30, 31, 33, 34 };
            List<int> Tmp = new List<int>();
 
 
@@ -648,9 +732,10 @@ namespace ReportMonthResultGenerator
        }
 
        internal static List<int> GetColdItems()
-       {
-           ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
-           List<int> KitchenGroups = new List<int>() {10};
+        {
+            //ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
+            List<int> KitchenGroups = new List<int>() {10};
            List<int> Tmp = new List<int>();
 
 
@@ -665,9 +750,10 @@ namespace ReportMonthResultGenerator
 
 
        internal static List<int> GetItemsByCat(int Cat)
-       {
-           ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
-           List<int> KitchenGroups = new List<int>() { Cat };
+        {
+            //ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
+            List<int> KitchenGroups = new List<int>() { Cat };
            List<int> Tmp = new List<int>();
 
            IQueryable<int> KitchenGroupsItems = from o in RepBase.AlohaMenuITMs

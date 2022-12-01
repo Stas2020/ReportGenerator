@@ -16,20 +16,29 @@ namespace ReportMonthResultGenerator
     {
         static public void GetByYear(int Year)
         {
-            Double Summ = 0;
-            int ChCount = 0;
+            //Double Summ = 0;
+            //int ChCount = 0;
+            //for (int Month = 1; Month < 11; Month++)
+            //{
+            //    DateTime Fdt = new DateTime(Year, Month, 1);
+            //    DateTime Edt = new DateTime(Year, Month + 1, 1);
+            //    List<RashMaterials> Tmp = GetRashMat(Fdt, Edt);
+            //    Summ += Tmp.Sum(a => a.Value);
+            //    ChCount += (Int32)Tmp.Sum(a => a.Checks);
+            //}
+            //double res = Summ / ChCount;
+            Double Consumables = 0;
+            Double Proceeds = 0;
             for (int Month = 1; Month < 11; Month++)
             {
                 DateTime Fdt = new DateTime(Year, Month, 1);
                 DateTime Edt = new DateTime(Year, Month + 1, 1);
                 List<RashMaterials> Tmp = GetRashMat(Fdt, Edt);
-                Summ += Tmp.Sum(a => a.Value);
-                ChCount += (Int32)Tmp.Sum(a => a.Checks);
+                Consumables += Tmp.Sum(a => a.Consumables);
+                Proceeds += Tmp.Sum(a => a.Proceeds);
             }
-            double res = Summ / ChCount;
+            double res = Consumables / Proceeds;
             Console.WriteLine(res);
-
-
         }
 
 
@@ -143,7 +152,7 @@ namespace ReportMonthResultGenerator
 
             TimeOfPrep.Ges3ServicesObj PrepSrv = new TimeOfPrep.Ges3ServicesObjClient();
 
-            Dictionary<int, int> ChecksCount = GetChkCount(Fdt);
+            //Dictionary<int, int> ChecksCount = GetChkCount(Fdt);
 
             foreach (S2010.DepartmentInfo Dii in DepList)
             {
@@ -167,31 +176,40 @@ namespace ReportMonthResultGenerator
                     BuhDepNum = r.Value;
                 }
                
-                double s = 0;
+                double consumables = 0;
                 try
                 {
-                    s = srv.getCosts(BuhDepNum.ToString(), Fdt, Edt);
+                    consumables = srv.getCosts(BuhDepNum.ToString(), Fdt, Edt);
                 }
                 catch
                 {
 
                 }
                 int res2 = 0;
-                if (ChecksCount.TryGetValue(Dii.Number, out res2))
+                //if (ChecksCount.TryGetValue(Dii.Number, out res2))
+                //{
+                //    Console.WriteLine(Dii.Number.ToString() + " - " + s.ToString() + " - " + ChecksCount[Dii.Number]);
+                //}
+
+                double proceeds = 0;
+                for(DateTime dt = new DateTime(Fdt.Ticks); dt<=Edt; dt = dt.AddDays(1))
                 {
-                    Console.WriteLine(Dii.Number.ToString() + " - " + s.ToString() + " - " + ChecksCount[Dii.Number]);
+                    Ges3.GestoriCashByDay_T_cashRow[] cash;
+                    cl.GestoriCashByDay(Edt, false,
+                        new Ges3.GestoriCashByDay_T_shopsRow[] { new Ges3.GestoriCashByDay_T_shopsRow() { codShop = Dii.Number } },
+                        out cash);
+                    proceeds += cash.Select(_cash => ((double)_cash.sum_nal + (double)_cash.sum_plast)).Sum();
                 }
-               
+
                 try
                 {
                     RashMaterials RM = new RashMaterials()
                     {
                         Dep = Dii.Number,
-                        Value = s,
+                        Consumables = consumables,
+                        Proceeds = proceeds,
                         DepName = Dii.Name,
-
-                        Checks = ChecksCount[Dii.Number]
-
+                        //Checks = ChecksCount[Dii.Number]
                     };
                     Tmp.Add(RM);
                 }
@@ -204,84 +222,223 @@ namespace ReportMonthResultGenerator
         }
 
 
-        static public List<RashMaterials> GetRashMatByDay(DateTime Fdt, DateTime Edt)
+        //static public bool SAVE_CONSUMABLES_TEST_REMOVE_IT = false;
+
+        public static List<RashMaterials> GetRashMatByDay(DateTime Fdt, DateTime Edt)
         {
-            List<RashMaterials> Tmp = new List<RashMaterials>();
+            List<RashMaterials> rashMaterialsList = new List<RashMaterials>();
+            vfiliasut8.ExchangePeskovFotoGallery peskovFotoGallery = new vfiliasut8.ExchangePeskovFotoGallery();
+            NetworkCredential networkCredential = new NetworkCredential("ws", "ws1", "");
+            peskovFotoGallery.Credentials = (ICredentials)networkCredential;
+            S2010.DepartmentInfo[] pointList3 = new S2010.XrepSoapClient().GetPointList3();
+            ReportMonthResultGenerator.TimeOfPrep.Ges3ServicesObjClient servicesObjClient1 = new ReportMonthResultGenerator.TimeOfPrep.Ges3ServicesObjClient();
+            //Dictionary<int, int> checkCount = CheckCountSingletone.Instance.AllCheckCount.GetCheckCount(Fdt);
 
-
-            vfiliasut8.ExchangePeskovFotoGallery srv = new vfiliasut8.ExchangePeskovFotoGallery();
-            NetworkCredential Cred = new NetworkCredential("ws", "ws1", "");
-
-            srv.Credentials = Cred;
-
-
-            S2010.XrepSoapClient Serv = new S2010.XrepSoapClient();
-            S2010.DepartmentInfo[] DepList = Serv.GetPointList3();
-
-            TimeOfPrep.Ges3ServicesObj PrepSrv = new TimeOfPrep.Ges3ServicesObjClient();
-
-            //Dictionary<int, int> ChecksCount = GetChkCountByDay(Fdt);
-            Dictionary<int, int> ChecksCount = CheckCountSingletone.Instance.AllCheckCount.GetCheckCount(Fdt);
-
-            foreach (S2010.DepartmentInfo Dii in DepList)
+            foreach (S2010.DepartmentInfo departmentInfo in pointList3)
             {
-                if (!Dii.Enabled) continue;
-                //if ((Dii.Number!=111)&& (Dii.Number != 121))  continue;
-                TimeOfPrep.ShopsGoodTime_T_goodtimeRow[] res = new TimeOfPrep.ShopsGoodTime_T_goodtimeRow[50];
-                int BuhDepNum = Dii.Number;
-
-                Ges3.Ges3ServicesObjClient cl = new Ges3.Ges3ServicesObjClient();
-
-                if ((Dii.Number != 200) && (Dii.Number != 310))
+                //if (departmentInfo.Number != 310) continue;
+                //if (departmentInfo.Number != 111 && departmentInfo.Number != 114 && departmentInfo.Number != 121)
+                //    continue;
+                //if(departmentInfo.Number == 111 || departmentInfo.Number == 121)
+                if (departmentInfo.Enabled)
                 {
-                    int? r;
+                    ReportMonthResultGenerator.TimeOfPrep.ShopsGoodTime_T_goodtimeRow[] timeTGoodtimeRowArray = new ReportMonthResultGenerator.TimeOfPrep.ShopsGoodTime_T_goodtimeRow[50];
+                    int number = departmentInfo.Number;
+                    ReportMonthResultGenerator.Ges3.Ges3ServicesObjClient servicesObjClient2 = new ReportMonthResultGenerator.Ges3.Ges3ServicesObjClient();
+
+                    if (departmentInfo.Number != 200)// && departmentInfo.Number != 310)
+                    {
+                        int? cod_virt_shop;
+                        servicesObjClient2.obj_virt(new int?(departmentInfo.Number), out cod_virt_shop);
+                        number = cod_virt_shop.Value;
+                    }
+                    double consumables = 0.0;
                     try
                     {
-                        cl.obj_virt(Dii.Number, out r);
+                        //if (SAVE_CONSUMABLES_TEST_REMOVE_IT)
+                        //{
+                        //    var db = new ReportBaseDataContext();
+                        //    if (db.ReportDayResult.Any(a => a.BD == Fdt && a.TypeId == 2     /*   && a.Dep == 350     */      ))
+                        //    {
+                        //        var old = db.ReportDayResult.Where(a => a.BD == Fdt && a.TypeId == 2 );
+
+                        //        if (old.Count() > 0)
+                        //            consumables = old.First().Summ ?? 0;
+                        //        else
+                        //            consumables = peskovFotoGallery.getCosts(number.ToString(), Fdt, Edt);
+
+                        //        var TESTOLD___ = peskovFotoGallery.getCosts(number.ToString(), Fdt, Edt);
+                        //    }
+                        //}
+                        //else
+                        //{                        
+
+                        consumables = peskovFotoGallery.getCosts(number.ToString(), Fdt, Edt);
+                        //}
                     }
                     catch(Exception ex)
                     {
-                        Utils.ToLog($"Не удалось получить бухгалтерский номер участка {Dii.Number}. Метод Ges3Services.obj_virt. Сообщение об ошибке: {ex.Message}", true);
-                        continue;
+                        ;
                     }
-                    BuhDepNum = r.Value;
-                }
 
-                double s = 0;
-                try
-                {
-                    s = srv.getCosts(BuhDepNum.ToString(), Fdt, Edt);
-                }
-                catch
-                {
 
-                }
-                int res2 = 0;
-                if (ChecksCount.TryGetValue(Dii.Number, out res2))
-                {
-                    Console.WriteLine(Dii.Number.ToString() + " - " + s.ToString() + " - " + ChecksCount[Dii.Number]);
-                }
+                    //Ges3.GestoriCashByDay_T_cashRow[] cash;
+                    //servicesObjClient2.GestoriCashByDay(Edt, false,
+                    //    new Ges3.GestoriCashByDay_T_shopsRow[] { new Ges3.GestoriCashByDay_T_shopsRow() { codShop = departmentInfo.Number } },
+                    //    out cash);
+                    //var proceedsTEST0 = cash.Select(_cash => ((double)_cash.sum_nal + (double)_cash.sum_plast)).Sum();
 
-                try
-                {
-                    RashMaterials RM = new RashMaterials()
+                    double proceeds = 0;
+                    Ges3.GestoriSaleshByDay_T_cashRow[] cashRow = null;
+
+                    // Этот сервис весьма глючит ToDo
+                    for (int i = 0; i < 10; i++)
                     {
-                        Dep = Dii.Number,
-                        Value = s,
-                        DepName = Dii.Name,
+                        if (cashRow != null)
+                            continue;
+                        try
+                        {
+                            Ges3.Ges3ServicesObjClient client = new Ges3.Ges3ServicesObjClient();
+                            client.GestoriSaleshByDay(Fdt, false, new Ges3.GestoriSaleshByDay_T_shopsRow[] { new Ges3.GestoriSaleshByDay_T_shopsRow() { codShop = departmentInfo.Number } },
+                                out cashRow);
+                        }
+                        catch { cashRow = null; }
+                        if (cashRow == null)
+                        {
+                            Utils.ToDebugLog($"Now:{DateTime.Now:HH:mm:ss}  ОШИБКА В TRY   ForDate:{Edt:dd.MM.yyyy}\t" + departmentInfo.Number.ToString() + "\t" + consumables.ToString() + "\t" + proceeds.ToString(), true);
+                            System.Threading.Thread.Sleep(3500);
+                        }
+                    }
+                    if (cashRow == null)
+                    {
+                        Ges3.Ges3ServicesObjClient client = new Ges3.Ges3ServicesObjClient();
+                        client.GestoriSaleshByDay(Fdt, false, new Ges3.GestoriSaleshByDay_T_shopsRow[] { new Ges3.GestoriSaleshByDay_T_shopsRow() { codShop = departmentInfo.Number } },
+                            out cashRow);
+                    }
+                    proceeds = cashRow.Sum(_row => (double)((_row.sum_nal ?? 0) + (_row.sum_plast ?? 0) + (_row.SUM_rx ?? 0)));
 
-                        Checks = ChecksCount[Dii.Number]
+                    //var proceedsTEST = cashRow.Sum(_row => (double)((_row.sum_nal ?? 0) + (_row.sum_plast ?? 0)));
 
-                    };
-                    Tmp.Add(RM);
+
+
+
+                    //if (checkCount.TryGetValue(departmentInfo.Number, out num2))
+                    //    Console.WriteLine(departmentInfo.Number.ToString() + " - " + consumables.ToString() + " - " + checkCount[departmentInfo.Number].ToString());
+
+                    Utils.ToDebugLog($"Now:{DateTime.Now:HH:mm:ss}  ForDate:{Edt:dd.MM.yyyy}\t"+departmentInfo.Number.ToString() + "\t" + consumables.ToString() + "\t" + proceeds.ToString());
+
+                    try
+                    {
+                        RashMaterials rashMaterials = new RashMaterials()
+                        {
+                            Dep = departmentInfo.Number,
+                            DepName = departmentInfo.Name,
+                            Consumables = consumables,
+                            Proceeds = proceeds
+                            //Value = num1,                            
+                            //Checks = (double)checkCount[departmentInfo.Number]
+                        };
+                        rashMaterialsList.Add(rashMaterials);
+                    }
+                    catch
+                    {
+                    }
                 }
-                catch
-                { }
             }
-
-            return Tmp;
-
+            return rashMaterialsList;
         }
+        //static public List<RashMaterials> GetRashMatByDay(DateTime Fdt, DateTime Edt)
+        //{
+        //    List<int> ErrorsObjVirtDeps = new List<int>();
+
+        //    List<RashMaterials> Tmp = new List<RashMaterials>();
+
+
+        //    vfiliasut8.ExchangePeskovFotoGallery srv = new vfiliasut8.ExchangePeskovFotoGallery();
+        //    NetworkCredential Cred = new NetworkCredential("ws", "ws1", "");
+
+        //    srv.Credentials = Cred;
+
+
+        //    S2010.XrepSoapClient Serv = new S2010.XrepSoapClient();
+        //    S2010.DepartmentInfo[] DepList = Serv.GetPointList3();
+
+        //    TimeOfPrep.Ges3ServicesObj PrepSrv = new TimeOfPrep.Ges3ServicesObjClient();
+
+        //    //Dictionary<int, int> ChecksCount = GetChkCountByDay(Fdt);
+        //    Dictionary<int, int> ChecksCount = CheckCountSingletone.Instance.AllCheckCount.GetCheckCount(Fdt);
+
+        //    foreach (S2010.DepartmentInfo Dii in DepList)
+        //    {
+        //        if (!Dii.Enabled) continue;
+        //        //if ((Dii.Number!=111)&& (Dii.Number != 121))  continue;
+        //        TimeOfPrep.ShopsGoodTime_T_goodtimeRow[] res = new TimeOfPrep.ShopsGoodTime_T_goodtimeRow[50];
+        //        int BuhDepNum = Dii.Number;
+
+        //        Ges3.Ges3ServicesObjClient cl = new Ges3.Ges3ServicesObjClient();
+
+        //        if ((Dii.Number != 200) && (Dii.Number != 310))
+        //        {
+        //            int? r;
+        //            try
+        //            {
+        //                cl.obj_virt(Dii.Number, out r);
+        //            }
+        //            catch(Exception ex)
+        //            {
+        //                ErrorsObjVirtDeps.Add(Dii.Number);
+
+        //                //Utils.ToDebugLog($"Не удалось получить бухгалтерский номер участка {Dii.Number}. Метод Ges3Services.obj_virt.");
+
+        //                continue;
+        //            }
+        //            BuhDepNum = r.Value;
+        //        }
+        //        //Utils.ToDebugLog($"Обработка участка {Dii.Number}");
+
+        //        double s = 0;
+        //        try
+        //        {
+        //            s = srv.getCosts(BuhDepNum.ToString(), Fdt, Edt);
+        //        }
+        //        catch
+        //        {
+
+        //        }
+        //        int res2 = 0;
+        //        if (ChecksCount.TryGetValue(Dii.Number, out res2))
+        //        {
+        //            Console.WriteLine(Dii.Number.ToString() + " - " + s.ToString() + " - " + ChecksCount[Dii.Number]);
+
+        //            //Utils.ToDebugLog(Fdt.ToShortDateString() + "/" + Edt.ToShortDateString() + "     GetRashMatByDay: " + Dii.Number.ToString() + " - " + s.ToString() + " - " + ChecksCount[Dii.Number]);
+        //        }
+
+        //        try
+        //        {
+        //            RashMaterials RM = new RashMaterials()
+        //            { 
+        //                Dep = Dii.Number,
+        //                Value = s,
+        //                DepName = Dii.Name,
+
+        //                Checks = ChecksCount[Dii.Number]
+
+        //            };
+        //            Tmp.Add(RM);
+        //        }
+        //        catch
+        //        { }
+        //    }
+
+        //    if(ErrorsObjVirtDeps.Count > 0)
+        //    {
+        //        Utils.ToLog($"Не удалось получить бухгалтерские номера участков {string.Join(", ", ErrorsObjVirtDeps.OrderBy(_dep => _dep))}. Метод Ges3Services.obj_virt. " +
+        //            $"Номера успешно расчитанных участков: {string.Join(", ", DepList.Where(_dep => _dep.Enabled && !ErrorsObjVirtDeps.Contains(_dep.Number)).Select(_dep => _dep.Number).OrderBy(_dep => _dep))}", true);
+        //    }
+
+        //    return Tmp;
+
+        //}
 
         public static Dictionary<int, int> GetChkCountByDay(DateTime Day)
         {

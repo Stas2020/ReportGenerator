@@ -43,26 +43,26 @@
     <Setting Name="VoitingConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=Voiting;User ID=v.piskov;Password=Eit160t&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=Voiting;User ID=quasiadm;Password=Fil123fil123&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=Voiting;User ID=v.piskov;Password=Eit160t</Value>
+      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=Voiting;User ID=quasiadm;Password=Fil123fil123</Value>
     </Setting>
     <Setting Name="DiogenConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t</Value>
+      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123</Value>
     </Setting>
     <Setting Name="ParserOutConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=ParserOut;User ID=v.piskov;Password=Eit160t&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=s2010;Initial Catalog=ParserOut;User ID=quasiadm;Password=Fil123fil123&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=ParserOut;User ID=v.piskov;Password=Eit160t</Value>
+      <Value Profile="(Default)">Data Source=s2010;Initial Catalog=ParserOut;User ID=quasiadm;Password=Fil123fil123</Value>
     </Setting>
     <Setting Name="CFCInStoreDBConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

@@ -18,10 +18,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://vfiliasesb0:2580/process/Ges3ServicesProc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://web:8000/process/process/wsdl?targetURI=urn:coffeemania:Ges3Services" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Ges3Services.wsdl" MetadataType="Wsdl" ID="fa384cef-5083-4c30-b547-318d58aea681" SourceId="1" SourceUrl="http://vfiliasesb0:2580/process/Ges3ServicesProc?wsdl" />
+    <MetadataFile FileName="Ges3Services1.wsdl" MetadataType="Wsdl" ID="625a091d-75ce-466a-9b10-e97b32c3c79f" SourceId="1" SourceUrl="http://web:8000/process/process/wsdl?targetURI=urn:coffeemania:Ges3Services" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

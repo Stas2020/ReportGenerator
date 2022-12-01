@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XXclCVywy33yZ/iO7hjs5nwD7UQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="WzBQyFqf6FDCSb3SDZY/EkdqNheSqp1HJpEW0ulNGas=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="Ges3ServicesUTF8Obj">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="Ges3ServicesUTF8Obj" contract="WebSrvSpisanie.Ges3ServicesUTF8Obj" bindingType="basicHttpBinding" address="http://vfiliasesb0:2580/process/Ges3ServicesUTF8Proc" bindingConfiguration="Ges3ServicesUTF8Obj">
+    <endpoint name="Ges3ServicesUTF8Obj" contract="WebSrvSpisanie.Ges3ServicesUTF8Obj" bindingType="basicHttpBinding" address="http://app:8000/process/process" bindingConfiguration="Ges3ServicesUTF8Obj">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://vfiliasesb0:2580/process/Ges3ServicesUTF8Proc</serializedValue>
+          <serializedValue>http://app:8000/process/process</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

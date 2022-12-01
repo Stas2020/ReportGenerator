@@ -348,7 +348,142 @@ namespace ReportMonthResultGenerator.QSR
             }
             //return Res;
         }
-       
+
+
+        // FOR DEBUG ONLY *************************************
+
+        public static void InsertQSRXMLInTable_FOR_DEBUG_ONLY(List<string> Paths, int Dep, DateTime DateOfBusiness, Dictionary<OrderTimes, string> OutResult)
+        {
+            //List<OrderTimes> Tmp = new List<OrderTimes>();
+            ServTimeXml Res = new ServTimeXml();
+            Res.ServiceTiming = new List<CServiceTiming>();
+            string XmlRes = "";
+            foreach (string s in Paths)
+            {
+                using (StreamReader reader = new StreamReader(s))
+                {
+                    XmlRes = reader.ReadToEnd() + Environment.NewLine;
+                }
+
+                XmlRes = XmlRes.Replace("&", " ");
+                XmlRes = XmlRes.Replace("%", " ");
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(XmlRes);
+
+
+                //ReportBaseDataContext db = new ReportBaseDataContext();
+                //db.CommandTimeout = 600000;
+                foreach (XmlNode xn in doc.FirstChild.ChildNodes)
+                {
+
+                    try
+                    {
+                        // CServiceTiming Tim = new CServiceTiming();
+
+                        OrderTimes Tim = new OrderTimes()
+                        {
+                            ItemCookTime = Convert.ToInt32(xn.SelectSingleNode("ItemCookTime").InnerText),
+                            TransactionNumber = Convert.ToInt32(xn.SelectSingleNode("TransactionNumber").InnerText),
+                            ItemNumber = Convert.ToInt32(xn.SelectSingleNode("ItemNumber").InnerText),
+                            ItemId = Convert.ToInt32(xn.SelectSingleNode("ItemId").InnerText),
+                            OrderFirstDisplayedTime = Convert.ToInt32(xn.SelectSingleNode("OrderFirstDisplayedTime").InnerText),
+                            OrderLastBumpTime = Convert.ToInt32(xn.SelectSingleNode("OrderLastBumpTime").InnerText),
+
+                            Dep = Dep,
+                            BusinessDate = DateOfBusiness,
+
+                        };
+
+                        try
+                        {
+                            Tim.TableNum = Convert.ToInt32(xn.SelectSingleNode("TableNumber").InnerText);
+
+                        }
+                        catch
+                        { }
+                        try
+                        {
+                            Tim.VirtualDisplayId = Convert.ToInt32(xn.SelectSingleNode("VirtualDisplayId").InnerText);
+                        }
+                        catch
+                        { }
+                        try { Tim.ServerId = Convert.ToInt32(xn.SelectSingleNode("ServerId").InnerText); }
+                        catch
+                        { }
+
+                        XmlNode Xdate = xn.SelectSingleNode("Order_Start_Time");
+                        if (Xdate == null)
+                        {
+                            Xdate = xn.SelectSingleNode("OrderStartTime");
+                        }
+                        int Y = Convert.ToInt32(Xdate.SelectSingleNode("Year").InnerText);
+                        int M = Convert.ToInt32(Xdate.SelectSingleNode("Month").InnerText);
+                        int D = Convert.ToInt32(Xdate.SelectSingleNode("Day").InnerText);
+                        int H = Convert.ToInt32(Xdate.SelectSingleNode("Hour").InnerText);
+                        int m = Convert.ToInt32(Xdate.SelectSingleNode("Minute").InnerText);
+                        int S = Convert.ToInt32(Xdate.SelectSingleNode("Second").InnerText);
+                        Tim.OrderStartTime = new DateTime(Y, M, D, H, m, S);
+                        Tim.OrderEndTime = Tim.OrderStartTime.Value.AddSeconds(Tim.OrderLastBumpTime.Value);
+
+                        //Tmp.Add(Tim);
+
+                        string itemName = "";
+                        try { itemName = Convert.ToString(xn.SelectSingleNode("ItemDescription")!=null?xn.SelectSingleNode("ItemDescription").InnerText:null); }
+                        catch
+                        { }
+
+                        OutResult.Add(Tim, itemName);
+
+                        /*
+                        if (QSRXMLRecordNotExists(Tim))
+                        {
+                            db.OrderTimes.InsertOnSubmit(Tim);
+                        }
+                        */
+
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+
+                //DateTime MinDt = Tmp.Select(a => a.OrderStartTime).Min().Value;
+                //DateTime MaxDt = Tmp.Select(a => a.OrderStartTime).Max().Value;
+                //List<OrderTimes> InBase = db.OrderTimes.Where(a => a.Dep == Dep && a.OrderStartTime >= MinDt && a.OrderStartTime <= MaxDt).ToList();
+
+                ////Tmp.RemoveAll(a=>a)
+
+                //List<OrderTimes> Tmp2 = new List<OrderTimes>();
+                //foreach (OrderTimes rec in Tmp)
+                //{
+                //    if (InBase.Any(a => a.Dep == rec.Dep && a.OrderStartTime == rec.OrderStartTime && a.VirtualDisplayId == rec.VirtualDisplayId && a.ItemNumber == rec.ItemNumber && a.TransactionNumber == rec.TransactionNumber))
+                //    {
+
+                //        Tmp2.Add(rec);
+                //    }
+                //}
+
+                //Tmp.RemoveAll(a => Tmp2.Contains(a));
+                //if (Tmp.Count() > 0)
+                //{
+                //    Utils.ToLog($"Inserted {Tmp.Count() } records", true);
+                //    db.OrderTimes.InsertAllOnSubmit(Tmp);
+                //    db.SubmitChanges();
+                //}
+                //else
+                //{
+                //    Console.WriteLine("No Unik");
+                //}
+
+
+            }
+            //return Res;
+        }
+
+        // END OF FOR DEBUG ONLY *************************************
+
     }
     public class QSRPercentRes
     {

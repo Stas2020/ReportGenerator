@@ -34,7 +34,8 @@ namespace ReportMonthResultGenerator
                 if (!Dii.Enabled) continue;
                 try
                 {
-                    int GuestCount = (from o in RepBase.GuestCounts where o.SystemDate >= dt1 && o.SystemDate < dt2 && o.DepNum == Dii.Number  select o.GuestCount1.Value).Sum();
+                    //int GuestCount = (from o in RepBase.GuestCounts where o.SystemDate >= dt1 && o.SystemDate < dt2 && o.DepNum == Dii.Number  select o.GuestCount1.Value).Sum();
+                    int GuestCount = (from o in RepBase.GuestCounts where o.SystemDate >= dt1 && o.SystemDate < dt2 && o.DepNum == Dii.Number select o.Guests.Value).Sum();
                     int PlaceCount = (from o in RepBase.AlohaDepPlaces  where o.DepNum == Dii.Number select o.PosMest.Value).First();
                     Ws.Cells[row, 1] = Dii.Name;
                     Ws.Cells[row, 2] = (double)GuestCount / (double)PlaceCount;

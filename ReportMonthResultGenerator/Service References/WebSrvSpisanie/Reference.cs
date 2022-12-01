@@ -12,7 +12,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -58,66 +58,234 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
-    public partial class AllStockItems_StockItemsRow : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AllMenuForSite_T_barcRow : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Nullable<decimal> itemIdField;
+        private string bar_codField;
         
-        private string itemNameField;
+        private string nAMEField;
         
-        private System.Nullable<int> placeIdField;
+        private System.Nullable<int> belkiField;
         
-        private string placeNameField;
+        private System.Nullable<int> zhiriField;
+        
+        private System.Nullable<int> uglevField;
+        
+        private System.Nullable<int> kalorField;
+        
+        private System.Nullable<int> dostavkaField;
+        
+        private string list_priceField;
+        
+        private string list_shopsField;
+        
+        private System.Nullable<int> nDSField;
+        
+        private System.Nullable<int> prigTimeField;
+        
+        private string weightField;
+        
+        private string weightNumbField;
+        
+        private string weightTextField;
+        
+        private System.Nullable<int> vesovoyField;
+        
+        private string sOSTAVField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
-        public System.Nullable<decimal> ItemId {
+        public string bar_cod {
             get {
-                return this.itemIdField;
+                return this.bar_codField;
             }
             set {
-                this.itemIdField = value;
-                this.RaisePropertyChanged("ItemId");
+                this.bar_codField = value;
+                this.RaisePropertyChanged("bar_cod");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
-        public string ItemName {
+        public string NAME {
             get {
-                return this.itemNameField;
+                return this.nAMEField;
             }
             set {
-                this.itemNameField = value;
-                this.RaisePropertyChanged("ItemName");
+                this.nAMEField = value;
+                this.RaisePropertyChanged("NAME");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
-        public System.Nullable<int> PlaceId {
+        public System.Nullable<int> Belki {
             get {
-                return this.placeIdField;
+                return this.belkiField;
             }
             set {
-                this.placeIdField = value;
-                this.RaisePropertyChanged("PlaceId");
+                this.belkiField = value;
+                this.RaisePropertyChanged("Belki");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
-        public string PlaceName {
+        public System.Nullable<int> Zhiri {
             get {
-                return this.placeNameField;
+                return this.zhiriField;
             }
             set {
-                this.placeNameField = value;
-                this.RaisePropertyChanged("PlaceName");
+                this.zhiriField = value;
+                this.RaisePropertyChanged("Zhiri");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<int> Uglev {
+            get {
+                return this.uglevField;
+            }
+            set {
+                this.uglevField = value;
+                this.RaisePropertyChanged("Uglev");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<int> Kalor {
+            get {
+                return this.kalorField;
+            }
+            set {
+                this.kalorField = value;
+                this.RaisePropertyChanged("Kalor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<int> Dostavka {
+            get {
+                return this.dostavkaField;
+            }
+            set {
+                this.dostavkaField = value;
+                this.RaisePropertyChanged("Dostavka");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public string List_price {
+            get {
+                return this.list_priceField;
+            }
+            set {
+                this.list_priceField = value;
+                this.RaisePropertyChanged("List_price");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public string List_shops {
+            get {
+                return this.list_shopsField;
+            }
+            set {
+                this.list_shopsField = value;
+                this.RaisePropertyChanged("List_shops");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public System.Nullable<int> NDS {
+            get {
+                return this.nDSField;
+            }
+            set {
+                this.nDSField = value;
+                this.RaisePropertyChanged("NDS");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public System.Nullable<int> PrigTime {
+            get {
+                return this.prigTimeField;
+            }
+            set {
+                this.prigTimeField = value;
+                this.RaisePropertyChanged("PrigTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public string weight {
+            get {
+                return this.weightField;
+            }
+            set {
+                this.weightField = value;
+                this.RaisePropertyChanged("weight");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        public string weightNumb {
+            get {
+                return this.weightNumbField;
+            }
+            set {
+                this.weightNumbField = value;
+                this.RaisePropertyChanged("weightNumb");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public string weightText {
+            get {
+                return this.weightTextField;
+            }
+            set {
+                this.weightTextField = value;
+                this.RaisePropertyChanged("weightText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public System.Nullable<int> vesovoy {
+            get {
+                return this.vesovoyField;
+            }
+            set {
+                this.vesovoyField = value;
+                this.RaisePropertyChanged("vesovoy");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=15)]
+        public string SOSTAV {
+            get {
+                return this.sOSTAVField;
+            }
+            set {
+                this.sOSTAVField = value;
+                this.RaisePropertyChanged("SOSTAV");
             }
         }
         
@@ -135,6 +303,12 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     [System.ServiceModel.ServiceContractAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8", ConfigurationName="WebSrvSpisanie.Ges3ServicesUTF8Obj")]
     public interface Ges3ServicesUTF8Obj {
         
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения AllMenuForSiteRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteResponse AllMenuForSite(ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteRequest request);
+        
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения AllStockItemsRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
@@ -146,6 +320,18 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.Barcode_LocationResponse Barcode_Location(ReportMonthResultGenerator.WebSrvSpisanie.Barcode_LocationRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения CalculationForBarcodRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodResponse CalculationForBarcod(ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения CompositeGoodRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodResponse CompositeGood(ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodRequest request);
         
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения CreateTransferInGestoriRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -165,11 +351,29 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.FindGestoriGoodsResponse FindGestoriGoods(ReportMonthResultGenerator.WebSrvSpisanie.FindGestoriGoodsRequest request);
         
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения GestoriInredientsRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsResponse GestoriInredients(ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения GestoriInredients2Request не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Response GestoriInredients2(ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Request request);
+        
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_actual_recipe_barcRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barcResponse get_actual_recipe_barc(ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barcRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_alco_sales_by_dayRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayResponse get_alco_sales_by_day(ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayRequest request);
         
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_cash_sales_by_codeRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -405,6 +609,12 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_codeResponse get_sale_by_code(ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_codeRequest request);
         
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_sale_by_code_extRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extResponse get_sale_by_code_ext(ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extRequest request);
+        
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_sale_by_code_longRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
@@ -422,6 +632,12 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.get_salesResponse get_sales(ReportMonthResultGenerator.WebSrvSpisanie.get_salesRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_sales_extRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extResponse get_sales_ext(ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extRequest request);
         
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения get_sales_intercompanyRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -501,17 +717,35 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.GetTransferGestoriResponse GetTransferGestori(ReportMonthResultGenerator.WebSrvSpisanie.GetTransferGestoriRequest request);
         
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения IsMeasLiterOrNotRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotResponse IsMeasLiterOrNot(ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotRequest request);
+        
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения Matrix_112Request не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Response Matrix_112(ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Request request);
         
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения OpenZakazPostRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostResponse OpenZakazPost(ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostRequest request);
+        
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения PrihAndSpisRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.PrihAndSpisResponse PrihAndSpis(ReportMonthResultGenerator.WebSrvSpisanie.PrihAndSpisRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения put_alco_invoiceRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceResponse put_alco_invoice(ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceRequest request);
         
         // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения PutOrderInGestoriRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -536,6 +770,138 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         ReportMonthResultGenerator.WebSrvSpisanie.TransferDocTorg13Response TransferDocTorg13(ReportMonthResultGenerator.WebSrvSpisanie.TransferDocTorg13Request request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения TransferListRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferListResponse TransferList(ReportMonthResultGenerator.WebSrvSpisanie.TransferListRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения TransferStringCreateRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateResponse TransferStringCreate(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения TransferStringDeleteRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteResponse TransferStringDelete(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteRequest request);
+        
+        // CODEGEN: Контракт генерации сообщений с пространством имен упаковщика (urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8) сообщения TransferStringEditRequest не соответствует значению по умолчанию (urn:coffeemania:Ges3ServicesUTF8).
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ReportMonthResultGenerator.WebSrvSpisanie.FaultDetail), Action="", Name="FaultDetail", Namespace="urn:soap-fault:details")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditResponse TransferStringEdit(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AllMenuForSite", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class AllMenuForSiteRequest {
+        
+        public AllMenuForSiteRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AllMenuForSiteResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class AllMenuForSiteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_barcRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSite_T_barcRow[] T_barc;
+        
+        public AllMenuForSiteResponse() {
+        }
+        
+        public AllMenuForSiteResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSite_T_barcRow[] T_barc) {
+            this.result = result;
+            this.T_barc = T_barc;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class AllStockItems_StockItemsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> itemIdField;
+        
+        private string itemNameField;
+        
+        private System.Nullable<int> placeIdField;
+        
+        private string placeNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> ItemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+                this.RaisePropertyChanged("ItemId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string ItemName {
+            get {
+                return this.itemNameField;
+            }
+            set {
+                this.itemNameField = value;
+                this.RaisePropertyChanged("ItemName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<int> PlaceId {
+            get {
+                return this.placeIdField;
+            }
+            set {
+                this.placeIdField = value;
+                this.RaisePropertyChanged("PlaceId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public string PlaceName {
+            get {
+                return this.placeNameField;
+            }
+            set {
+                this.placeNameField = value;
+                this.RaisePropertyChanged("PlaceName");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -629,7 +995,188 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class CalculationForBarcod_CalculationGoodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string comp_CodeField;
+        
+        private string comp_nameField;
+        
+        private string comp_measField;
+        
+        private System.Nullable<decimal> comp_quantField;
+        
+        private System.Nullable<decimal> comp_nettoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public string comp_Code {
+            get {
+                return this.comp_CodeField;
+            }
+            set {
+                this.comp_CodeField = value;
+                this.RaisePropertyChanged("comp_Code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string comp_name {
+            get {
+                return this.comp_nameField;
+            }
+            set {
+                this.comp_nameField = value;
+                this.RaisePropertyChanged("comp_name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string comp_meas {
+            get {
+                return this.comp_measField;
+            }
+            set {
+                this.comp_measField = value;
+                this.RaisePropertyChanged("comp_meas");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<decimal> comp_quant {
+            get {
+                return this.comp_quantField;
+            }
+            set {
+                this.comp_quantField = value;
+                this.RaisePropertyChanged("comp_quant");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> comp_netto {
+            get {
+                return this.comp_nettoField;
+            }
+            set {
+                this.comp_nettoField = value;
+                this.RaisePropertyChanged("comp_netto");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CalculationForBarcod", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class CalculationForBarcodRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string BarCod_Tovara;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> Cod_Podrazdelenia;
+        
+        public CalculationForBarcodRequest() {
+        }
+        
+        public CalculationForBarcodRequest(string BarCod_Tovara, System.Nullable<int> Cod_Podrazdelenia) {
+            this.BarCod_Tovara = BarCod_Tovara;
+            this.Cod_Podrazdelenia = Cod_Podrazdelenia;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CalculationForBarcodResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class CalculationForBarcodResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Error_String;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("CalculationGoodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcod_CalculationGoodsRow[] CalculationGoods;
+        
+        public CalculationForBarcodResponse() {
+        }
+        
+        public CalculationForBarcodResponse(string result, string Error_String, ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcod_CalculationGoodsRow[] CalculationGoods) {
+            this.result = result;
+            this.Error_String = Error_String;
+            this.CalculationGoods = CalculationGoods;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CompositeGood", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class CompositeGoodRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> ibar_cod;
+        
+        public CompositeGoodRequest() {
+        }
+        
+        public CompositeGoodRequest(System.Nullable<int> ibar_cod) {
+            this.ibar_cod = ibar_cod;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CompositeGoodResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class CompositeGoodResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string sostav;
+        
+        public CompositeGoodResponse() {
+        }
+        
+        public CompositeGoodResponse(string result, string sostav) {
+            this.result = result;
+            this.sostav = sostav;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -771,7 +1318,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -980,7 +1527,391 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class GestoriInredients_T_GestoriGoodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<int> bar_codField;
+        
+        private string good_nameField;
+        
+        private string unitField;
+        
+        private System.Nullable<bool> isMadeField;
+        
+        private System.Nullable<decimal> price_madianaField;
+        
+        private System.Nullable<decimal> price_maxField;
+        
+        private System.Nullable<decimal> price_minField;
+        
+        private System.Nullable<decimal> price_averageField;
+        
+        private System.Nullable<decimal> price_LastField;
+        
+        private System.Nullable<System.DateTime> dt_LastField;
+        
+        private System.Nullable<int> kalorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<int> bar_cod {
+            get {
+                return this.bar_codField;
+            }
+            set {
+                this.bar_codField = value;
+                this.RaisePropertyChanged("bar_cod");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string good_name {
+            get {
+                return this.good_nameField;
+            }
+            set {
+                this.good_nameField = value;
+                this.RaisePropertyChanged("good_name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<bool> isMade {
+            get {
+                return this.isMadeField;
+            }
+            set {
+                this.isMadeField = value;
+                this.RaisePropertyChanged("isMade");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> price_madiana {
+            get {
+                return this.price_madianaField;
+            }
+            set {
+                this.price_madianaField = value;
+                this.RaisePropertyChanged("price_madiana");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<decimal> price_max {
+            get {
+                return this.price_maxField;
+            }
+            set {
+                this.price_maxField = value;
+                this.RaisePropertyChanged("price_max");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<decimal> price_min {
+            get {
+                return this.price_minField;
+            }
+            set {
+                this.price_minField = value;
+                this.RaisePropertyChanged("price_min");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<decimal> price_average {
+            get {
+                return this.price_averageField;
+            }
+            set {
+                this.price_averageField = value;
+                this.RaisePropertyChanged("price_average");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public System.Nullable<decimal> price_Last {
+            get {
+                return this.price_LastField;
+            }
+            set {
+                this.price_LastField = value;
+                this.RaisePropertyChanged("price_Last");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true, Order=9)]
+        public System.Nullable<System.DateTime> dt_Last {
+            get {
+                return this.dt_LastField;
+            }
+            set {
+                this.dt_LastField = value;
+                this.RaisePropertyChanged("dt_Last");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public System.Nullable<int> Kalor {
+            get {
+                return this.kalorField;
+            }
+            set {
+                this.kalorField = value;
+                this.RaisePropertyChanged("Kalor");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GestoriInredients", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class GestoriInredientsRequest {
+        
+        public GestoriInredientsRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GestoriInredientsResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class GestoriInredientsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_GestoriGoodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients_T_GestoriGoodsRow[] T_GestoriGoods;
+        
+        public GestoriInredientsResponse() {
+        }
+        
+        public GestoriInredientsResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients_T_GestoriGoodsRow[] T_GestoriGoods) {
+            this.result = result;
+            this.T_GestoriGoods = T_GestoriGoods;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class GestoriInredients2_T_GestoriGoodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<int> bar_codField;
+        
+        private string good_nameField;
+        
+        private string unitField;
+        
+        private System.Nullable<bool> isMadeField;
+        
+        private System.Nullable<decimal> price_av1Field;
+        
+        private System.Nullable<decimal> price_av2Field;
+        
+        private System.Nullable<decimal> price_lastField;
+        
+        private System.Nullable<System.DateTime> dt_lastField;
+        
+        private System.Nullable<int> kalorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<int> bar_cod {
+            get {
+                return this.bar_codField;
+            }
+            set {
+                this.bar_codField = value;
+                this.RaisePropertyChanged("bar_cod");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string good_name {
+            get {
+                return this.good_nameField;
+            }
+            set {
+                this.good_nameField = value;
+                this.RaisePropertyChanged("good_name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string unit {
+            get {
+                return this.unitField;
+            }
+            set {
+                this.unitField = value;
+                this.RaisePropertyChanged("unit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<bool> isMade {
+            get {
+                return this.isMadeField;
+            }
+            set {
+                this.isMadeField = value;
+                this.RaisePropertyChanged("isMade");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> price_av1 {
+            get {
+                return this.price_av1Field;
+            }
+            set {
+                this.price_av1Field = value;
+                this.RaisePropertyChanged("price_av1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<decimal> price_av2 {
+            get {
+                return this.price_av2Field;
+            }
+            set {
+                this.price_av2Field = value;
+                this.RaisePropertyChanged("price_av2");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<decimal> price_last {
+            get {
+                return this.price_lastField;
+            }
+            set {
+                this.price_lastField = value;
+                this.RaisePropertyChanged("price_last");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true, Order=7)]
+        public System.Nullable<System.DateTime> dt_last {
+            get {
+                return this.dt_lastField;
+            }
+            set {
+                this.dt_lastField = value;
+                this.RaisePropertyChanged("dt_last");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public System.Nullable<int> Kalor {
+            get {
+                return this.kalorField;
+            }
+            set {
+                this.kalorField = value;
+                this.RaisePropertyChanged("Kalor");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GestoriInredients2", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class GestoriInredients2Request {
+        
+        public GestoriInredients2Request() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GestoriInredients2Response", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class GestoriInredients2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_GestoriGoodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2_T_GestoriGoodsRow[] T_GestoriGoods;
+        
+        public GestoriInredients2Response() {
+        }
+        
+        public GestoriInredients2Response(string result, ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2_T_GestoriGoodsRow[] T_GestoriGoods) {
+            this.result = result;
+            this.T_GestoriGoods = T_GestoriGoods;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1138,7 +2069,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1240,7 +2171,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1378,7 +2309,114 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class get_alco_sales_by_day_T_goodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<int> codGoodField;
+        
+        private string nameGoodField;
+        
+        private System.Nullable<decimal> pVolumeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<int> codGood {
+            get {
+                return this.codGoodField;
+            }
+            set {
+                this.codGoodField = value;
+                this.RaisePropertyChanged("codGood");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string NameGood {
+            get {
+                return this.nameGoodField;
+            }
+            set {
+                this.nameGoodField = value;
+                this.RaisePropertyChanged("NameGood");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<decimal> pVolume {
+            get {
+                return this.pVolumeField;
+            }
+            set {
+                this.pVolumeField = value;
+                this.RaisePropertyChanged("pVolume");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_alco_sales_by_day", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_alco_sales_by_dayRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CODE_subdivision;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> DT1;
+        
+        public get_alco_sales_by_dayRequest() {
+        }
+        
+        public get_alco_sales_by_dayRequest(System.Nullable<int> CODE_subdivision, System.Nullable<System.DateTime> DT1) {
+            this.CODE_subdivision = CODE_subdivision;
+            this.DT1 = DT1;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_alco_sales_by_dayResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_alco_sales_by_dayResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_goodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_day_T_goodsRow[] T_goods;
+        
+        public get_alco_sales_by_dayResponse() {
+        }
+        
+        public get_alco_sales_by_dayResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_day_T_goodsRow[] T_goods) {
+            this.result = result;
+            this.T_goods = T_goods;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1560,7 +2598,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1718,7 +2756,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1806,7 +2844,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2000,7 +3038,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2140,7 +3178,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2270,7 +3308,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2358,7 +3396,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2524,7 +3562,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2683,7 +3721,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2813,7 +3851,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2950,7 +3988,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3081,7 +4119,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3235,7 +4273,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3347,7 +4385,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3473,7 +4511,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3519,7 +4557,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3637,7 +4675,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3735,7 +4773,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3833,7 +4871,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3945,7 +4983,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4104,7 +5142,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4248,7 +5286,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4371,7 +5409,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4488,7 +5526,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4670,7 +5708,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4922,7 +5960,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5165,7 +6203,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5263,7 +6301,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5365,7 +6403,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5469,7 +6507,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5567,7 +6605,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5679,7 +6717,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5725,7 +6763,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5899,7 +6937,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6057,7 +7095,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6159,7 +7197,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6297,7 +7335,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6469,7 +7507,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6629,7 +7667,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6863,7 +7901,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6909,7 +7947,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7027,7 +8065,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7139,7 +8177,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7298,7 +8336,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7442,7 +8480,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7579,7 +8617,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7710,7 +8748,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7808,7 +8846,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7934,7 +8972,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8093,7 +9131,184 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class get_sale_by_code_ext_T_goodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> cod_goodField;
+        
+        private string nAME_goodField;
+        
+        private string nAME_measField;
+        
+        private System.Nullable<decimal> quantityField;
+        
+        private System.Nullable<decimal> priceField;
+        
+        private System.Nullable<int> nDSprocField;
+        
+        private System.Nullable<decimal> nDSsumField;
+        
+        private System.Nullable<decimal> tOVsumField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> cod_good {
+            get {
+                return this.cod_goodField;
+            }
+            set {
+                this.cod_goodField = value;
+                this.RaisePropertyChanged("cod_good");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string NAME_good {
+            get {
+                return this.nAME_goodField;
+            }
+            set {
+                this.nAME_goodField = value;
+                this.RaisePropertyChanged("NAME_good");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string NAME_meas {
+            get {
+                return this.nAME_measField;
+            }
+            set {
+                this.nAME_measField = value;
+                this.RaisePropertyChanged("NAME_meas");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<decimal> quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                this.quantityField = value;
+                this.RaisePropertyChanged("quantity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("price");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<int> NDSproc {
+            get {
+                return this.nDSprocField;
+            }
+            set {
+                this.nDSprocField = value;
+                this.RaisePropertyChanged("NDSproc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<decimal> NDSsum {
+            get {
+                return this.nDSsumField;
+            }
+            set {
+                this.nDSsumField = value;
+                this.RaisePropertyChanged("NDSsum");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<decimal> TOVsum {
+            get {
+                return this.tOVsumField;
+            }
+            set {
+                this.tOVsumField = value;
+                this.RaisePropertyChanged("TOVsum");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_sale_by_code_ext", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_sale_by_code_extRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> CODE_invoice;
+        
+        public get_sale_by_code_extRequest() {
+        }
+        
+        public get_sale_by_code_extRequest(System.Nullable<decimal> CODE_invoice) {
+            this.CODE_invoice = CODE_invoice;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_sale_by_code_extResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_sale_by_code_extResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> CODE_100;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_goodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_ext_T_goodsRow[] T_goods;
+        
+        public get_sale_by_code_extResponse() {
+        }
+        
+        public get_sale_by_code_extResponse(string result, System.Nullable<decimal> CODE_100, ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_ext_T_goodsRow[] T_goods) {
+            this.result = result;
+            this.CODE_100 = CODE_100;
+            this.T_goods = T_goods;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8237,7 +9452,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8374,7 +9589,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8505,7 +9720,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8659,7 +9874,483 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class get_sales_ext_T_NumberInvoiceRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> num_naklField;
+        
+        private System.Nullable<System.DateTime> dt_documField;
+        
+        private System.Nullable<decimal> amountField;
+        
+        private System.Nullable<int> cODE_postField;
+        
+        private string nAME_postField;
+        
+        private string iNN_postField;
+        
+        private string kPP_postField;
+        
+        private System.Nullable<int> cODE_firmField;
+        
+        private string nAME_firmField;
+        
+        private string iNN_firmField;
+        
+        private string kPP_firmField;
+        
+        private string okpo_firmField;
+        
+        private string adres_firmField;
+        
+        private string bik_firmField;
+        
+        private string n_chet_firmField;
+        
+        private string korr_ch_firmField;
+        
+        private System.Nullable<int> cODE_polField;
+        
+        private string nAME_polField;
+        
+        private string iNN_polField;
+        
+        private string kPP_polField;
+        
+        private string okpo_polField;
+        
+        private string adres_polField;
+        
+        private string bik_polField;
+        
+        private string n_chet_polField;
+        
+        private string korr_ch_polField;
+        
+        private string cNumFactField;
+        
+        private System.Nullable<System.DateTime> dt_factField;
+        
+        private System.Nullable<int> cod_shpField;
+        
+        private string nAME_shpField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> num_nakl {
+            get {
+                return this.num_naklField;
+            }
+            set {
+                this.num_naklField = value;
+                this.RaisePropertyChanged("num_nakl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true, Order=1)]
+        public System.Nullable<System.DateTime> dt_docum {
+            get {
+                return this.dt_documField;
+            }
+            set {
+                this.dt_documField = value;
+                this.RaisePropertyChanged("dt_docum");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<decimal> amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+                this.RaisePropertyChanged("amount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<int> CODE_post {
+            get {
+                return this.cODE_postField;
+            }
+            set {
+                this.cODE_postField = value;
+                this.RaisePropertyChanged("CODE_post");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public string NAME_post {
+            get {
+                return this.nAME_postField;
+            }
+            set {
+                this.nAME_postField = value;
+                this.RaisePropertyChanged("NAME_post");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public string INN_post {
+            get {
+                return this.iNN_postField;
+            }
+            set {
+                this.iNN_postField = value;
+                this.RaisePropertyChanged("INN_post");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public string KPP_post {
+            get {
+                return this.kPP_postField;
+            }
+            set {
+                this.kPP_postField = value;
+                this.RaisePropertyChanged("KPP_post");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<int> CODE_firm {
+            get {
+                return this.cODE_firmField;
+            }
+            set {
+                this.cODE_firmField = value;
+                this.RaisePropertyChanged("CODE_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public string NAME_firm {
+            get {
+                return this.nAME_firmField;
+            }
+            set {
+                this.nAME_firmField = value;
+                this.RaisePropertyChanged("NAME_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public string INN_firm {
+            get {
+                return this.iNN_firmField;
+            }
+            set {
+                this.iNN_firmField = value;
+                this.RaisePropertyChanged("INN_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public string KPP_firm {
+            get {
+                return this.kPP_firmField;
+            }
+            set {
+                this.kPP_firmField = value;
+                this.RaisePropertyChanged("KPP_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public string okpo_firm {
+            get {
+                return this.okpo_firmField;
+            }
+            set {
+                this.okpo_firmField = value;
+                this.RaisePropertyChanged("okpo_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=12)]
+        public string adres_firm {
+            get {
+                return this.adres_firmField;
+            }
+            set {
+                this.adres_firmField = value;
+                this.RaisePropertyChanged("adres_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=13)]
+        public string bik_firm {
+            get {
+                return this.bik_firmField;
+            }
+            set {
+                this.bik_firmField = value;
+                this.RaisePropertyChanged("bik_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public string n_chet_firm {
+            get {
+                return this.n_chet_firmField;
+            }
+            set {
+                this.n_chet_firmField = value;
+                this.RaisePropertyChanged("n_chet_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=15)]
+        public string korr_ch_firm {
+            get {
+                return this.korr_ch_firmField;
+            }
+            set {
+                this.korr_ch_firmField = value;
+                this.RaisePropertyChanged("korr_ch_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=16)]
+        public System.Nullable<int> CODE_pol {
+            get {
+                return this.cODE_polField;
+            }
+            set {
+                this.cODE_polField = value;
+                this.RaisePropertyChanged("CODE_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=17)]
+        public string NAME_pol {
+            get {
+                return this.nAME_polField;
+            }
+            set {
+                this.nAME_polField = value;
+                this.RaisePropertyChanged("NAME_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=18)]
+        public string INN_pol {
+            get {
+                return this.iNN_polField;
+            }
+            set {
+                this.iNN_polField = value;
+                this.RaisePropertyChanged("INN_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=19)]
+        public string KPP_pol {
+            get {
+                return this.kPP_polField;
+            }
+            set {
+                this.kPP_polField = value;
+                this.RaisePropertyChanged("KPP_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=20)]
+        public string okpo_pol {
+            get {
+                return this.okpo_polField;
+            }
+            set {
+                this.okpo_polField = value;
+                this.RaisePropertyChanged("okpo_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=21)]
+        public string adres_pol {
+            get {
+                return this.adres_polField;
+            }
+            set {
+                this.adres_polField = value;
+                this.RaisePropertyChanged("adres_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=22)]
+        public string bik_pol {
+            get {
+                return this.bik_polField;
+            }
+            set {
+                this.bik_polField = value;
+                this.RaisePropertyChanged("bik_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=23)]
+        public string n_chet_pol {
+            get {
+                return this.n_chet_polField;
+            }
+            set {
+                this.n_chet_polField = value;
+                this.RaisePropertyChanged("n_chet_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=24)]
+        public string korr_ch_pol {
+            get {
+                return this.korr_ch_polField;
+            }
+            set {
+                this.korr_ch_polField = value;
+                this.RaisePropertyChanged("korr_ch_pol");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=25)]
+        public string cNumFact {
+            get {
+                return this.cNumFactField;
+            }
+            set {
+                this.cNumFactField = value;
+                this.RaisePropertyChanged("cNumFact");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true, Order=26)]
+        public System.Nullable<System.DateTime> dt_fact {
+            get {
+                return this.dt_factField;
+            }
+            set {
+                this.dt_factField = value;
+                this.RaisePropertyChanged("dt_fact");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=27)]
+        public System.Nullable<int> cod_shp {
+            get {
+                return this.cod_shpField;
+            }
+            set {
+                this.cod_shpField = value;
+                this.RaisePropertyChanged("cod_shp");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=28)]
+        public string NAME_shp {
+            get {
+                return this.nAME_shpField;
+            }
+            set {
+                this.nAME_shpField = value;
+                this.RaisePropertyChanged("NAME_shp");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_sales_ext", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_sales_extRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> dateStart;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> dateEnd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CODE_Union;
+        
+        public get_sales_extRequest() {
+        }
+        
+        public get_sales_extRequest(System.Nullable<System.DateTime> dateStart, System.Nullable<System.DateTime> dateEnd, System.Nullable<int> CODE_Union) {
+            this.dateStart = dateStart;
+            this.dateEnd = dateEnd;
+            this.CODE_Union = CODE_Union;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="get_sales_extResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class get_sales_extResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_NumberInvoiceRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.get_sales_ext_T_NumberInvoiceRow[] T_NumberInvoice;
+        
+        public get_sales_extResponse() {
+        }
+        
+        public get_sales_extResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.get_sales_ext_T_NumberInvoiceRow[] T_NumberInvoice) {
+            this.result = result;
+            this.T_NumberInvoice = T_NumberInvoice;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8813,7 +10504,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -8948,7 +10639,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9078,7 +10769,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9191,7 +10882,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9339,7 +11030,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9442,7 +11133,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9544,7 +11235,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9653,7 +11344,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9756,7 +11447,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9844,7 +11535,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10051,7 +11742,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10163,7 +11854,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10279,7 +11970,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10381,7 +12072,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10481,7 +12172,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10611,7 +12302,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10785,7 +12476,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10915,7 +12606,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11107,8 +12798,49 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="IsMeasLiterOrNot", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class IsMeasLiterOrNotRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> codGood;
+        
+        public IsMeasLiterOrNotRequest() {
+        }
+        
+        public IsMeasLiterOrNotRequest(System.Nullable<int> codGood) {
+            this.codGood = codGood;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="IsMeasLiterOrNotResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class IsMeasLiterOrNotResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> iRezult;
+        
+        public IsMeasLiterOrNotResponse() {
+        }
+        
+        public IsMeasLiterOrNotResponse(string result, System.Nullable<int> iRezult) {
+            this.result = result;
+            this.iRezult = iRezult;
+        }
+    }
+    
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11341,6 +13073,240 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class OpenZakazPost_TzakpRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> num_naklField;
+        
+        private System.Nullable<decimal> summaField;
+        
+        private System.Nullable<int> codPostField;
+        
+        private System.Nullable<System.DateTime> dt_naklField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> num_nakl {
+            get {
+                return this.num_naklField;
+            }
+            set {
+                this.num_naklField = value;
+                this.RaisePropertyChanged("num_nakl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public System.Nullable<decimal> summa {
+            get {
+                return this.summaField;
+            }
+            set {
+                this.summaField = value;
+                this.RaisePropertyChanged("summa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<int> CodPost {
+            get {
+                return this.codPostField;
+            }
+            set {
+                this.codPostField = value;
+                this.RaisePropertyChanged("CodPost");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true, Order=3)]
+        public System.Nullable<System.DateTime> dt_nakl {
+            get {
+                return this.dt_naklField;
+            }
+            set {
+                this.dt_naklField = value;
+                this.RaisePropertyChanged("dt_nakl");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class OpenZakazPost_TgoodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> num_naklField;
+        
+        private string barcodtField;
+        
+        private System.Nullable<int> ndsField;
+        
+        private System.Nullable<decimal> priceField;
+        
+        private System.Nullable<decimal> quantField;
+        
+        private string c_measField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> num_nakl {
+            get {
+                return this.num_naklField;
+            }
+            set {
+                this.num_naklField = value;
+                this.RaisePropertyChanged("num_nakl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public string barcodt {
+            get {
+                return this.barcodtField;
+            }
+            set {
+                this.barcodtField = value;
+                this.RaisePropertyChanged("barcodt");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<int> nds {
+            get {
+                return this.ndsField;
+            }
+            set {
+                this.ndsField = value;
+                this.RaisePropertyChanged("nds");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<decimal> price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("price");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> quant {
+            get {
+                return this.quantField;
+            }
+            set {
+                this.quantField = value;
+                this.RaisePropertyChanged("quant");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public string c_meas {
+            get {
+                return this.c_measField;
+            }
+            set {
+                this.c_measField = value;
+                this.RaisePropertyChanged("c_meas");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="OpenZakazPost", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class OpenZakazPostRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> DT1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> DT2;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> Cod_Podr;
+        
+        public OpenZakazPostRequest() {
+        }
+        
+        public OpenZakazPostRequest(System.Nullable<System.DateTime> DT1, System.Nullable<System.DateTime> DT2, System.Nullable<int> Cod_Podr) {
+            this.DT1 = DT1;
+            this.DT2 = DT2;
+            this.Cod_Podr = Cod_Podr;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="OpenZakazPostResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class OpenZakazPostResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("TzakpRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TzakpRow[] Tzakp;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("TgoodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TgoodsRow[] Tgoods;
+        
+        public OpenZakazPostResponse() {
+        }
+        
+        public OpenZakazPostResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TzakpRow[] Tzakp, ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TgoodsRow[] Tgoods) {
+            this.result = result;
+            this.Tzakp = Tzakp;
+            this.Tgoods = Tgoods;
+        }
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -11413,7 +13379,162 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class put_alco_invoice_T_goodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<int> codGoodField;
+        
+        private System.Nullable<decimal> kol_voField;
+        
+        private System.Nullable<decimal> r_priceField;
+        
+        private System.Nullable<int> nds_stField;
+        
+        private System.Nullable<decimal> nds_sumField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<int> codGood {
+            get {
+                return this.codGoodField;
+            }
+            set {
+                this.codGoodField = value;
+                this.RaisePropertyChanged("codGood");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public System.Nullable<decimal> kol_vo {
+            get {
+                return this.kol_voField;
+            }
+            set {
+                this.kol_voField = value;
+                this.RaisePropertyChanged("kol_vo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<decimal> r_price {
+            get {
+                return this.r_priceField;
+            }
+            set {
+                this.r_priceField = value;
+                this.RaisePropertyChanged("r_price");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<int> nds_st {
+            get {
+                return this.nds_stField;
+            }
+            set {
+                this.nds_stField = value;
+                this.RaisePropertyChanged("nds_st");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> nds_sum {
+            get {
+                return this.nds_sumField;
+            }
+            set {
+                this.nds_sumField = value;
+                this.RaisePropertyChanged("nds_sum");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="put_alco_invoice", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class put_alco_invoiceRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CODE_subdivision;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CODE_post;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string numb_doc;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> DT1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=4)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_goodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoice_T_goodsRow[] T_goods;
+        
+        public put_alco_invoiceRequest() {
+        }
+        
+        public put_alco_invoiceRequest(System.Nullable<int> CODE_subdivision, System.Nullable<int> CODE_post, string numb_doc, System.Nullable<System.DateTime> DT1, ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoice_T_goodsRow[] T_goods) {
+            this.CODE_subdivision = CODE_subdivision;
+            this.CODE_post = CODE_post;
+            this.numb_doc = numb_doc;
+            this.DT1 = DT1;
+            this.T_goods = T_goods;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="put_alco_invoiceResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class put_alco_invoiceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string numb_nakl;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string cError;
+        
+        public put_alco_invoiceResponse() {
+        }
+        
+        public put_alco_invoiceResponse(string result, string numb_nakl, string cError) {
+            this.result = result;
+            this.numb_nakl = numb_nakl;
+            this.cError = cError;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11582,7 +13703,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11756,7 +13877,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -11929,7 +14050,7 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12127,6 +14248,398 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class TransferList_T_naklRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> num_naklField;
+        
+        private System.Nullable<int> cod_firmField;
+        
+        private string nAME_firmField;
+        
+        private System.Nullable<bool> fflagField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> num_nakl {
+            get {
+                return this.num_naklField;
+            }
+            set {
+                this.num_naklField = value;
+                this.RaisePropertyChanged("num_nakl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public System.Nullable<int> cod_firm {
+            get {
+                return this.cod_firmField;
+            }
+            set {
+                this.cod_firmField = value;
+                this.RaisePropertyChanged("cod_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public string NAME_firm {
+            get {
+                return this.nAME_firmField;
+            }
+            set {
+                this.nAME_firmField = value;
+                this.RaisePropertyChanged("NAME_firm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public System.Nullable<bool> fflag {
+            get {
+                return this.fflagField;
+            }
+            set {
+                this.fflagField = value;
+                this.RaisePropertyChanged("fflag");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8")]
+    public partial class TransferList_T_goodsRow : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<decimal> num_naklField;
+        
+        private System.Nullable<int> nn_posField;
+        
+        private System.Nullable<int> bar_codField;
+        
+        private string bar_nameField;
+        
+        private System.Nullable<decimal> kol_upakField;
+        
+        private System.Nullable<decimal> kol_v_upField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=0)]
+        public System.Nullable<decimal> num_nakl {
+            get {
+                return this.num_naklField;
+            }
+            set {
+                this.num_naklField = value;
+                this.RaisePropertyChanged("num_nakl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=1)]
+        public System.Nullable<int> nn_pos {
+            get {
+                return this.nn_posField;
+            }
+            set {
+                this.nn_posField = value;
+                this.RaisePropertyChanged("nn_pos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=2)]
+        public System.Nullable<int> bar_cod {
+            get {
+                return this.bar_codField;
+            }
+            set {
+                this.bar_codField = value;
+                this.RaisePropertyChanged("bar_cod");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public string bar_name {
+            get {
+                return this.bar_nameField;
+            }
+            set {
+                this.bar_nameField = value;
+                this.RaisePropertyChanged("bar_name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public System.Nullable<decimal> kol_upak {
+            get {
+                return this.kol_upakField;
+            }
+            set {
+                this.kol_upakField = value;
+                this.RaisePropertyChanged("kol_upak");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<decimal> kol_v_up {
+            get {
+                return this.kol_v_upField;
+            }
+            set {
+                this.kol_v_upField = value;
+                this.RaisePropertyChanged("kol_v_up");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferList", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CSH;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", IsNullable=true)]
+        public System.Nullable<System.DateTime> DT1;
+        
+        public TransferListRequest() {
+        }
+        
+        public TransferListRequest(System.Nullable<int> CSH, System.Nullable<System.DateTime> DT1) {
+            this.CSH = CSH;
+            this.DT1 = DT1;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferListResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_naklRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_naklRow[] T_nakl;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("T_goodsRow", IsNullable=false)]
+        public ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_goodsRow[] T_goods;
+        
+        public TransferListResponse() {
+        }
+        
+        public TransferListResponse(string result, ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_naklRow[] T_nakl, ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_goodsRow[] T_goods) {
+            this.result = result;
+            this.T_nakl = T_nakl;
+            this.T_goods = T_goods;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringCreate", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringCreateRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> per_nakl;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> pbarcod;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> par_upak;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> par_v_up;
+        
+        public TransferStringCreateRequest() {
+        }
+        
+        public TransferStringCreateRequest(System.Nullable<decimal> per_nakl, System.Nullable<int> pbarcod, System.Nullable<decimal> par_upak, System.Nullable<decimal> par_v_up) {
+            this.per_nakl = per_nakl;
+            this.pbarcod = pbarcod;
+            this.par_upak = par_upak;
+            this.par_v_up = par_v_up;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringCreateResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringCreateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string stError;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> nn_pos;
+        
+        public TransferStringCreateResponse() {
+        }
+        
+        public TransferStringCreateResponse(string result, string stError, System.Nullable<int> nn_pos) {
+            this.result = result;
+            this.stError = stError;
+            this.nn_pos = nn_pos;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringDelete", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringDeleteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> per_nakl;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> per_nn;
+        
+        public TransferStringDeleteRequest() {
+        }
+        
+        public TransferStringDeleteRequest(System.Nullable<decimal> per_nakl, System.Nullable<int> per_nn) {
+            this.per_nakl = per_nakl;
+            this.per_nn = per_nn;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringDeleteResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringDeleteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string stError;
+        
+        public TransferStringDeleteResponse() {
+        }
+        
+        public TransferStringDeleteResponse(string result, string stError) {
+            this.result = result;
+            this.stError = stError;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringEdit", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringEditRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> per_nakl;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> per_nn;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> par_upak;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> par_v_up;
+        
+        public TransferStringEditRequest() {
+        }
+        
+        public TransferStringEditRequest(System.Nullable<decimal> per_nakl, System.Nullable<int> per_nn, System.Nullable<decimal> par_upak, System.Nullable<decimal> par_v_up) {
+            this.per_nakl = per_nakl;
+            this.per_nn = per_nn;
+            this.par_upak = par_upak;
+            this.par_v_up = par_v_up;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TransferStringEditResponse", WrapperNamespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", IsWrapped=true)]
+    public partial class TransferStringEditResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string result;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:coffeemania:Ges3ServicesUTF8:Ges3ServicesUTF8", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string stError;
+        
+        public TransferStringEditResponse() {
+        }
+        
+        public TransferStringEditResponse(string result, string stError) {
+            this.result = result;
+            this.stError = stError;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface Ges3ServicesUTF8ObjChannel : ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj, System.ServiceModel.IClientChannel {
     }
@@ -12155,6 +14668,18 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.AllMenuForSite(ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteRequest request) {
+            return base.Channel.AllMenuForSite(request);
+        }
+        
+        public string AllMenuForSite(out ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSite_T_barcRow[] T_barc) {
+            ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteRequest();
+            ReportMonthResultGenerator.WebSrvSpisanie.AllMenuForSiteResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).AllMenuForSite(inValue);
+            T_barc = retVal.T_barc;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ReportMonthResultGenerator.WebSrvSpisanie.AllStockItemsResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.AllStockItems(ReportMonthResultGenerator.WebSrvSpisanie.AllStockItemsRequest request) {
             return base.Channel.AllStockItems(request);
         }
@@ -12179,6 +14704,34 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             name_item = retVal.name_item;
             name_unit = retVal.name_unit;
             quantity = retVal.quantity;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.CalculationForBarcod(ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodRequest request) {
+            return base.Channel.CalculationForBarcod(request);
+        }
+        
+        public string CalculationForBarcod(string BarCod_Tovara, System.Nullable<int> Cod_Podrazdelenia, out string Error_String, out ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcod_CalculationGoodsRow[] CalculationGoods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodRequest();
+            inValue.BarCod_Tovara = BarCod_Tovara;
+            inValue.Cod_Podrazdelenia = Cod_Podrazdelenia;
+            ReportMonthResultGenerator.WebSrvSpisanie.CalculationForBarcodResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).CalculationForBarcod(inValue);
+            Error_String = retVal.Error_String;
+            CalculationGoods = retVal.CalculationGoods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.CompositeGood(ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodRequest request) {
+            return base.Channel.CompositeGood(request);
+        }
+        
+        public string CompositeGood(System.Nullable<int> ibar_cod, out string sostav) {
+            ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodRequest();
+            inValue.ibar_cod = ibar_cod;
+            ReportMonthResultGenerator.WebSrvSpisanie.CompositeGoodResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).CompositeGood(inValue);
+            sostav = retVal.sostav;
             return retVal.result;
         }
         
@@ -12232,6 +14785,30 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.GestoriInredients(ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsRequest request) {
+            return base.Channel.GestoriInredients(request);
+        }
+        
+        public string GestoriInredients(out ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients_T_GestoriGoodsRow[] T_GestoriGoods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsRequest();
+            ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredientsResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).GestoriInredients(inValue);
+            T_GestoriGoods = retVal.T_GestoriGoods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Response ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.GestoriInredients2(ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Request request) {
+            return base.Channel.GestoriInredients2(request);
+        }
+        
+        public string GestoriInredients2(out ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2_T_GestoriGoodsRow[] T_GestoriGoods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Request inValue = new ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Request();
+            ReportMonthResultGenerator.WebSrvSpisanie.GestoriInredients2Response retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).GestoriInredients2(inValue);
+            T_GestoriGoods = retVal.T_GestoriGoods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barcResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.get_actual_recipe_barc(ReportMonthResultGenerator.WebSrvSpisanie.get_actual_recipe_barcRequest request) {
             return base.Channel.get_actual_recipe_barc(request);
         }
@@ -12245,6 +14822,20 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             RecipeHeader = retVal.RecipeHeader;
             RecipeDetails = retVal.RecipeDetails;
             Barcods = retVal.Barcods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.get_alco_sales_by_day(ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayRequest request) {
+            return base.Channel.get_alco_sales_by_day(request);
+        }
+        
+        public string get_alco_sales_by_day(System.Nullable<int> CODE_subdivision, System.Nullable<System.DateTime> DT1, out ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_day_T_goodsRow[] T_goods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayRequest();
+            inValue.CODE_subdivision = CODE_subdivision;
+            inValue.DT1 = DT1;
+            ReportMonthResultGenerator.WebSrvSpisanie.get_alco_sales_by_dayResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).get_alco_sales_by_day(inValue);
+            T_goods = retVal.T_goods;
             return retVal.result;
         }
         
@@ -12864,6 +15455,20 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.get_sale_by_code_ext(ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extRequest request) {
+            return base.Channel.get_sale_by_code_ext(request);
+        }
+        
+        public string get_sale_by_code_ext(System.Nullable<decimal> CODE_invoice, out System.Nullable<decimal> CODE_100, out ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_ext_T_goodsRow[] T_goods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extRequest();
+            inValue.CODE_invoice = CODE_invoice;
+            ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_extResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).get_sale_by_code_ext(inValue);
+            CODE_100 = retVal.CODE_100;
+            T_goods = retVal.T_goods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_longResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.get_sale_by_code_long(ReportMonthResultGenerator.WebSrvSpisanie.get_sale_by_code_longRequest request) {
             return base.Channel.get_sale_by_code_long(request);
         }
@@ -12907,6 +15512,21 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             inValue.dateEnd = dateEnd;
             inValue.CODE_Union = CODE_Union;
             ReportMonthResultGenerator.WebSrvSpisanie.get_salesResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).get_sales(inValue);
+            T_NumberInvoice = retVal.T_NumberInvoice;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.get_sales_ext(ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extRequest request) {
+            return base.Channel.get_sales_ext(request);
+        }
+        
+        public string get_sales_ext(System.Nullable<System.DateTime> dateStart, System.Nullable<System.DateTime> dateEnd, System.Nullable<int> CODE_Union, out ReportMonthResultGenerator.WebSrvSpisanie.get_sales_ext_T_NumberInvoiceRow[] T_NumberInvoice) {
+            ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extRequest();
+            inValue.dateStart = dateStart;
+            inValue.dateEnd = dateEnd;
+            inValue.CODE_Union = CODE_Union;
+            ReportMonthResultGenerator.WebSrvSpisanie.get_sales_extResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).get_sales_ext(inValue);
             T_NumberInvoice = retVal.T_NumberInvoice;
             return retVal.result;
         }
@@ -13112,6 +15732,19 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.IsMeasLiterOrNot(ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotRequest request) {
+            return base.Channel.IsMeasLiterOrNot(request);
+        }
+        
+        public string IsMeasLiterOrNot(System.Nullable<int> codGood, out System.Nullable<int> iRezult) {
+            ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotRequest();
+            inValue.codGood = codGood;
+            ReportMonthResultGenerator.WebSrvSpisanie.IsMeasLiterOrNotResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).IsMeasLiterOrNot(inValue);
+            iRezult = retVal.iRezult;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Response ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.Matrix_112(ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Request request) {
             return base.Channel.Matrix_112(request);
         }
@@ -13120,6 +15753,22 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Request inValue = new ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Request();
             ReportMonthResultGenerator.WebSrvSpisanie.Matrix_112Response retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).Matrix_112(inValue);
             Matrix = retVal.Matrix;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.OpenZakazPost(ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostRequest request) {
+            return base.Channel.OpenZakazPost(request);
+        }
+        
+        public string OpenZakazPost(System.Nullable<System.DateTime> DT1, System.Nullable<System.DateTime> DT2, System.Nullable<int> Cod_Podr, out ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TzakpRow[] Tzakp, out ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPost_TgoodsRow[] Tgoods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostRequest();
+            inValue.DT1 = DT1;
+            inValue.DT2 = DT2;
+            inValue.Cod_Podr = Cod_Podr;
+            ReportMonthResultGenerator.WebSrvSpisanie.OpenZakazPostResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).OpenZakazPost(inValue);
+            Tzakp = retVal.Tzakp;
+            Tgoods = retVal.Tgoods;
             return retVal.result;
         }
         
@@ -13139,6 +15788,24 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             cMeas = retVal.cMeas;
             qPr = retVal.qPr;
             qSp = retVal.qSp;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.put_alco_invoice(ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceRequest request) {
+            return base.Channel.put_alco_invoice(request);
+        }
+        
+        public string put_alco_invoice(System.Nullable<int> CODE_subdivision, System.Nullable<int> CODE_post, string numb_doc, System.Nullable<System.DateTime> DT1, ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoice_T_goodsRow[] T_goods, out string numb_nakl, out string cError) {
+            ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceRequest();
+            inValue.CODE_subdivision = CODE_subdivision;
+            inValue.CODE_post = CODE_post;
+            inValue.numb_doc = numb_doc;
+            inValue.DT1 = DT1;
+            inValue.T_goods = T_goods;
+            ReportMonthResultGenerator.WebSrvSpisanie.put_alco_invoiceResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).put_alco_invoice(inValue);
+            numb_nakl = retVal.numb_nakl;
+            cError = retVal.cError;
             return retVal.result;
         }
         
@@ -13216,6 +15883,68 @@ namespace ReportMonthResultGenerator.WebSrvSpisanie {
             podr_kuda = retVal.podr_kuda;
             T_rezults = retVal.T_rezults;
             lRezult = retVal.lRezult;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferListResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.TransferList(ReportMonthResultGenerator.WebSrvSpisanie.TransferListRequest request) {
+            return base.Channel.TransferList(request);
+        }
+        
+        public string TransferList(System.Nullable<int> CSH, System.Nullable<System.DateTime> DT1, out ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_naklRow[] T_nakl, out ReportMonthResultGenerator.WebSrvSpisanie.TransferList_T_goodsRow[] T_goods) {
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferListRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.TransferListRequest();
+            inValue.CSH = CSH;
+            inValue.DT1 = DT1;
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferListResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).TransferList(inValue);
+            T_nakl = retVal.T_nakl;
+            T_goods = retVal.T_goods;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.TransferStringCreate(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateRequest request) {
+            return base.Channel.TransferStringCreate(request);
+        }
+        
+        public string TransferStringCreate(System.Nullable<decimal> per_nakl, System.Nullable<int> pbarcod, System.Nullable<decimal> par_upak, System.Nullable<decimal> par_v_up, out string stError, out System.Nullable<int> nn_pos) {
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateRequest();
+            inValue.per_nakl = per_nakl;
+            inValue.pbarcod = pbarcod;
+            inValue.par_upak = par_upak;
+            inValue.par_v_up = par_v_up;
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringCreateResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).TransferStringCreate(inValue);
+            stError = retVal.stError;
+            nn_pos = retVal.nn_pos;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.TransferStringDelete(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteRequest request) {
+            return base.Channel.TransferStringDelete(request);
+        }
+        
+        public string TransferStringDelete(System.Nullable<decimal> per_nakl, System.Nullable<int> per_nn, out string stError) {
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteRequest();
+            inValue.per_nakl = per_nakl;
+            inValue.per_nn = per_nn;
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringDeleteResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).TransferStringDelete(inValue);
+            stError = retVal.stError;
+            return retVal.result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditResponse ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj.TransferStringEdit(ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditRequest request) {
+            return base.Channel.TransferStringEdit(request);
+        }
+        
+        public string TransferStringEdit(System.Nullable<decimal> per_nakl, System.Nullable<int> per_nn, System.Nullable<decimal> par_upak, System.Nullable<decimal> par_v_up, out string stError) {
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditRequest inValue = new ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditRequest();
+            inValue.per_nakl = per_nakl;
+            inValue.per_nn = per_nn;
+            inValue.par_upak = par_upak;
+            inValue.par_v_up = par_v_up;
+            ReportMonthResultGenerator.WebSrvSpisanie.TransferStringEditResponse retVal = ((ReportMonthResultGenerator.WebSrvSpisanie.Ges3ServicesUTF8Obj)(this)).TransferStringEdit(inValue);
+            stError = retVal.stError;
             return retVal.result;
         }
     }

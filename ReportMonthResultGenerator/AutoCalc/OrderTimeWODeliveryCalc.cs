@@ -19,7 +19,7 @@ namespace ReportMonthResultGenerator.AutoCalc
                 Dep = a.Dep,
                 DepName = a.DepName,
                 Summ = a.WrongCount,
-                Value = a.Percent,
+                Value = a.AllCount != 0 ? (double)((double)a.WrongCount / (double)a.AllCount) : 0, //a.Percent,
                 TypeId = TypeId
             }).ToList();
             return resOut;

@@ -4,31 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Data.Odbc;
 using System.Data;
-
+using System.Data.SqlClient;
 
 namespace ReportMonthResultGenerator
 {
     public class CEmpl
     {
-        public string Name {set;get;}
-        public int Id {set;get;}
+        public string Name { set; get; }
+        public int Id { set; get; }
         public int Pos { set; get; }
-        public double NightTime{set;get;}
-        public double AllTime{set;get;}
-        public double sal{set;get;}
-        public double Money{set;get;}
+        public double NightTime { set; get; }
+        public double AllTime { set; get; }
+        public double sal { set; get; }
+        public double Money { set; get; }
         public DateTime EntryDate { set; get; }
-        
+
     }
     public class CEmplWt
     {
         public CEmpl Emp { set; get; }
-        
+
         public int Dep { set; get; }
         public DateTime StartDt { set; get; }
         public DateTime StopDt { set; get; }
-       
-        
+
+
 
     }
     public class BaristaPower
@@ -36,21 +36,23 @@ namespace ReportMonthResultGenerator
         public CEmpl Emp = new CEmpl();
         public int Dep { set; get; }
         public List<CEmplWt> myWts = new List<CEmplWt>();
-        public double  CupCount { set; get; }
+        public double CupCount { set; get; }
         public decimal MoneyCount { set; get; }
         public decimal Stavka { set; get; }
         public decimal FotCount { set; get; }
-        
+
 
 
     }
 
-    class  StaffBase
+    class StaffBase
     {
-        static string c2 = "Driver={Progress OpenEdge 10.1B driver};HOST=web;DB=staff;UID=sysprogress;PWD=progress;PORT=2520;";
+        //static string c2 = @"Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123";
+        //static string c2 = "Driver={Progress OpenEdge 10.2B Driver};HOST=web;DB=staff;UID=sysprogress;PWD=progress;PORT=2520;";
+        static string c2 = "Driver={Progress OpenEdge 10.1B driver};HOST=web;DB=staff;UID=sysprogress;PWD=progress;PORT=2520;"; //Было так
         static string c2Dev1 = "Driver={Progress OpenEdge 10.1B driver};HOST=develop1;DB=sal_staff;UID=sysprogress;PWD=progress;PORT=2520;";
 
-        public static List<CEmpl> getPeopleOfPosOld(string  Poss, DateTime Month)
+        public static List<CEmpl> getPeopleOfPosOld(string Poss, DateTime Month)
         {
             /*
             string CommandStr = "   SELECT        a.EMPLOYEE_ID " +
@@ -64,8 +66,8 @@ namespace ReportMonthResultGenerator
             */
 
 
-            string CommandStr = " SELECT DISTINCT EMPLOYEE_ID FROM            PUB.EMPLOYEE_HISTORY a WHERE        (UPDATE_DATE < '"+Month.ToString("dd'/'MM'/'yyyy") +"') AND (UPDATE_DATE = (SELECT        MAX(b.UPDATE_DATE) AS Expr1 " +
-                               " FROM            PUB.EMPLOYEE_HISTORY b WHERE        (a.EMPLOYEE_ID = b.EMPLOYEE_ID) AND (b.UPDATE_DATE < '" + Month.ToString("dd'/'MM'/'yyyy") + "')  GROUP BY b.EMPLOYEE_ID)) AND (a.POSITION_ID = "+Poss+") AND (a.EMPLOYEE_ID NOT IN (SELECT  EMPLOYEE_ID " +
+            string CommandStr = " SELECT DISTINCT EMPLOYEE_ID FROM            PUB.EMPLOYEE_HISTORY a WHERE        (UPDATE_DATE < '" + Month.ToString("dd'/'MM'/'yyyy") + "') AND (UPDATE_DATE = (SELECT        MAX(b.UPDATE_DATE) AS Expr1 " +
+                               " FROM            PUB.EMPLOYEE_HISTORY b WHERE        (a.EMPLOYEE_ID = b.EMPLOYEE_ID) AND (b.UPDATE_DATE < '" + Month.ToString("dd'/'MM'/'yyyy") + "')  GROUP BY b.EMPLOYEE_ID)) AND (a.POSITION_ID = " + Poss + ") AND (a.EMPLOYEE_ID NOT IN (SELECT  EMPLOYEE_ID " +
                               " FROM            PUB.EMPLOYEE     WHERE        (DISMISSAL_DATE < '" + Month.ToString("dd'/'MM'/'yyyy") + "'))) ";
 
 
@@ -93,19 +95,21 @@ namespace ReportMonthResultGenerator
                         CEmpl Emp = new CEmpl()
                         {
                             Id = OdR.GetInt32(0),
-                            Pos = Convert.ToInt32(Poss),                     
+                            Pos = Convert.ToInt32(Poss),
                         };
 
                         empls.Add(Emp);
-}
+                    }
                     catch
                     { }
                 }
             }
             catch (Exception e)
-            { 
+            {
                 Console.WriteLine(e.Message);
             }
+            Comm.Dispose();
+            Conn.Close();
             return empls;
 
 
@@ -118,8 +122,8 @@ namespace ReportMonthResultGenerator
 
             string CommandStr = "SELECT        PUB.EMPLOYEE.ENTRY_DATE " +
 "FROM            PUB.EMPLOYEE " +
-"WHERE      PUB.EMPLOYEE.EMPLOYEE_ID  ="+EmpNum.ToString();
-            
+"WHERE      PUB.EMPLOYEE.EMPLOYEE_ID  =" + EmpNum.ToString();
+
 
             OdbcConnection Conn = new OdbcConnection(c2);
             Conn.Open();
@@ -129,7 +133,7 @@ namespace ReportMonthResultGenerator
             OdbcCommand Comm = new OdbcCommand(CommandStr, Conn);
             //OdbcParameter p1 = new OdbcParameter("p1",OdbcType.DateTime);
 
-            
+
             try
             {
                 OdbcDataReader OdR = Comm.ExecuteReader();
@@ -139,18 +143,19 @@ namespace ReportMonthResultGenerator
 
                     return OdR.GetDateTime(0);
 
-                    
+
                 }
                 OdR.Close();
             }
             catch
-            { 
-            
+            {
+
             }
+            Comm.Dispose();
             Conn.Close();
-            return new DateTime (1900,1,1);
-            
-         
+            return new DateTime(1900, 1, 1);
+
+
         }
 
 
@@ -201,6 +206,8 @@ namespace ReportMonthResultGenerator
             }
             catch
             { }
+            Comm.Dispose();
+            Conn.Close();
             return empls;
 
         }
@@ -238,8 +245,8 @@ namespace ReportMonthResultGenerator
                         {
                             Id = OdR.GetInt32(0),
                             Name = OdR.GetString(1) + " " + OdR.GetString(2),
-                            
-                            
+
+
                         };
 
 
@@ -252,8 +259,10 @@ namespace ReportMonthResultGenerator
             }
             catch
             { }
+            Comm.Dispose();
+            Conn.Close();
             return empls;
-        
+
         }
 
 
@@ -323,18 +332,29 @@ namespace ReportMonthResultGenerator
             {
                 Console.WriteLine(e.Message);
             }
+            Comm.Dispose();
             Conn.Close();
             return emplsWt;
 
         }
 
+        public static OdbcConnection ConnectionOpen()
+        {
+            OdbcConnection Conn = new OdbcConnection(c2); //SqlConnection Conn = new SqlConnection(c2);//OdbcConnection Conn = new OdbcConnection(c2);            
+            Conn.Open();
+            return Conn;
+        }
+        public static void ConnectionClose(OdbcConnection Conn)
+        {
+            Conn.Close();
+        }
 
-        public static List<CEmplWt> GetWts(List<CEmpl> Empls, DateTime StartDt, DateTime EndDt)
+        public static List<CEmplWt> GetWts(List<CEmpl> Empls, DateTime StartDt, DateTime EndDt, bool SaveODBCConnection = false, OdbcConnection Conn = null)
         {
 
 
             string EmplsStr = "";
-            if ((Empls==null)||(Empls.Count == 0))
+            if ((Empls == null) || (Empls.Count == 0))
             {
 
             }
@@ -350,9 +370,9 @@ namespace ReportMonthResultGenerator
                 EmplsStr = EmplsStr.Substring(0, EmplsStr.Length - 1);
             }
 
-            string CommandStr = "SELECT        SUBDIVISION_ID, dtt_arrival, dtt_departure, EMPLOYEE_ID " + 
-"FROM            PUB.WORKING_TIME " + 
-"WHERE        ( " ;
+            string CommandStr = "SELECT        SUBDIVISION_ID, dtt_arrival, dtt_departure, EMPLOYEE_ID " +
+"FROM            PUB.WORKING_TIME " +
+"WHERE        ( ";
 
 
 
@@ -364,8 +384,11 @@ namespace ReportMonthResultGenerator
             }
             CommandStr += " )";
 
-            OdbcConnection Conn = new OdbcConnection(c2);
-            Conn.Open();
+            if (Conn == null)
+            {
+                Conn = new OdbcConnection(c2);
+                Conn.Open();
+            }
 
             List<CEmplWt> emplsWt = new List<CEmplWt>();
 
@@ -385,7 +408,7 @@ namespace ReportMonthResultGenerator
                             Dep = OdR.GetInt32(0),
                             StartDt = StaffWtToExcel.GetMaxDate(StartDt, OdR.GetDateTime(1)),
                             StopDt = StaffWtToExcel.GetMinDate(EndDt, OdR.GetDateTime(2)),
-                        
+
 
                         };
                         try
@@ -395,33 +418,36 @@ namespace ReportMonthResultGenerator
                         catch
                         {
                         }
-                        
+
                         if ((EmpWt.StopDt - EmpWt.StartDt).TotalDays < 0.8)
                         {
                             emplsWt.Add(EmpWt);
                         }
 
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
                     {
                         Console.WriteLine(ee.Message);
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            Conn.Close();
+            Comm.Dispose();
+            if (!SaveODBCConnection)
+                Conn.Close();
             return emplsWt;
 
         }
 
 
-        public static List<CEmpl> GetEmplsOfPos(DateTime StartDt, List<int> Pos)
+
+        public static List<CEmpl> GetEmplsOfPos(DateTime StartDt, List<int> Pos, bool SaveODBCConnection = false, OdbcConnection Conn = null)
         {
-            
-            if ( Pos.Count==0) return null;
+
+            if (Pos.Count == 0) return null;
             string Poss = "";
             foreach (int p in Pos)
             {
@@ -432,23 +458,28 @@ namespace ReportMonthResultGenerator
 
             string CommandStr = "SELECT        PUB.EMPLOYEE.EMPLOYEE_ID, PUB.EMPLOYEE.LAST_NAME, PUB.EMPLOYEE.FIRST_NAME, PUB.EMPLOYEE.MIDDLE_NAME, PUB.EMPLOYEE.POSITION_ID " +
 "FROM            PUB.EMPLOYEE " +
-"WHERE        PUB.EMPLOYEE.POSITION_ID in (" + Poss+")";
+"WHERE        PUB.EMPLOYEE.POSITION_ID in (" + Poss + ")";
+            /*string CommandStr = "SELECT        EMPLOYEE.EMPLOYEE_ID, EMPLOYEE.LAST_NAME, EMPLOYEE.FIRST_NAME, EMPLOYEE.MIDDLE_NAME, EMPLOYEE.POSITION_ID " +
+"FROM            staff.staff.PUB.EMPLOYEE " +
+"WHERE        EMPLOYEE.POSITION_ID in (" + Poss + ")";*/
             CommandStr += " and (dismissal_date is null  ";
-            CommandStr += "or  (dismissal_date>? ))";
+            CommandStr += "or  (dismissal_date>? ))"; //CommandStr += " )";//CommandStr += "or  (dismissal_date>? ))";
 
-            OdbcConnection Conn = new OdbcConnection(c2);
-            Conn.Open();
-
+            if (Conn == null)
+            {
+                Conn = new OdbcConnection(c2); //SqlConnection Conn = new SqlConnection(c2);//OdbcConnection Conn = new OdbcConnection(c2);            
+                Conn.Open();
+            }
             List<CEmpl> empls = new List<CEmpl>();
 
-            OdbcCommand Comm = new OdbcCommand(CommandStr, Conn);
+            OdbcCommand Comm = new OdbcCommand(CommandStr, Conn); //SqlCommand Comm = new SqlCommand(CommandStr, Conn);//OdbcCommand Comm = new OdbcCommand(CommandStr, Conn);
             //OdbcParameter p1 = new OdbcParameter("p1",OdbcType.DateTime);
 
-            Comm.Parameters.Add(new OdbcParameter("p1", StartDt));
+            Comm.Parameters.Add(new OdbcParameter("p1", StartDt)); //Comm.Parameters.Add(new SqlParameter("p1", StartDt));//Comm.Parameters.Add(new OdbcParameter("p1", StartDt));
             //Comm.Parameters.Add(new OdbcParameter("p2", EndDt));
             try
             {
-                OdbcDataReader OdR = Comm.ExecuteReader();
+                OdbcDataReader OdR = Comm.ExecuteReader(); //SqlDataReader OdR = Comm.ExecuteReader();//OdbcDataReader OdR = Comm.ExecuteReader();
 
                 while (OdR.Read())
                 {
@@ -462,20 +493,25 @@ namespace ReportMonthResultGenerator
 
                         };
 
-                        if ((Emp.Id==10799)||(Emp.Id==8259)||(Emp.Id==5429)) continue;
+                        if ((Emp.Id == 10799) || (Emp.Id == 8259) || (Emp.Id == 5429)) continue;
 
                         empls.Add(Emp);
 
                     }
-                    catch
-                    { }
+                    catch (Exception ex)
+                    {
+                        ;
+                    }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
             }
+            Comm.Dispose();
+            if(!SaveODBCConnection)
+                Conn.Close();
             return empls;
 
         }
@@ -496,7 +532,7 @@ namespace ReportMonthResultGenerator
             }
             empls = empls.Substring(0, empls.Length - 1);
 
-            
+
 
             string CommandStr = "SELECT        EMPLOYEE_ID, sal, sal_date, subdivision_id " +
             "FROM  PUB.rep_sal_hist where EMPLOYEE_ID in (" + empls + ") and sal_date =? ";
@@ -518,11 +554,11 @@ namespace ReportMonthResultGenerator
                 {
                     try
                     {
-                        CEmpl emp = new CEmpl ()
+                        CEmpl emp = new CEmpl()
                         {
                             Id = OdR.GetInt32(0),
-                            Money = Convert.ToDouble(OdR.GetValue(1).ToString().Replace(".",",")),
-                        
+                            Money = Convert.ToDouble(OdR.GetValue(1).ToString().Replace(".", ",")),
+
                         };
                         Tmp3.Add(emp);
                     }
@@ -535,31 +571,31 @@ namespace ReportMonthResultGenerator
             Comm.Dispose();
             Conn.Close();
 
-            
+
             return Tmp3;
         }
 
 
 
-        public static List<CEmpl> GetSal(DateTime StartDt,int EmpId)
+        public static List<CEmpl> GetSal(DateTime StartDt, int EmpId)
         {
 
             List<CEmpl> Tmp3 = new List<CEmpl>();
 
-            
-            
-            
-            string CommandStr ="SELECT        EMPLOYEE_ID, sal, sal_date, subdivision_id "+
+
+
+
+            string CommandStr = "SELECT        EMPLOYEE_ID, sal, sal_date, subdivision_id " +
                 "FROM            PUB.rep_sal_hist where   EMPLOYEE_ID =" + EmpId.ToString();
-//"FROM            PUB.rep_sal_hist where sal_date<? and EMPLOYEE_ID ="+EmpId.ToString();
+            //"FROM            PUB.rep_sal_hist where sal_date<? and EMPLOYEE_ID ="+EmpId.ToString();
 
 
             OdbcConnection Conn = new OdbcConnection(c2);
             Conn.Open();
 
-            
+
             OdbcCommand Comm = new OdbcCommand(CommandStr, Conn);
-            OdbcParameter p1 = new OdbcParameter("p1",OdbcType.DateTime);
+            OdbcParameter p1 = new OdbcParameter("p1", OdbcType.DateTime);
             p1.Value = StartDt;
             Comm.Parameters.Add(p1);
             List<SalaryTable> SalT = new List<SalaryTable>();
@@ -609,7 +645,7 @@ namespace ReportMonthResultGenerator
         {
 
 
-            string CommandStr ="SELECT        ConfigParameters_id , Date_Changed, Value_, SUBDIVISION_ID "+
+            string CommandStr = "SELECT        ConfigParameters_id , Date_Changed, Value_, SUBDIVISION_ID " +
 "FROM            PUB.ConfigParameterHST where Date_Changed<? and (ConfigParameters_id=10 or ConfigParameters_id=4 or ConfigParameters_id=5)";
 
 
@@ -618,10 +654,10 @@ namespace ReportMonthResultGenerator
             Conn.Open();
 
             List<StaffParams> empls = new List<StaffParams>();
-            List<StaffParamsTable> Tmp = new List<StaffParamsTable> ();
+            List<StaffParamsTable> Tmp = new List<StaffParamsTable>();
             OdbcCommand Comm = new OdbcCommand(CommandStr, Conn);
 
-            OdbcParameter p1 = new OdbcParameter("p1",OdbcType.DateTime);
+            OdbcParameter p1 = new OdbcParameter("p1", OdbcType.DateTime);
             p1.Value = StartDt;
             Comm.Parameters.Add(p1);
             try
@@ -633,16 +669,16 @@ namespace ReportMonthResultGenerator
                     try
                     {
 
-                        StaffParamsTable st = new StaffParamsTable ()
-                        {  
-                          CoefType = OdR.GetInt32(0),
-                          dtChange = OdR.GetDateTime(1),
-                          value = OdR.GetString(2),
-                          DepNum = OdR.GetInt32(3)
+                        StaffParamsTable st = new StaffParamsTable()
+                        {
+                            CoefType = OdR.GetInt32(0),
+                            dtChange = OdR.GetDateTime(1),
+                            value = OdR.GetString(2),
+                            DepNum = OdR.GetInt32(3)
 
                         };
                         Tmp.Add(st);
-                        
+
 
                     }
                     catch (Exception ee)
@@ -652,12 +688,12 @@ namespace ReportMonthResultGenerator
                 }
                 Comm.Dispose();
                 Conn.Close();
-                foreach (int i in Tmp.Select (a=> a.DepNum ).Distinct())
+                foreach (int i in Tmp.Select(a => a.DepNum).Distinct())
                 {
                     try
                     {
                         //StaffParams Emp = new StaffParams();
-                       // Emp.DepNum = i;
+                        // Emp.DepNum = i;
                         /*
                         StaffParams t2 = (from o in Tmp
                                           where o.DepNum == i
@@ -687,18 +723,18 @@ namespace ReportMonthResultGenerator
 
                             MaxdtNc = Tmp.Where(a => a.CoefType == 4 && a.DepNum == i).Max(a => a.dtChange);
                             t2.StopNightStr = Tmp.FirstOrDefault(a => a.DepNum == i && a.CoefType == 4 && a.dtChange == MaxdtNc).value;
-                        
-                        empls.Add(t2);
+
+                            empls.Add(t2);
                         }
                         catch
                         { }
                     }
-                    catch(Exception ee)
+                    catch (Exception ee)
                     {
                         Console.WriteLine(ee.Message);
                     }
 
-                
+
                 }
 
             }
@@ -715,8 +751,8 @@ namespace ReportMonthResultGenerator
     {
         public StaffParams()
         { }
-        public int DepNum=0;
-        public double NightCoeff=0;
+        public int DepNum = 0;
+        public double NightCoeff = 0;
         public TimeSpan StartNight
         {
             get
@@ -727,8 +763,8 @@ namespace ReportMonthResultGenerator
                 }
                 catch
                 { }
-                return new TimeSpan (8,0,0);
-                
+                return new TimeSpan(8, 0, 0);
+
             }
         }
         public TimeSpan StopNight
@@ -746,20 +782,20 @@ namespace ReportMonthResultGenerator
             }
         }
 
-        public string StartNightStr="";
-        public string StopNightStr="";
+        public string StartNightStr = "";
+        public string StopNightStr = "";
     }
-     public class StaffParamsTable
+    public class StaffParamsTable
     {
-        public int DepNum=0;
-        public string value="";
-        public int CoefType=0;
-         public DateTime dtChange=new DateTime ();
-       }
-      public class SalaryTable
+        public int DepNum = 0;
+        public string value = "";
+        public int CoefType = 0;
+        public DateTime dtChange = new DateTime();
+    }
+    public class SalaryTable
     {
-        public int EmpId=0;
-        public double sal=0;
-        public DateTime dtChange=new DateTime ();
-       }
+        public int EmpId = 0;
+        public double sal = 0;
+        public DateTime dtChange = new DateTime();
+    }
 }

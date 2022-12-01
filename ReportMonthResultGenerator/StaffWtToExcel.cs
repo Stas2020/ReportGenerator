@@ -602,8 +602,15 @@ namespace ReportMonthResultGenerator
             }
         }
         */
-        public static void GenRepKitchenTmp(DateTime Month)
+        public static void GenRepKitchenTmp(DateTime Month, bool Year)
         {
+            int MonthsInPeriod = Year ? 12 : 1;
+            //List<int> KitchenItems1 = CubeData.GetKitchenD().Split(',').ToList().Select(a => Convert.ToInt32(a)).ToList();
+            //List<OrderTimes> Res295 = TimeOfPreparation.GetOrdersOfDepAndDate(Month, Month.AddMonths(1), 295, KitchenItems1);
+            //List<OrderTimes> Res198 = TimeOfPreparation.GetOrdersOfDepAndDate(Month, Month.AddMonths(1), 198, KitchenItems1);
+
+
+
             //Повар, су-шеф, старший повар
             List<int> KPos = new List<int>() {2,8,4 };
             S2010.XrepSoapClient Serv = new S2010.XrepSoapClient();
@@ -619,27 +626,131 @@ namespace ReportMonthResultGenerator
             Ws.Cells[1, 1] = "Подразделение";
             Ws.Cells[1, 2] = "Кол-во блюд";
             Ws.Cells[1, 3] = "Процент просрочки";
-            Ws.Cells[1, 4] = "Кол-во хороших блюд";
-            Ws.Cells[1, 5] = "Человеко-часы";
-            Ws.Cells[1, 6] = "Блюд в человеко-час";
-            List<CEmplWt> Wts = StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(1));
+            //Убрали строчку ХОРОШИЕ БЛЮДА    Ws.Cells[1, 4] = "Кол-во хороших блюд";
+            Ws.Cells[1, 4] = "Человеко-часы";
+            Ws.Cells[1, 5] = "Блюд в человеко-час";
+
+            Ws.Cells[1, 7] = "КОНТРОЛЬ блюд";
+            Ws.Cells[1, 8] = "КОНТРОЛЬ просроч";
+
+            //int row2 = 2;
+            //var ttt = CubeData.GetDishOfSalesCat(18);
+            //ReportBaseDataContext db = new ReportBaseDataContext();
+            //foreach (var tt in ttt)
+            //{
+            //    Ws.Cells[row2, 1] = tt;
+            //    var name = db.AlohaMenuItemsAll.FirstOrDefault(_itm => _itm.BarCode == Convert.ToInt32(tt));
+            //    Ws.Cells[row2, 2] = name != null ? name.Name : "НЕ НАЙДЕНО";
+            //    row2++;
+            //}
+            //return;
+
+
+
+            List<CEmplWt> Wts = new List<CEmplWt>();
+            if (Year)
+            {
+                System.Data.Odbc.OdbcConnection conn = StaffBase.ConnectionOpen();
+                var empls = StaffBase.GetEmplsOfPos(Month, KPos, true, conn);
+                Wts.AddRange(StaffBase.GetWts(empls, Month, Month.AddMonths(6), true, conn));
+                Wts.AddRange(StaffBase.GetWts(empls, Month.AddMonths(6), Month.AddMonths(12), true, conn));
+                StaffBase.ConnectionClose(conn);
+
+                //Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(6)));
+                //Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month.AddMonths(6), Month.AddMonths(12)));
+
+                ////Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(3)));
+                ////Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month.AddMonths(3), Month.AddMonths(6)));
+                ////Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month.AddMonths(6), Month.AddMonths(9)));
+                ////Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month.AddMonths(9), Month.AddMonths(12)));
+            }
+            else
+            {
+                System.Data.Odbc.OdbcConnection conn = StaffBase.ConnectionOpen();
+                var empls = StaffBase.GetEmplsOfPos(Month, KPos, true, conn);
+                Wts.AddRange(StaffBase.GetWts(empls, Month, Month.AddMonths(MonthsInPeriod), true, conn));
+                StaffBase.ConnectionClose(conn);
+
+                //Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(MonthsInPeriod)));
+            }
+            //for (int i = 0; i < MonthsInPeriod; i++)
+            //{
+            //    Wts.AddRange(StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month.AddMonths(i), Month.AddMonths(i + 1)));
+            //}
             int row = 2;
 
-            List<DishCount> Dk = CubeData.GetKitchenDishesCount(Month);
+
+
+
+
+            //Month = new DateTime(2022, 04, 01);
+            //var tmp1111 = CubeData.GetDishesCount(Month, null, true, 1, true, string.Join(",", AutoCalc.ProductivityBase.GoodsCats[typeof(AutoCalc.ProductivCook)]));
+            //;
+
+
+
+
+            List<DishCount> Dk = new List<DishCount>();
+            if (Year)
+            {
+                for (int i = 0; i < MonthsInPeriod; i++)
+                {
+                    var mon = Month.AddMonths(i);
+                    //int maxDay = mon.AddMonths(1).AddDays(-1).Day;
+                    //for (int d = 1; d <= maxDay; d++)
+                    {
+                        Console.WriteLine($" From Cube month: {(i + 1)}");
+                        var tmp = CubeData.GetKitchenDishesCountForKissTheCook(mon, false, 0, true);// true);
+                        foreach (var t in tmp)
+                        {
+                            var exists = Dk.FirstOrDefault(_ex => _ex.Dep == t.Dep);
+                            if (exists == null)
+                                Dk.Add(new DishCount() { Dep = t.Dep, Count = t.Count, MoneyCount = t.MoneyCount });
+                            else
+                            {
+                                exists.Count += t.Count;
+                                exists.MoneyCount += t.MoneyCount;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+                Dk = CubeData.GetKitchenDishesCountForKissTheCook(Month, false, 0, true);
+
+
+
 
             //   foreach (S2010.DepartmentInfo Dii in DepList.OrderBy(a => a.Name))
             List<int> KitchenItems = CubeData.GetKitchenD().Split(',').ToList().Select(a => Convert.ToInt32(a)).ToList();
+
+
+            ////ReportBaseDataContext db = new ReportBaseDataContext();
+            ////foreach (int bc in KitchenItems)
+            ////{
+            ////    Ws.Cells[row, 1] = bc;
+            ////    var name = db.AlohaMenuItemsAll.FirstOrDefault(_itm => _itm.BarCode == bc);
+            ////    Ws.Cells[row, 2] = name != null ? name.Name : "НЕ НАЙДЕНО";
+            ////    row++;
+            ////}
+            ////return;
+
+
             bool c = true;
             foreach (S2010.DepartmentInfo Dii in DepList)
             {
+
+               // if (Dii.Number != 295 && Dii.Number != 198) continue;
+
                 if (!Dii.Enabled) continue;
                 if (Dii.Place.Trim().ToLower()!="город") continue;
-              // if (Dii.Number != 121) continue;
+                if(Dii.Name.Trim().EndsWith("Алк") || Dii.Name.Trim().EndsWith("Alc")) continue; // из исходника
+                // if (Dii.Number != 121) continue;
                 //StaffParams SP = SParams.FirstOrDefault(a => a.DepNum == Dii.Number);      
-                double res = Wts.Where(a => a.Dep == Dii.Number).Sum(a => (GetMaxDate(a.StopDt, Month) - GetMinDate(a.StartDt, Month.AddMonths(1))).TotalHours);
+                double res = Wts.Where(a => a.Dep == Dii.Number).Sum(a => (GetMaxDate(a.StopDt, Month) - GetMinDate(a.StartDt, Month.AddMonths(MonthsInPeriod))).TotalHours);
                // if (Dii.Number == 260) res -= 200.5;
                 int CountInDay = Wts.Where(a => a.Dep == Dii.Number).Count();
-                int CountInDayMin = Wts.Where(a => a.Dep == Dii.Number && (GetMaxDate(a.StopDt, Month) - GetMinDate(a.StartDt, Month.AddMonths(1))).TotalHours < 6).Count();
+                int CountInDayMin = Wts.Where(a => a.Dep == Dii.Number && (GetMaxDate(a.StopDt, Month) - GetMinDate(a.StartDt, Month.AddMonths(MonthsInPeriod))).TotalHours < 6).Count();
                 List<int> Emps = Wts.Where(a => a.Dep == Dii.Number).Select(a => a.Emp.Id).Distinct().ToList();
 
                 List<StaffEmpl.division_pay_EMPLOEE_LISTRow> Pos = new List<StaffEmpl.division_pay_EMPLOEE_LISTRow>();
@@ -652,52 +763,105 @@ namespace ReportMonthResultGenerator
                     DepName = Dii.Name
 
                 };
-                List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Month, Month.AddMonths(1), Dii.Number, KitchenItems);
 
-                if (Dii.Number != 264)
+                for (int i = 0; i < MonthsInPeriod; i++)
                 {
-                    for (DateTime dt = Month; dt < Month.AddMonths(1); dt = dt.AddDays(1))
+                    List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Month.AddMonths(i), Month.AddMonths(i + 1), Dii.Number, KitchenItems);
+                    //List<OrderTimes> Res = new List<OrderTimes>();
+
+                    if (Dii.Number != 264)
                     {
-                        if (!Res.Any(a =>  a.OrderEndTime > dt && a.OrderEndTime < dt.AddDays(1)))
+                        for (DateTime dt = Month; dt < Month.AddMonths(MonthsInPeriod); dt = dt.AddDays(1))
                         {
-                            Console.WriteLine($"Not exist data {Dii.Number} {dt.ToShortDateString()}"); 
+                            if (!Res.Any(a => a.OrderEndTime > dt && a.OrderEndTime < dt.AddDays(1)))
+                            {
+                                Console.WriteLine($"Not exist data {Dii.Number} {dt.ToShortDateString()}");
+                            }
                         }
                     }
-                }
 
-                foreach (OrderTimes r in Res)
-                {
-                    Pt.AllCount++;
-                    if (r.OrderLastBumpTime > r.ItemCookTime)
+                    //List<OrderTimes> Res = TimeOfPreparation.GetOrdersOfDepAndDate(Month.AddMonths(i), Month.AddMonths(1 + i), Dii.Number, KitchenItems);
+                    foreach (OrderTimes r in Res)
                     {
-                        Pt.WrongCount++;
-                    }
+                        Pt.AllCount++;
+                        if (r.OrderLastBumpTime > r.ItemCookTime)
+                        {
+                            Pt.WrongCount++;
+                        }
 
+                    }
                 }
+                //foreach (OrderTimes r in Res)
+                //{
+                //    Pt.AllCount++;
+                //    if (r.OrderLastBumpTime > r.ItemCookTime)
+                //    {
+                //        Pt.WrongCount++;
+                //    }
+
+                //}
+
+
+                Ws.Cells[row, 7] = Pt.AllCount;// !!!!!!!!!!!!!!!!!!!!!!!!!
+                Ws.Cells[row, 8] = Pt.WrongCount;
 
                 decimal AllDCount = Dk.Where(a => a.Dep == Dii.Number).Sum(a => a.Count);
                 decimal WrongPercent = 0;
                 if (Pt.AllCount != 0) {
                     WrongPercent = (decimal)Pt.WrongCount / (decimal)Pt.AllCount;
                 };
-                decimal GoodCount = AllDCount * (1 - WrongPercent);
+                //Убрали строчку ХОРОШИЕ БЛЮДА    decimal GoodCount = AllDCount * (1 - WrongPercent);
                 decimal ResbyD = 0;
                 if (res != 0)
                 {
-                    ResbyD = GoodCount / (decimal)res;
+                    //Убрали строчку ХОРОШИЕ БЛЮДА    ResbyD = GoodCount / (decimal)res;
+                    ResbyD = AllDCount / (decimal)res;
                 }
 
                 Ws.Cells[row, 1] = Dii.Name;
                 Ws.Cells[row, 2] = AllDCount;
                 Ws.Cells[row, 3] = WrongPercent;
-                Ws.Cells[row, 4] = GoodCount;
-                Ws.Cells[row, 5] = res;
-                Ws.Cells[row, 6] = ResbyD;
-        
+                //Убрали строчку ХОРОШИЕ БЛЮДА    Ws.Cells[row, 4] = GoodCount;
+                Ws.Cells[row, 4] = res;
+                Ws.Cells[row, 5] = ResbyD;
+
+
+
+                (Ws.Rows[(object)1, Type.Missing] as Range).HorizontalAlignment = (object)XlHAlign.xlHAlignCenter;
+                (Ws.Rows[(object)1, Type.Missing] as Range).Font.Bold = (object)true;
+                (Ws.Rows[(object)1, Type.Missing] as Range).WrapText = (object)true;
+                (Ws.Columns[(object)1, Type.Missing] as Range).Font.Bold = (object)true;
+                // ISSUE: reference to a compiler-generated field
+          //      if (StaffWtToExcel.\u003C\u003Eo__13.\u003C\u003Ep__1 == null)
+          //{
+          //          // ISSUE: reference to a compiler-generated field
+          //          StaffWtToExcel.\u003C\u003Eo__13.\u003C\u003Ep__1 = CallSite<Action<CallSite, object>>.Create(Microsoft.CSharp.RuntimeBinder.Binder.InvokeMember(CSharpBinderFlags.ResultDiscarded, "AutoFit", (IEnumerable<Type>)null, typeof(StaffWtToExcel), (IEnumerable<CSharpArgumentInfo>)new CSharpArgumentInfo[1]
+          //          {
+          //    CSharpArgumentInfo.Create(CSharpArgumentInfoFlags.None, (string) null)
+          //          }));
+          //      }
+          //      // ISSUE: reference to a compiler-generated field
+          //      // ISSUE: reference to a compiler-generated field
+          //      StaffWtToExcel.\u003C\u003Eo__13.\u003C\u003Ep__1.Target((CallSite)StaffWtToExcel.\u003C\u003Eo__13.\u003C\u003Ep__1, worksheet.Columns[(object)1, Type.Missing]);
+
+
+
+
                 row++;
 
             }
 
+
+            (Ws.Columns[(object)5, Type.Missing] as Range).NumberFormat = (object)"0,00%";
+            (Ws.Columns[(object)4, Type.Missing] as Range).NumberFormat = (object)"#,##0.00";
+            //Убрали строчку ХОРОШИЕ БЛЮДА    (Ws.Columns[(object)5, Type.Missing] as Range).NumberFormat = (object)"0";
+            //Убрали строчку ХОРОШИЕ БЛЮДА    (Ws.Columns[(object)6, Type.Missing] as Range).NumberFormat = (object)"#,##0.00";
+            (Ws.Columns[(object)5, Type.Missing] as Range).NumberFormat = (object)"#,##0.00";
+            // ISSUE: reference to a compiler-generated method
+            Ws.get_Range((object)"A2", (object)("F" + row.ToString()));
+            object rowExcel = Ws.Rows[(object)6, Type.Missing];
+            // ISSUE: reference to a compiler-generated method
+            Ws.Sort.Apply();
 
             //     app.Save(System.Reflection.Missing.Value);
 
@@ -725,7 +889,10 @@ namespace ReportMonthResultGenerator
             Ws.Cells[1, 4] = "Кол-во хороших блюд";
             Ws.Cells[1, 5] = "Человеко-часы";
             Ws.Cells[1, 6] = "Блюд в человеко-час";
-            List<CEmplWt> Wts = StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(11));
+            Ws.Cells[1, 7] = "КОНТРОЛЬ блюд";
+            Ws.Cells[1, 8] = "КОНТРОЛЬ просроч";
+            List<CEmplWt> Wts = StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(11)); // !!! почему было 11 месяцев !!!
+            //List<CEmplWt> Wts = StaffBase.GetWts(StaffBase.GetEmplsOfPos(Month, KPos), Month, Month.AddMonths(12)); 
             int row = 2;
 
             //List<DishCount> Dk = CubeData.GetKitchenDishesCount(Month);
@@ -770,6 +937,10 @@ namespace ReportMonthResultGenerator
 
                     }
                 }
+
+                Ws.Cells[row, 7] = Pt.AllCount;// !!!!!!!!!!!!!!!!!!!!!!!!!
+                Ws.Cells[row, 8] = Pt.WrongCount;
+
                 decimal AllDCount = Dk.Where(a => a.Dep == Dii.Number).Sum(a => a.Count);
                 decimal WrongPercent = 0;
                 if (Pt.AllCount != 0)

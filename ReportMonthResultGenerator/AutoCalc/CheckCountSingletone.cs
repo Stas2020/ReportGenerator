@@ -12,6 +12,7 @@ namespace ReportMonthResultGenerator.AutoCalc
         {
             AllCheckCount = new DataDicCasheByDayCorrection(a => CubeData.GetAllChkCountByDay(a));
             RestNonZeroOnlyCheckCount = new DataDicCasheByDayCorrection(a => CubeData.GetChecksCountWithoutDeleveryByDay(a));
+            //AllCheckCountWOTables = new DataDicCasheByDayCorrection(a => CubeData.GetChecksCountWithoutDeleveryByDay(a, true));
         }
         static CheckCountSingletone instance;
         public static CheckCountSingletone Instance
@@ -27,6 +28,7 @@ namespace ReportMonthResultGenerator.AutoCalc
         }
         public DataDicCasheByDayCorrection AllCheckCount;
         public DataDicCasheByDayCorrection RestNonZeroOnlyCheckCount;
+        //public DataDicCasheByDayCorrection AllCheckCountWOTables;
 
 
         public class DataDicCasheByDayCorrection
@@ -41,6 +43,11 @@ namespace ReportMonthResultGenerator.AutoCalc
             DataDicCasheByDay<int> parent;
 
             public Dictionary<int, int> GetCheckCount(DateTime dt)
+            {
+                var res = CorrectTwinDep.Correct(parent.GetCheckCount(dt));
+                return res;
+            }
+            public Dictionary<int, int> GetCheckCountWO900Tables(DateTime dt)
             {
                 var res = CorrectTwinDep.Correct(parent.GetCheckCount(dt));
                 return res;
@@ -97,7 +104,31 @@ namespace ReportMonthResultGenerator.AutoCalc
         }
         public static class CorrectTwinDep
         {
-            static Dictionary<int, int> twinDeps = new Dictionary<int, int>() { { 111, 121 }, { 122, 123 }, { 190, 191 } };
+            static Dictionary<int, List<int>> twinDeps = new Dictionary<int, List<int>>() { 
+                { 114, new List<int>() { 121, 111 } }, 
+                { 122, new List<int>() { 123 } },
+                { 190, new List<int>() { 191 } },
+                { 124, new List<int>() { 104 } },
+                { 331, new List<int>() { 311 } },
+                { 242, new List<int>() { 300 } },
+                { 244, new List<int>() { 231 } },
+                { 301, new List<int>() { 380 } },
+                { 302, new List<int>() { 270 } },
+                { 276, new List<int>() { 205 } },
+                { 277, new List<int>() { 177 } },
+                { 278, new List<int>() { 390 } },
+                { 281, new List<int>() { 295 } }, //add 2022-10-11
+                { 282, new List<int>() { 180 } }, //add 2022-10-11
+            };
+
+            public static int GetDep(int _dep)
+            {
+                if (twinDeps.Any(_td => _td.Value.Contains(_dep)))
+                    return twinDeps.First(_td => _td.Value.Contains(_dep)).Key;
+                else
+                    return _dep;
+            }
+
             public static List<DishCount> Correct(List<DishCount> data)
             {
                 foreach (var td in twinDeps)
@@ -105,11 +136,12 @@ namespace ReportMonthResultGenerator.AutoCalc
                     foreach (DateTime dt in data.Select(a => a.dt).Distinct())
                     {
                         var ndata = data.Where(a => a.dt == dt);
-                        if (ndata.Any(a => a.Dep == td.Key) && ndata.Any(a => a.Dep == td.Value))
+                        foreach(var tdVal in td.Value)
+                        if (ndata.Any(a => a.Dep == td.Key) && ndata.Any(a => a.Dep == tdVal))
                         {
 
-                            data.FirstOrDefault(a => a.Dep == td.Key && a.dt == dt).Count += ndata.Where(a => a.Dep == td.Value).Sum(a => a.Count);
-                            data.FirstOrDefault(a => a.Dep == td.Key && a.dt == dt).MoneyCount += ndata.Where(a => a.Dep == td.Value).Sum(a => a.MoneyCount);
+                            data.FirstOrDefault(a => a.Dep == td.Key && a.dt == dt).Count += ndata.Where(a => a.Dep == tdVal).Sum(a => a.Count);
+                            data.FirstOrDefault(a => a.Dep == td.Key && a.dt == dt).MoneyCount += ndata.Where(a => a.Dep == tdVal).Sum(a => a.MoneyCount);
 
                             
                         }
@@ -120,18 +152,21 @@ namespace ReportMonthResultGenerator.AutoCalc
 
         public static List<RashMaterials> Correct(List<RashMaterials> data)
         {
-            foreach (var td in twinDeps)
+            //2022-10-12 убираем цикл по записям в таблице корректировки twinDeps, иначе записи в data переносятся в новое подразделение столько раз какова длина списка подразделений с двойными номерами
+            //foreach (var td in twinDeps)
             {
                 foreach (var depData in data)
                 {
-                    if (twinDeps.TryGetValue(depData.Dep,out int twDep))
+                    if (twinDeps.TryGetValue(depData.Dep, out List<int> twDep))
                     {
-                        if (data.Any(a => a.Dep == twDep))
+                        foreach (var tdVal in twDep)
+                            if (data.Any(a => a.Dep == tdVal))
                         {
-                            //depData.Checks += data.FirstOrDefault(a => a.Dep == twDep).Checks;
-                            depData.Value += data.Where(a => a.Dep == twDep).Sum(a=>a.Value);
-                            
+                            ////depData.Checks += data.FirstOrDefault(a => a.Dep == twDep).Checks;
+                            //depData.Value += data.Where(a => a.Dep == twDep).Sum(a=>a.Value);
 
+                            depData.Consumables += data.FirstOrDefault(a => a.Dep == tdVal).Consumables;
+                            depData.Proceeds += data.FirstOrDefault(a => a.Dep == tdVal).Proceeds;
                         }
                     }                   
                 }
@@ -144,15 +179,62 @@ namespace ReportMonthResultGenerator.AutoCalc
                 foreach (var td in twinDeps)
                 {
                     if (data.TryGetValue(td.Key, out int val))
+                {
+                    foreach (var tdVal in td.Value)
                     {
-                        if (data.TryGetValue(td.Value, out int valTwin))
+                        data.TryGetValue(td.Key, out val);
+                        if (data.TryGetValue(tdVal, out int valTwin))
                         {
                             data[td.Key] = val + valTwin;
                         }
                     }
+                    }
                 }
                 return data;
             }
+        public static Dictionary<int, Productivity.ProductivityCalculatedValues> Correct(Dictionary<int, Productivity.ProductivityCalculatedValues> data)
+        {
+            foreach (var td in twinDeps)
+            {
+                foreach (var tdVal in td.Value)
+                    if (data.ContainsKey(td.Key) && data.ContainsKey(tdVal))
+                {
+                    //foreach(var keyPair in Productivity.ProductivityCalculatedValues.)
+                    data[td.Key].Values[typeof(AutoCalc.ProductivBarista)] = ((data[td.Key].Values[typeof(AutoCalc.ProductivBarista)] ?? 0) + (data[tdVal].Values[typeof(AutoCalc.ProductivBarista)] ?? 0));
+                    data[td.Key].Values[typeof(AutoCalc.ProductivSeller)] = ((data[td.Key].Values[typeof(AutoCalc.ProductivSeller)] ?? 0) + (data[tdVal].Values[typeof(AutoCalc.ProductivSeller)] ?? 0));
+                    data[td.Key].Values[typeof(AutoCalc.ProductivCook)] = ((data[td.Key].Values[typeof(AutoCalc.ProductivCook)] ?? 0) + (data[tdVal].Values[typeof(AutoCalc.ProductivCook)] ?? 0));
+                }
+            }
+            return data;
         }
+
+        public static List<SpisPercent> Correct(List<SpisPercent> data)
+        {
+            //2022-10-12 убираем цикл по записям в таблице корректировки twinDeps, иначе записи в data переносятся в новое подразделение столько раз какова длина списка подразделений с двойными номерами
+            //foreach (var td in twinDeps)
+            {
+                foreach (var depData in data)
+                {
+                    if (twinDeps.TryGetValue(depData.Dep, out List<int> twDep))
+                    {
+                        foreach (var tdVal in twDep)
+                            if (data.Any(a => a.Dep == tdVal))
+                            {
+                                ////depData.Checks += data.FirstOrDefault(a => a.Dep == twDep).Checks;
+                                //depData.Value += data.Where(a => a.Dep == twDep).Sum(a=>a.Value);
+
+                                var twinData = data.FirstOrDefault(a => a.Dep == tdVal && a.BD == depData.BD);
+                                if (twinData != null)
+                                {
+                                depData.Producted += twinData.Producted;
+                                depData.WrittenOff += twinData.WrittenOff;
+                                }
+                            }
+                    }
+                }
+            }
+            return data;
+        }
+    }
     
 }

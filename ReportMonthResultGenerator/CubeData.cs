@@ -20,7 +20,8 @@ namespace ReportMonthResultGenerator
             string CoffeeToGo = "";
 
             //BTestDataContext dBTest = new BTestDataContext(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
-            SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
+            //SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
+            SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=s2010viewer;Password=Fil12345");
             conn1.Open();
             string q1 = "Select Number from [dbo].[Item] where [Id] in (SELECT [FK_ItemId]  FROM [dbo].[CategoryItem] where [FK_CategoryId] =( SELECT [Id] FROM [dbo].[Category] where Number ="+GrNum+"))";
 
@@ -50,7 +51,8 @@ namespace ReportMonthResultGenerator
             Dictionary<int,string > CoffeeToGo = new Dictionary<int,string> ();
 
             //BTestDataContext dBTest = new BTestDataContext(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
-            SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
+            //SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
+            SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=s2010viewer;Password=Fil12345");
             conn1.Open();
             string q1 = "Select Number, LongName from [dbo].[Item] where [Number] in (" + BarCodes + ")";
 
@@ -85,7 +87,8 @@ namespace ReportMonthResultGenerator
 
             //BTestDataContext dBTest = new BTestDataContext(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
             //SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
-            SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            //SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+            SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
             conn1.Open();
             
             //string q1 = "Select Number from [dbo].[Item] where [Id] in (SELECT [FK_ItemId]  FROM [dbo].[CategoryItem] where [FK_CategoryId] =( SELECT [Id] FROM [dbo].[Category] where Number =" + CatNum + "))";
@@ -118,7 +121,8 @@ namespace ReportMonthResultGenerator
 
             //BTestDataContext dBTest = new BTestDataContext(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
             //  SqlConnection conn1 = new SqlConnection(@"Data Source=AVRORA1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=PDiscount;Password=PDiscount");
-            SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t; Connection Timeout=0");
+            //SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t; Connection Timeout=0");
+            SqlConnection conn1 = new SqlConnection(@"Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123; Connection Timeout=0");
             conn1.Open();
             
             //string q1 = "Select Number from [dbo].[Item] where [FK_SalesCategory] = ( SELECT [Id] FROM [dbo].[Category] where Number =" + CatNum + ")";
@@ -173,7 +177,15 @@ namespace ReportMonthResultGenerator
 
 
         }
+        
+        //public static string GetKitchenDForKissTheCook()
+        //{
+        //    List<string> barcodes = new List<string>();
 
+        //    AutoCalc.ProductivityBase.GoodsCats[typeof(AutoCalc.ProductivCook)].ForEach(_gr => barcodes.AddRange(GetDishOfSalesCat(_gr)));
+
+        //    return string.Join(",", barcodes.Distinct());
+        //}
         public static string GetKitchenD()
          {
              List<string> Pizza = GetDishOfSalesCat(33);
@@ -456,7 +468,7 @@ namespace ReportMonthResultGenerator
 
 
 
-        public static Dictionary<int, int> GetChecksCountWithoutDeleveryByDay(DateTime day)
+        public static Dictionary<int, int> GetChecksCountWithoutDeleveryByDay(DateTime day, bool Exclude900Tables = true)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
             conn.Open();
@@ -464,7 +476,11 @@ namespace ReportMonthResultGenerator
             //  Dictionary<int, double> Tmp = new Dictionary<int, double>();
             Dictionary<int, int> ChkCounts = new Dictionary<int, int>();
 
-            string q = "SELECT [КодПодразд] ,  count(*)  FROM [dbo].[Vall]  where [Год]=@year and [Месяц]=@Month and [Число]=@day and [СуммаИтог]!=0 and [НомерСтроки]=1 and not ([Стол]>=200 and [Стол]<=254)" +
+            string q = "SELECT [КодПодразд] ,  count(*)  FROM [dbo].[Vall]  where [Год]=@year and [Месяц]=@Month and [Число]=@day and [СуммаИтог]!=0 and [НомерСтроки]=1 and "+
+
+                (Exclude900Tables
+                    ? string.Join(" and ", AutoCalc.DishesCalc.excludeTables.Select(_range => $" not ([Стол]>={_range.Min} and [Стол]<={_range.Max}) "))
+                    : " not ([Стол]>=200 and [Стол]<=254) ") +
 
     " group by  [КодПодразд] ";
 
@@ -546,7 +562,7 @@ namespace ReportMonthResultGenerator
 
 
 
-        public static Dictionary<int, int> GetChecksCount(DateTime Month)
+        public static Dictionary<int, int> GetChecksCount(DateTime Month, bool Exclude900Tables = false, bool ExcludeBarCodes = false)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
             conn.Open();
@@ -655,7 +671,14 @@ namespace ReportMonthResultGenerator
             return Tmp;
         }
 
-        public static List<DishCount> GetDishesCountNoDelevery(DateTime Month, string BarCodes, bool AllCodes=false, int Day = 0)
+        public static List<DishCount> GetDishesCountNoDelevery(DateTime Month, 
+            string BarCodes, 
+            bool AllCodes=false, 
+            int Day = 0, 
+            bool Exclude900Tables = true,
+            List<int> OnlyCats = null,
+            bool ExcludeBarCodes = false, 
+            bool UseDishesCoeff = false)
         {
             List<DishCount> Tmp = new List<DishCount>();
 
@@ -663,8 +686,25 @@ namespace ReportMonthResultGenerator
             SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
 
             conn.Open();
+
+            string sumCountString = UseDishesCoeff ? "sum(cast((cast([Колич] as float)*ISNULL(DishCoeffs.[Value],1))as float))" : "sum([Колич])";
+
             string q = "SELECT " +
-"[КодПодразд], sum([Колич]),sum([СуммаИтогРуб])  FROM [dbo].[Vall] a where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 and not ([Стол]>=200 and [Стол]<=254) ";
+                $"[КодПодразд], {sumCountString},sum([СуммаИтогРуб])  FROM [dbo].[Vall] a ";
+            if (OnlyCats != null)
+                q += " INNER JOIN [S2010].[Diogen].[dbo].[AlohaMenuITM] as MenuITM on MenuITM.ID = [БарКод] and MenuITM.Dep = [КодПодразд] ";
+
+            if (UseDishesCoeff)
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[DishCoeffsKissTheCook] as DishCoeffs on DishCoeffs.[Barcod] = [БарКод]   ";
+
+            q += " where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 and "+
+                (Exclude900Tables
+                    ? string.Join(" and ", AutoCalc.DishesCalc.excludeTables.Select(_range => $" not ([Стол]>={_range.Min} and [Стол]<={_range.Max}) ")) 
+                    : " not ([Стол]>=200 and [Стол]<=254) ");
+
+
+
+
 
 
 
@@ -674,10 +714,15 @@ namespace ReportMonthResultGenerator
                 q += $" and [Число]= {Day} ";
             }
 
-
-            if (!AllCodes)
+            if (OnlyCats != null)
             {
-                q += " and [БарКод]  in    (" + BarCodes + ") ";
+                q += $" and MenuITM.[Category] IN({string.Join(",", OnlyCats.Select(_cat => Convert.ToString(_cat)))}) ";
+
+            }
+            if (!AllCodes) 
+            {
+                string excludeStr = (ExcludeBarCodes ? "not" : "");
+                q += $" and {excludeStr} [БарКод]  in    (" + BarCodes + ") ";
             }
             q += " and [Колич]<=20 and [Колич]>-20 group by [КодПодразд]";
             //IQueryable <Продажи> CoffeeCount = from o in dBTest where 
@@ -700,7 +745,7 @@ namespace ReportMonthResultGenerator
 
                     Dep = Dep,
 
-                    Count = (int)Sr.GetDecimal(1),
+                    Count = (UseDishesCoeff) ? (Convert.ToDecimal(Sr.GetValue(1))) : ((int)Sr.GetDecimal(1)),
 
                     MoneyCount = (decimal)Sr.GetDecimal(2)
                 };
@@ -709,16 +754,48 @@ namespace ReportMonthResultGenerator
             }
             Sr.Close();
 
+            sumCountString = UseDishesCoeff ? "sum(cast((cast("+
+                ""+
+                            "          (CASE  " +
+            "              WHEN (NOT ItemWeight.[BarCode] IS NULL)OR(ItemWeight.[BarCode] IS NULL AND vall.[Колич]>@P4) " +
+            "              THEN (CASE WHEN (IsNull(ItemWeight.[PortionRatio],@P5)<>0) THEN  " +
+            "                        (CASE WHEN vall.[Колич]<>1.0 " +
+            //"                              THEN (SELECT MAX(X) FROM(VALUES(1),(FLOOR((vall.[Колич]+1.0)/IsNull(ItemWeight.[PortionRatio],@P5)))) T(X)) " +
+            "                              THEN (FLOOR((vall.[Колич]+1.0)/IsNull(ItemWeight.[PortionRatio],@P5))) " +
+            "                              ELSE 0 END) ELSE 1 END) 	 " +
+            "              ELSE 1  " +
+            "           END)  " +
+                "" +
+                " as float)*ISNULL(DishCoeffs.[Value],1))as float))" : "Count(*)";
+
             q = "SELECT " +
-"[КодПодразд], Count(*),sum([СуммаИтогРуб]) FROM [dbo].[Vall]  where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 and not ([Стол]>=200 and [Стол]<=254) ";
+$"[КодПодразд], {sumCountString},sum([СуммаИтогРуб]) FROM [dbo].[Vall]   ";
+            if (OnlyCats != null)
+                q += " INNER JOIN [S2010].[Diogen].[dbo].[AlohaMenuITM] as MenuITM on MenuITM.ID = [БарКод] and MenuITM.Dep = [КодПодразд] ";
+
+            if (UseDishesCoeff)
+            {
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[DishCoeffsKissTheCook] as DishCoeffs on DishCoeffs.[Barcod] = [БарКод]   ";
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[GesItemsWeight] as ItemWeight on ItemWeight.[BarCode] = [БарКод]   ";
+            }
+
+            q += " where [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 and " +
+                (Exclude900Tables
+                    ? string.Join(" and ", AutoCalc.DishesCalc.excludeTables.Select(_range => $" not ([Стол]>={_range.Min} and [Стол]<={_range.Max}) "))
+                    : " not ([Стол]>=200 and [Стол]<=254) ");
 
             if (Day != 0)
             {
                 q += $" and [Число]= {Day} ";
             }
+
+            if (OnlyCats != null)
+                q += $" and MenuITM.[Category] IN({string.Join(",", OnlyCats.Select(_cat => Convert.ToString(_cat)))}) ";
+
             if (!AllCodes)
             {
-                q += " and [БарКод]  in    (" + BarCodes + ") ";
+                string excludeStr = (ExcludeBarCodes ? "not" : "");
+                q += $" and {excludeStr} [БарКод]  in    (" + BarCodes + ") ";
             }
             q += " and [Колич]>20 group by [КодПодразд]";
             //IQueryable <Продажи> CoffeeCount = from o in dBTest where 
@@ -728,8 +805,15 @@ namespace ReportMonthResultGenerator
             P1 = new SqlParameter("year", Month.Year);
             P2 = new SqlParameter("Month", Month.Month);
 
+
+            SqlParameter P4 = new SqlParameter("P4", AutoCalc.ProductivityBase.VesCountLimit);
+            SqlParameter P5 = new SqlParameter("P5", AutoCalc.ProductivityBase.DefaultPortionRatio);
+
             Sc.Parameters.Add(P1);
             Sc.Parameters.Add(P2);
+
+            Sc.Parameters.Add(P4);
+            Sc.Parameters.Add(P5);
 
             Sr = Sc.ExecuteReader();
 
@@ -740,7 +824,12 @@ namespace ReportMonthResultGenerator
                 int Dep = Sr.GetInt32(0);
 
 
-                Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Sr.GetInt32(1);
+
+                if (UseDishesCoeff)
+                    Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Convert.ToDecimal(Sr.GetValue(1));
+                else
+                    Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Sr.GetInt32(1);
+                
                 Tmp.FirstOrDefault(a => a.Dep == Dep).MoneyCount += Sr.GetDecimal(2);
 
 
@@ -753,8 +842,112 @@ namespace ReportMonthResultGenerator
 
         }
 
+        // ToDo 26/01/2022 - left join с новой таблицей с коэфициентами, затем в случае наличия коэффициента перемножать на него [Колич]
+        //                   либо создать временную таблицу баркодов, в неё инсертом добавить баркоды с коэффициентами и в запросе оперировать
+        public static List<DishCount> GetDishesCount(DateTime Month, string BarCodes, bool AllCodes, int Day = 0, bool UseDishesCoeff = false, string AlohaCats = null, bool AlohaCatsExclude = false)
+        {
+            List<DishCount> Tmp = new List<DishCount>();
 
-        public static List<DishCount> GetDishesCount(DateTime Month,string BarCodes,bool AllCodes,int Day=0)
+            // SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
+            SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
+
+            conn.Open();
+
+            string sumCountString = UseDishesCoeff 
+                //? "sum(cast((cast([Колич] as float)*ISNULL(DishCoeffs.[Value],1))as float))"
+                ? "    sum(      cast((cast((CASE  " +
+            "              WHEN (NOT ItemWeight.[BarCode] IS NULL)OR(ItemWeight.[BarCode] IS NULL AND a.[Колич]>@P4) " +
+            "              THEN (CASE WHEN (IsNull(ItemWeight.[PortionRatio],@P5)<>0) THEN  " +
+            "                        (CASE WHEN a.[Колич]<>1.0 " +
+            //"                              THEN (SELECT MAX(X) FROM(VALUES(1),(FLOOR((a.[Колич]+1.0)/IsNull(ItemWeight.[PortionRatio],@P5)))) T(X)) " +
+            "                              THEN (CASE WHEN FLOOR((a.[Колич]+1.0)/IsNull(ItemWeight.[PortionRatio],@P5)) > 1 THEN FLOOR((a.[Колич]+1.0)/IsNull(ItemWeight.[PortionRatio],@P5)) ELSE 1 END)    " +
+            "                              ELSE 0 END) ELSE 1 END) 	 " +
+            "              ELSE cast((a.[Колич]) as float)  " +
+            "           END) as float)*ISNULL(DishCoeffs.[Value],1))as float) ) "
+                : "sum([Колич])";
+
+            string q = "SELECT " +
+$"[КодПодразд], {sumCountString},sum([СуммаИтогРуб])  FROM [dbo].[Vall] a";
+
+            if (UseDishesCoeff)
+            {
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[GesItemsWeight] as ItemWeight on ItemWeight.[BarCode] = a.[БарКод]  /*AND 1=0  !!!!!!! */ ";//
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[DishCoeffsKissTheCook] as DishCoeffs on DishCoeffs.[Barcod] = [БарКод]  /*AND 1=0  !!!!!!! */ ";
+            }
+            if (AlohaCats != null)
+            {
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[AlohaMenuITM] as MenuITM on MenuITM.ID = a.[БарКод] and MenuITM.Dep = a.[КодПодразд] ";
+            }
+
+            q += " where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 ";
+
+
+
+            //"[КодПодразд], sum([Колич]),sum([СуммаИтогРуб])  FROM [dbo].[Vall]  where  [Год]=@year and [Месяц]=@Month ";
+            if (Day != 0)
+            {
+                q += $" and [Число]= {Day} ";
+            }
+
+
+            if (!AllCodes && BarCodes != null)
+            {
+                q += " and [БарКод]  in    (" + BarCodes + ") ";
+            }
+            if (AlohaCats != null)
+                q += $" and not MenuITM.[Category] is null and {(AlohaCatsExclude ? "not" : "")} MenuITM.[Category] in({AlohaCats}) ";
+
+            //q += " and [Колич]<=20 group by [КодПодразд]";
+            q += " group by [КодПодразд]";
+
+            //IQueryable <Продажи> CoffeeCount = from o in dBTest where 
+
+            SqlCommand Sc = new SqlCommand(q, conn);
+            Sc.CommandTimeout = 0;
+            SqlParameter P1 = new SqlParameter("year", Month.Year);
+            SqlParameter P2 = new SqlParameter("Month", Month.Month);
+
+            SqlParameter P3 = new SqlParameter("P3", "");
+            SqlParameter P4 = new SqlParameter("P4", AutoCalc.ProductivityBase.VesCountLimit);
+            SqlParameter P5 = new SqlParameter("P5", AutoCalc.ProductivityBase.DefaultPortionRatio);
+
+
+            Sc.Parameters.Add(P1);
+            Sc.Parameters.Add(P2);
+
+            Sc.Parameters.Add(P3);
+            Sc.Parameters.Add(P4);
+            Sc.Parameters.Add(P5);
+
+
+
+            SqlDataReader Sr = Sc.ExecuteReader();
+
+            while (Sr.Read())
+            {
+                int Dep = Sr.GetInt32(0);
+
+                DishCount Mr = new DishCount()
+                {
+
+                    Dep = Dep,
+
+                    Count = (UseDishesCoeff) ? (Convert.ToDecimal(Sr.GetValue(1))) : ((int)Sr.GetDecimal(1)),
+
+                    MoneyCount = (decimal)Sr.GetDecimal(2)
+                };
+                Tmp.Add(Mr);
+                //    CoffCount.Add(Sr.GetInt32(0));
+            }
+            Sr.Close();
+
+          
+
+            conn.Close();
+            return Tmp;
+
+        }
+        /*public static List<DishCount> GetDishesCount(DateTime Month,string BarCodes,bool AllCodes,int Day=0,bool UseDishesCoeff = false)
         {
             List<DishCount> Tmp = new List<DishCount>();
 
@@ -762,8 +955,16 @@ namespace ReportMonthResultGenerator
             SqlConnection conn = new SqlConnection(@"Data Source=192.168.254.172;Initial Catalog=Btest;User ID=manager;Password=manager");
 
             conn.Open();
+
+            string sumCountString = UseDishesCoeff ? "sum(cast((cast([Колич] as float)*ISNULL(DishCoeffs.[Value],1))as float))" : "sum([Колич])";
+
             string q = "SELECT " +
-"[КодПодразд], sum([Колич]),sum([СуммаИтогРуб])  FROM [dbo].[Vall] a where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 ";
+$"[КодПодразд], {sumCountString},sum([СуммаИтогРуб])  FROM [dbo].[Vall] a";
+
+            if (UseDishesCoeff)
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[DishCoeffsKissTheCook] as DishCoeffs on DishCoeffs.[Barcod] = [БарКод]   ";
+
+            q +=" where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 ";
 
 
 
@@ -794,13 +995,14 @@ namespace ReportMonthResultGenerator
             while (Sr.Read())
             {
                 int Dep = Sr.GetInt32(0);
+
                 DishCount Mr = new DishCount()
                 {
 
                     Dep = Dep,
-                    
-                    Count = (int)Sr.GetDecimal(1),
-                    
+
+                    Count = (UseDishesCoeff) ? (Convert.ToDecimal(Sr.GetValue(1))) : ((int)Sr.GetDecimal(1)),
+
                     MoneyCount = (decimal)Sr.GetDecimal(2)
                 };
                 Tmp.Add(Mr);
@@ -808,13 +1010,26 @@ namespace ReportMonthResultGenerator
             }
             Sr.Close();
 
+            sumCountString = UseDishesCoeff ? "sum(cast((cast(1 as float)*ISNULL(DishCoeffs.[Value],1))as float))" : "Count(*)";
+
             q = "SELECT " +
-"[КодПодразд], Count(*),sum([СуммаИтогРуб]) FROM [dbo].[Vall]  where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 ";
+$"[КодПодразд], {sumCountString},sum([СуммаИтогРуб]) FROM [dbo].[Vall] ";
+
+            if (UseDishesCoeff)
+                q += "    LEFT JOIN [S2010].[Diogen].[dbo].[DishCoeffsKissTheCook] as DishCoeffs on DishCoeffs.[Barcod] = [БарКод]   ";
+
+
+            q += " where  [Год]=@year and [Месяц]=@Month and [СуммаИтог]!=0 ";
             if (!AllCodes)
             {
                 q += " and [БарКод]  in    (" + BarCodes + ") ";
             }
-            q+=" and [Колич]>20 group by [КодПодразд]";
+            if (Day != 0)
+            {
+                q += $" and [Число]= {Day} ";
+            }
+
+            q +=" and [Колич]>20 group by [КодПодразд]";
             //IQueryable <Продажи> CoffeeCount = from o in dBTest where 
 
             Sc = new SqlCommand(q, conn);
@@ -833,8 +1048,11 @@ namespace ReportMonthResultGenerator
             {
                 int Dep = Sr.GetInt32(0);
 
+                if(UseDishesCoeff)
+                    Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Convert.ToDecimal(Sr.GetValue(1));
+                else
+                    Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Sr.GetInt32(1);
 
-                Tmp.FirstOrDefault(a => a.Dep == Dep).Count += Sr.GetInt32(1);
                 Tmp.FirstOrDefault(a => a.Dep == Dep).MoneyCount += Sr.GetDecimal(2);
 
 
@@ -845,7 +1063,7 @@ namespace ReportMonthResultGenerator
             conn.Close();
             return Tmp;
 
-        }
+        }*/
 
         public static List<DishCount> GetDishesCountYear(DateTime Month, string BarCodes, bool AllCodes)
         {
@@ -1098,17 +1316,31 @@ namespace ReportMonthResultGenerator
          //   string Kd = GetKitchenD();
             return GetDishesCount(Month, "", true );
         }
-        public static List<DishCount>  GetKitchenDishesCount(DateTime Month,bool Year=false,int Day=0)
+        public static List<DishCount> GetKitchenDishesCount(DateTime Month, bool Year = false, int Day = 0, bool UseDishesCoeff = false)
         {
             List<DishCount> Tmp = new List<DishCount>();
             string Kd = GetKitchenD();
             if (Year)
             {
-              return  GetDishesCountYear(Month, Kd, false);
+                return GetDishesCountYear(Month, Kd, false);
             }
             else
             {
-                return GetDishesCount(Month, Kd, false, Day);
+                return GetDishesCount(Month, Kd, false, Day, UseDishesCoeff);
+            }
+        }
+        public static List<DishCount> GetKitchenDishesCountForKissTheCook(DateTime Month, bool Year = false, int Day = 0, bool UseDishesCoeff = false)
+        {
+            List<DishCount> Tmp = new List<DishCount>();
+            //string Kd = GetKitchenDForKissTheCook();
+            if (Year)                
+            {
+                // !!! NEVER HERE
+                return GetDishesCountYear(Month, null, false);
+            }
+            else
+            {
+                return GetDishesCount(Month, null, true, Day, UseDishesCoeff, string.Join(",", AutoCalc.ProductivityBase.GoodsCatsExclude[typeof(AutoCalc.ProductivCook)]), true);
             }
         }
 

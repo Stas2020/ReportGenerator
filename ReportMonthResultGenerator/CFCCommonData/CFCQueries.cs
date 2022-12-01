@@ -12,14 +12,15 @@ namespace ReportMonthResultGenerator.CFCCommonData
         int LastDishBarcodeNum = 933000;
         //string CityOwnerId = "9DFF9173-BCB4-4F83-AE77-C1DB74E6776A";
         string ConnectionString = "";
-        public CFCQueries(string _connectionString)
+        public CFCQueries(string _connectionString, string _CityOwnerId)
         {
-            ConnectionString = _connectionString;
+            this.ConnectionString = _connectionString;
+            this.CityOwnerId = _CityOwnerId;
         }
 
         public List<Item> GetCurentMnuAll()
         {
-            var db = new DBCFCDataContext(ConnectionString);
+            var db = new DBCFCDataContext(ConnectionString);            
             return db.Item.Where(a => a.FK_Owner.ToString() == CityOwnerId && a.Number<=LastDishBarcodeNum).ToList();
         }
         public List<Comp> GetCurentComps()

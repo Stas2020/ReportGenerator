@@ -23,7 +23,7 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="ExchangePeskovFotoGallerySoapBinding", Namespace="ExchangePeskovFotoGallery")]
@@ -32,6 +32,14 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
         private System.Threading.SendOrPostCallback getCostsOperationCompleted;
         
         private System.Threading.SendOrPostCallback getCostsListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCosts_testOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCostsList_testOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetPaharListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback getCostsGroupOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -78,7 +86,19 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
         public event getCostsListCompletedEventHandler getCostsListCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public event getCosts_testCompletedEventHandler getCosts_testCompleted;
+        
+        /// <remarks/>
+        public event getCostsList_testCompletedEventHandler getCostsList_testCompleted;
+        
+        /// <remarks/>
+        public event GetPaharListCompletedEventHandler GetPaharListCompleted;
+        
+        /// <remarks/>
+        public event getCostsGroupCompletedEventHandler getCostsGroupCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:getCosts", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return")]
         public double getCosts([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
             object[] results = this.Invoke("getCosts", new object[] {
@@ -112,7 +132,7 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:getCostsList", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return")]
         public string getCostsList([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
             object[] results = this.Invoke("getCostsList", new object[] {
@@ -146,6 +166,142 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:getCosts_test", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return")]
+        public double getCosts_test([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
+            object[] results = this.Invoke("getCosts_test", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd});
+            return ((double)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCosts_testAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd) {
+            this.getCosts_testAsync(codeUnion, dateStart, dateEnd, null);
+        }
+        
+        /// <remarks/>
+        public void getCosts_testAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd, object userState) {
+            if ((this.getCosts_testOperationCompleted == null)) {
+                this.getCosts_testOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCosts_testOperationCompleted);
+            }
+            this.InvokeAsync("getCosts_test", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd}, this.getCosts_testOperationCompleted, userState);
+        }
+        
+        private void OngetCosts_testOperationCompleted(object arg) {
+            if ((this.getCosts_testCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCosts_testCompleted(this, new getCosts_testCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:getCostsList_test", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return")]
+        public string getCostsList_test([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
+            object[] results = this.Invoke("getCostsList_test", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCostsList_testAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd) {
+            this.getCostsList_testAsync(codeUnion, dateStart, dateEnd, null);
+        }
+        
+        /// <remarks/>
+        public void getCostsList_testAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd, object userState) {
+            if ((this.getCostsList_testOperationCompleted == null)) {
+                this.getCostsList_testOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCostsList_testOperationCompleted);
+            }
+            this.InvokeAsync("getCostsList_test", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd}, this.getCostsList_testOperationCompleted, userState);
+        }
+        
+        private void OngetCostsList_testOperationCompleted(object arg) {
+            if ((this.getCostsList_testCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCostsList_testCompleted(this, new getCostsList_testCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:GetPaharList", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return")]
+        public string GetPaharList([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
+            object[] results = this.Invoke("GetPaharList", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPaharListAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd) {
+            this.GetPaharListAsync(codeUnion, dateStart, dateEnd, null);
+        }
+        
+        /// <remarks/>
+        public void GetPaharListAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd, object userState) {
+            if ((this.GetPaharListOperationCompleted == null)) {
+                this.GetPaharListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPaharListOperationCompleted);
+            }
+            this.InvokeAsync("GetPaharList", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd}, this.GetPaharListOperationCompleted, userState);
+        }
+        
+        private void OnGetPaharListOperationCompleted(object arg) {
+            if ((this.GetPaharListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPaharListCompleted(this, new GetPaharListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("ExchangePeskovFotoGallery#ExchangePeskovFotoGallery:getCostsGroup", RequestNamespace="ExchangePeskovFotoGallery", ResponseNamespace="ExchangePeskovFotoGallery", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return")]
+        public string getCostsGroup([System.Xml.Serialization.XmlElementAttribute(DataType="integer")] string codeUnion, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateStart, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateEnd) {
+            object[] results = this.Invoke("getCostsGroup", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getCostsGroupAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd) {
+            this.getCostsGroupAsync(codeUnion, dateStart, dateEnd, null);
+        }
+        
+        /// <remarks/>
+        public void getCostsGroupAsync(string codeUnion, System.DateTime dateStart, System.DateTime dateEnd, object userState) {
+            if ((this.getCostsGroupOperationCompleted == null)) {
+                this.getCostsGroupOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetCostsGroupOperationCompleted);
+            }
+            this.InvokeAsync("getCostsGroup", new object[] {
+                        codeUnion,
+                        dateStart,
+                        dateEnd}, this.getCostsGroupOperationCompleted, userState);
+        }
+        
+        private void OngetCostsGroupOperationCompleted(object arg) {
+            if ((this.getCostsGroupCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getCostsGroupCompleted(this, new getCostsGroupCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -165,11 +321,11 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
     public delegate void getCostsCompletedEventHandler(object sender, getCostsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class getCostsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -191,11 +347,11 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
     public delegate void getCostsListCompletedEventHandler(object sender, getCostsListCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class getCostsListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -203,6 +359,110 @@ namespace ReportMonthResultGenerator.vfiliasut8 {
         private object[] results;
         
         internal getCostsListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    public delegate void getCosts_testCompletedEventHandler(object sender, getCosts_testCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCosts_testCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCosts_testCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public double Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((double)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    public delegate void getCostsList_testCompletedEventHandler(object sender, getCostsList_testCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCostsList_testCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCostsList_testCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    public delegate void GetPaharListCompletedEventHandler(object sender, GetPaharListCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPaharListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPaharListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    public delegate void getCostsGroupCompletedEventHandler(object sender, getCostsGroupCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3761.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getCostsGroupCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getCostsGroupCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

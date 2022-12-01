@@ -20,7 +20,18 @@ namespace ReportMonthResultGenerator
                 sw.WriteLine(DateTime.Now.ToString(@"dd/MM/yyyy HH:mm:ss") + "  " + Mess);
             }
         }
+        public static void ToDebugLog(string Mess, bool toConsole = false)
+        {
+            if (toConsole)
+            {
+                Console.WriteLine(Mess);
+            }
 
+            using (StreamWriter sw = new StreamWriter("logDebug.txt", true))
+            {
+                sw.WriteLine(DateTime.Now.ToString(@"dd/MM/yyyy HH:mm:ss") + "  " + Mess);
+            }
+        }
 
     }
     public class StaffDismissal
@@ -76,21 +87,66 @@ namespace ReportMonthResultGenerator
 
         public int Dep { set;get; }
         public string DepName { set; get; }
-        public double Value { set; get; }
-        public double Checks { set; get; }
-        public double ValueOnCheck
+        
+        public double Consumables { set; get; }
+        public double Proceeds { set; get; }
+
+        public double Value
         {
             get
             {
-                if (Checks != 0)
+                if (Proceeds != 0)
                 {
-                    return Value / Checks;
+                    return Consumables / Proceeds;
                 }
                 else
                 {
                     return 0;
                 }
-                
+            }
+        }
+
+        //public double Value { set; get; }
+        //public double Checks { set; get; }
+        //public double ValueOnCheck
+        //{
+        //    get
+        //    {
+        //        if (Checks != 0)
+        //        {
+        //            return Value / Checks;
+        //        }
+        //        else
+        //        {
+        //            return 0;
+        //        }
+
+        //    }
+        //}
+    }
+    public class SpisPercent
+    {
+        public SpisPercent()
+        { }
+        public DateTime BD { set; get; }
+        public int Dep { set; get; }
+        public string DepName { set; get; }
+
+        public double Producted { set; get; }
+        public double WrittenOff { set; get; }
+
+        public double Value
+        {
+            get
+            {
+                if (Producted != 0)
+                {
+                    return WrittenOff / Producted;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

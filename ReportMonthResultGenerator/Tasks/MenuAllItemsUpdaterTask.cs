@@ -8,29 +8,30 @@ namespace ReportMonthResultGenerator.Tasks
 {
     public  class MenuAllItemsUpdaterTask
     {
-        public void Run()
+        public void Run(string CFCConnection, string CityOwnerId)
         {
             int drincBottleCatNumber = 91;
             int kitchenCatNumber = 41;
             int stoykaCatNumber = 44;
             int drinkCupCatNumber = 92;
-            string CFCConnection = @"Data Source=NewSquare1\SQLEXPRESS;Initial Catalog=CFCInStoreDB;User ID=sa;Password=";
-            
-            var items = (new CFCCommonData.CFCQueries(CFCConnection)).GetCurentMnuAll();
+            int discountTenPercentCatNumber = 43;
+            var items = (new CFCCommonData.CFCQueries(CFCConnection, CityOwnerId)).GetCurentMnuAll();
 
-            List<AlohaMenuItemsAll> outItems = items.Select(a =>
+
+
+
+
+            List<AlohaMenuItemsAll> outItems = items.Select(a => new AlohaMenuItemsAll()
             {
-                var itm = new AlohaMenuItemsAll()
-                {
-                    BarCode = a.Number,
-                    CategoryId = a.Category.Number,
-                    Name= a.LongName
-                };
-                itm.Weight = a.CategoryItem.Any(b => b.Category.Number == drincBottleCatNumber) ? 4 : 1;
-                itm.IsDish = a.CategoryItem.Any(b => b.Category.Number == kitchenCatNumber || b.Category.Number == stoykaCatNumber);
-                itm.IsDrink = a.CategoryItem.Any(b => b.Category.Number == drincBottleCatNumber || b.Category.Number == drinkCupCatNumber);
-                return itm;
-            }).ToList();
+                BarCode = a.Number,
+                CategoryId = a.Category.Number,
+                Name = a.LongName,
+                Weight = a.CategoryItem.Any<CFCCommonData.CategoryItem>((Func<CFCCommonData.CategoryItem, bool>)(b => b.Category.Number == drincBottleCatNumber)) ? 4 : 1,
+                IsDish = a.CategoryItem.Any<CFCCommonData.CategoryItem>((Func<CFCCommonData.CategoryItem, bool>)(b => b.Category.Number == kitchenCatNumber || b.Category.Number == stoykaCatNumber)),
+                IsDrink = a.CategoryItem.Any<CFCCommonData.CategoryItem>((Func<CFCCommonData.CategoryItem, bool>)(b => b.Category.Number == drincBottleCatNumber || b.Category.Number == drinkCupCatNumber)),
+                Discount1 = a.CategoryItem.Any<CFCCommonData.CategoryItem>((Func<CFCCommonData.CategoryItem, bool>)(b => b.Category.Number == discountTenPercentCatNumber))
+            }).ToList<AlohaMenuItemsAll>();
+
 
 
             var outCats = items.GroupBy(a=>a.Category.Number).Select(a =>
@@ -42,7 +43,7 @@ namespace ReportMonthResultGenerator.Tasks
                 }).Distinct().ToList();
 
 
-            var comps = (new CFCCommonData.CFCQueries(CFCConnection)).GetCurentComps();
+            var comps = (new CFCCommonData.CFCQueries(CFCConnection, CityOwnerId)).GetCurentComps();
             var outComps = comps.Select(a => new AlohaMenuComps()
             {
                 AlohaCompId = a.Number,

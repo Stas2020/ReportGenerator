@@ -7,7 +7,8 @@ namespace ReportMonthResultGenerator
 {
     static class ReportTableUpdater
     {
-        static ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+        //static ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=v.piskov;Password=Eit160t");
+        static ReportBaseDataContext RepBase = new ReportBaseDataContext("Data Source=s2010;Initial Catalog=Diogen;User ID=quasiadm;Password=Fil123fil123");
 
 
 
@@ -31,7 +32,9 @@ namespace ReportMonthResultGenerator
 
         public static void OrderTimeBySuSheffOrders(List<ReportDayQSRTimeByOrders> Data, DateTime StartDate, DateTime EndDate)
         {
-            IQueryable<ReportDayQSRTimeByOrders> res = from o in RepBase.ReportDayQSRTimeByOrders where (o.Day >= StartDate && o.Day < EndDate) select o;
+            IQueryable<ReportDayQSRTimeByOrders> res = from o in RepBase.ReportDayQSRTimeByOrders where (o.Day >= StartDate && o.Day < EndDate          /* && o.Department==350 */   ) select o;
+
+            
 
             if (res.Count() > 0)
             {
@@ -281,9 +284,9 @@ namespace ReportMonthResultGenerator
                     Department = Sd.Dep,
                     Month = Month,
                     Type = 3,
-                    Value = Sd.Value,
-                    Value2 = Sd.Checks,
-                    Value3 = Sd.ValueOnCheck,
+                    Value = Sd.Consumables,//Sd.Value,
+                    Value2 = Sd.Proceeds,//Sd.Checks,
+                    Value3 = Sd.Value,//Sd.ValueOnCheck,
                     DepName = Sd.DepName
                 };
                 RepBase.ReportMonthResults.InsertOnSubmit(RmR);

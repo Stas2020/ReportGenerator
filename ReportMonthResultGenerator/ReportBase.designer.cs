@@ -72,6 +72,12 @@ namespace ReportMonthResultGenerator
     partial void InsertOrderTimes(OrderTimes instance);
     partial void UpdateOrderTimes(OrderTimes instance);
     partial void DeleteOrderTimes(OrderTimes instance);
+    partial void InsertGesItemsWeight(GesItemsWeight instance);
+    partial void UpdateGesItemsWeight(GesItemsWeight instance);
+    partial void DeleteGesItemsWeight(GesItemsWeight instance);
+    partial void InsertReportLog(ReportLog instance);
+    partial void UpdateReportLog(ReportLog instance);
+    partial void DeleteReportLog(ReportLog instance);
     #endregion
 		
 		public ReportBaseDataContext() : 
@@ -237,6 +243,30 @@ namespace ReportMonthResultGenerator
 			get
 			{
 				return this.GetTable<OrderTimes>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GesItemsWeight> GesItemsWeight
+		{
+			get
+			{
+				return this.GetTable<GesItemsWeight>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CheckSummByTerm> CheckSummByTerm
+		{
+			get
+			{
+				return this.GetTable<CheckSummByTerm>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ReportLog> ReportLog
+		{
+			get
+			{
+				return this.GetTable<ReportLog>();
 			}
 		}
 		
@@ -1297,7 +1327,7 @@ namespace ReportMonthResultGenerator
 	public partial class GuestCount
 	{
 		
-		private System.Nullable<int> _GuestCount1;
+		private System.Nullable<int> _Guests;
 		
 		private System.Nullable<long> _CheckLongNum;
 		
@@ -1313,22 +1343,24 @@ namespace ReportMonthResultGenerator
 		
 		private System.Nullable<int> _DepNum;
 		
+		private System.Nullable<int> _TableNumber;
+		
 		public GuestCount()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="GuestCount", Storage="_GuestCount1", DbType="Int")]
-		public System.Nullable<int> GuestCount1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Guests", DbType="Int")]
+		public System.Nullable<int> Guests
 		{
 			get
 			{
-				return this._GuestCount1;
+				return this._Guests;
 			}
 			set
 			{
-				if ((this._GuestCount1 != value))
+				if ((this._Guests != value))
 				{
-					this._GuestCount1 = value;
+					this._Guests = value;
 				}
 			}
 		}
@@ -1441,6 +1473,22 @@ namespace ReportMonthResultGenerator
 				if ((this._DepNum != value))
 				{
 					this._DepNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableNumber", DbType="Int")]
+		public System.Nullable<int> TableNumber
+		{
+			get
+			{
+				return this._TableNumber;
+			}
+			set
+			{
+				if ((this._TableNumber != value))
+				{
+					this._TableNumber = value;
 				}
 			}
 		}
@@ -2606,6 +2654,8 @@ namespace ReportMonthResultGenerator
 		
 		private int _Weight;
 		
+		private bool _Discount1;
+		
     #region Определения метода расширяемости
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2624,6 +2674,8 @@ namespace ReportMonthResultGenerator
     partial void OnIsDrinkChanged();
     partial void OnWeightChanging(int value);
     partial void OnWeightChanged();
+    partial void OnDiscount1Changing(bool value);
+    partial void OnDiscount1Changed();
     #endregion
 		
 		public AlohaMenuItemsAll()
@@ -2767,6 +2819,26 @@ namespace ReportMonthResultGenerator
 					this._Weight = value;
 					this.SendPropertyChanged("Weight");
 					this.OnWeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Discount1", DbType="bit NOT NULL")]
+		public bool Discount1
+		{
+			get
+			{
+				return this._Discount1;
+			}
+			set
+			{
+				if ((this._Discount1 != value))
+				{
+					this.OnDiscount1Changing(value);
+					this.SendPropertyChanging();
+					this._Discount1 = value;
+					this.SendPropertyChanged("Discount1");
+					this.OnDiscount1Changed();
 				}
 			}
 		}
@@ -3361,6 +3433,403 @@ namespace ReportMonthResultGenerator
 					this._TableNum = value;
 					this.SendPropertyChanged("TableNum");
 					this.OnTableNumChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GesItemsWeight")]
+	public partial class GesItemsWeight : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BarCode;
+		
+		private System.Nullable<double> _PortionRatio;
+		
+		private System.Nullable<int> _WeightNumb;
+		
+		private string _WeightText;
+		
+		private System.Nullable<byte> _Vesovoy;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBarCodeChanging(int value);
+    partial void OnBarCodeChanged();
+    partial void OnPortionRatioChanging(System.Nullable<double> value);
+    partial void OnPortionRatioChanged();
+    partial void OnWeightNumbChanging(System.Nullable<int> value);
+    partial void OnWeightNumbChanged();
+    partial void OnWeightTextChanging(string value);
+    partial void OnWeightTextChanged();
+    partial void OnVesovoyChanging(System.Nullable<byte> value);
+    partial void OnVesovoyChanged();
+    #endregion
+		
+		public GesItemsWeight()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BarCode", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BarCode
+		{
+			get
+			{
+				return this._BarCode;
+			}
+			set
+			{
+				if ((this._BarCode != value))
+				{
+					this.OnBarCodeChanging(value);
+					this.SendPropertyChanging();
+					this._BarCode = value;
+					this.SendPropertyChanged("BarCode");
+					this.OnBarCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PortionRatio", DbType="float")]
+		public System.Nullable<double> PortionRatio
+		{
+			get
+			{
+				return this._PortionRatio;
+			}
+			set
+			{
+				if ((this._PortionRatio != value))
+				{
+					this.OnPortionRatioChanging(value);
+					this.SendPropertyChanging();
+					this._PortionRatio = value;
+					this.SendPropertyChanged("PortionRatio");
+					this.OnPortionRatioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeightNumb", DbType="Int")]
+		public System.Nullable<int> WeightNumb
+		{
+			get
+			{
+				return this._WeightNumb;
+			}
+			set
+			{
+				if ((this._WeightNumb != value))
+				{
+					this.OnWeightNumbChanging(value);
+					this.SendPropertyChanging();
+					this._WeightNumb = value;
+					this.SendPropertyChanged("WeightNumb");
+					this.OnWeightNumbChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeightText", DbType="nvarchar(10)")]
+		public string WeightText
+		{
+			get
+			{
+				return this._WeightText;
+			}
+			set
+			{
+				if ((this._WeightText != value))
+				{
+					this.OnWeightTextChanging(value);
+					this.SendPropertyChanging();
+					this._WeightText = value;
+					this.SendPropertyChanged("WeightText");
+					this.OnWeightTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vesovoy", DbType="Bit")]
+		public System.Nullable<byte> Vesovoy
+		{
+			get
+			{
+				return this._Vesovoy;
+			}
+			set
+			{
+				if ((this._Vesovoy != value))
+				{
+					this.OnVesovoyChanging(value);
+					this.SendPropertyChanging();
+					this._Vesovoy = value;
+					this.SendPropertyChanged("Vesovoy");
+					this.OnVesovoyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CheckSummByTerm")]
+	public partial class CheckSummByTerm
+	{
+		
+		private System.Nullable<System.DateTime> _BusinessDate;
+		
+		private System.Nullable<int> _DepNum;
+		
+		private System.Nullable<double> _RealSumm;
+		
+		private System.Nullable<int> _TerminalId;
+		
+		public CheckSummByTerm()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BusinessDate
+		{
+			get
+			{
+				return this._BusinessDate;
+			}
+			set
+			{
+				if ((this._BusinessDate != value))
+				{
+					this._BusinessDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepNum", DbType="Int")]
+		public System.Nullable<int> Dep
+		{
+			get
+			{
+				return this._DepNum;
+			}
+			set
+			{
+				if ((this._DepNum != value))
+				{
+					this._DepNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RealSumm", DbType="money")]
+		public System.Nullable<double> RealSumm
+		{
+			get
+			{
+				return this._RealSumm;
+			}
+			set
+			{
+				if ((this._RealSumm != value))
+				{
+					this._RealSumm = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TerminalId", DbType="int")]
+		public System.Nullable<int> TerminalId
+		{
+			get
+			{
+				return this._TerminalId;
+			}
+			set
+			{
+				if ((this._TerminalId != value))
+				{
+					this._TerminalId = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ReportLog")]
+	public partial class ReportLog : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _BusinessDate;
+		
+		private System.DateTime _DepNum;
+		
+		private System.DateTime _RealSumm;
+		
+		private System.Nullable<System.DateTime> _TerminalId;
+		
+		private System.Nullable<int> _Result;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnDayChanging(System.DateTime value);
+    partial void OnDayChanged();
+    partial void OnDateStartChanging(System.DateTime value);
+    partial void OnDateStartChanged();
+    partial void OnDateFinishChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateFinishChanged();
+    partial void OnResultChanging(System.Nullable<int> value);
+    partial void OnResultChanged();
+    #endregion
+		
+		public ReportLog()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessDate", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._BusinessDate;
+			}
+			set
+			{
+				if ((this._BusinessDate != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessDate = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepNum", DbType="Date")]
+		public System.DateTime Day
+		{
+			get
+			{
+				return this._DepNum;
+			}
+			set
+			{
+				if ((this._DepNum != value))
+				{
+					this.OnDayChanging(value);
+					this.SendPropertyChanging();
+					this._DepNum = value;
+					this.SendPropertyChanged("Day");
+					this.OnDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RealSumm", DbType="datetime")]
+		public System.DateTime DateStart
+		{
+			get
+			{
+				return this._RealSumm;
+			}
+			set
+			{
+				if ((this._RealSumm != value))
+				{
+					this.OnDateStartChanging(value);
+					this.SendPropertyChanging();
+					this._RealSumm = value;
+					this.SendPropertyChanged("DateStart");
+					this.OnDateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TerminalId", DbType="datetime")]
+		public System.Nullable<System.DateTime> DateFinish
+		{
+			get
+			{
+				return this._TerminalId;
+			}
+			set
+			{
+				if ((this._TerminalId != value))
+				{
+					this.OnDateFinishChanging(value);
+					this.SendPropertyChanging();
+					this._TerminalId = value;
+					this.SendPropertyChanged("DateFinish");
+					this.OnDateFinishChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="int")]
+		public System.Nullable<int> Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this.OnResultChanging(value);
+					this.SendPropertyChanging();
+					this._Result = value;
+					this.SendPropertyChanged("Result");
+					this.OnResultChanged();
 				}
 			}
 		}
