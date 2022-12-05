@@ -356,7 +356,7 @@ namespace ReportMonthResultGenerator
 
             public static List<string> ReasonNegativList = new List<string>() { dp1, dp2, dp3, dp4, dp5, dp6, dp7, dp8, dp9, dp10 , 
                 dp11, dp12, dp13, dp14, dp15, dp16, dp17, dp18, dp19, dp20, dp21, dp22,
-                DishQualityForeignObject, DishQualityFood, DishQualityBeverage, DishQualityPoisoning};
+                DishQualityForeignObject, DishQualityFood, DishQualityBeverage, DishQualityPoisoning, DishQualityDessert};
 
             public const string DeliverySpeedOurSlow = "доставка__скорость_доставки";                                                       //Дистанционные продажи::Скорость доставки: долгая::Наша доставка
             public const string DeliverySpeedYandexSlow = "доставка__скорость_доставки__долгая_яндекс";                                     //Дистанционные продажи::Скорость доставки: долгая::Яндекс и прочие сервисы доставки

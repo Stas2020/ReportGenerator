@@ -42,6 +42,13 @@ namespace ReportMonthResultGenerator.AutoCalc
 
             _calculatedReports = new List<ReportDayResult>();
 
+            //загружаем количество заказов
+            Dictionary<DateTime, Dictionary<int, int>> orderCounts = new Dictionary<DateTime, Dictionary<int, int>>();
+            for (DateTime dt = _beginDate; dt <= _endDate; dt = dt.AddDays(1))
+            {
+                orderCounts.Add(dt, MOZGIntegration.GetIMOrders(dt));
+            }
+
             var client = new XrepSoapClient();
             _departments = client.GetPointList3();
             foreach (var dep in _departments)
@@ -49,7 +56,31 @@ namespace ReportMonthResultGenerator.AutoCalc
                 departmentsByName[dep.Number] = dep.Name;
             }
             _zendeskClient.Departments = departmentsByName;
-            
+
+            //предварительно заполняем количество заказов
+            foreach (var dtOrds in orderCounts) 
+            {
+                foreach (var depOrds in dtOrds.Value)
+                {
+                    var exists = _calculatedReports.FirstOrDefault(_rec => _rec.BD == dtOrds.Key && _rec.Dep == depOrds.Key);
+                    if (exists == null)
+                    {
+                        int orderCount = depOrds.Value;
+                        exists = new ReportDayResult()
+                        {
+                            BD = dtOrds.Key,
+                            Dep = depOrds.Key,
+                            Summ = 0,
+                            Count = orderCount,
+                            DepName = _departments.FirstOrDefault(_dep => _dep.Number == depOrds.Key)?.Name,
+                            TypeId = TypeId,
+                            Value = orderCount != 0 ? (double)(((double)1) / (double)orderCount) : 0 //maxRating)
+                        };
+                        _calculatedReports.Add(exists);
+                    }
+                }
+            }
+
             var tickets = _zendeskClient.RetrieveTickets(_beginDate, _endDate, mobileAppOnly: false).Result;
             
             foreach (var ticket in tickets)
@@ -114,21 +145,24 @@ namespace ReportMonthResultGenerator.AutoCalc
                     BD = date,
                     Dep = dep,
                     Summ = isNegative ? 1.0 : 0.0,
-                    Count = 1,
+                    //Count = 1,
+                    Count = 0,
                     DepName = _departments.FirstOrDefault(_dep => _dep.Number == dep)?.Name,
                     TypeId = TypeId,
-                    Value = isNegative ? 1.0 : 0.0
+                    //Value = isNegative ? 1.0 : 0.0
+                    Value = 0.0
                 };
                 _calculatedReports.Add(exists);
             }
             else
             {
-                exists.Count += 1;
+                //exists.Count += 1;
                 if (isNegative)
                 {
                     exists.Summ += 1;
                 }
-                exists.Value = exists.Summ / (double)exists.Count;
+                //exists.Value = exists.Summ / (double)exists.Count;
+                exists.Value = exists.Count != 0 ? exists.Summ / (double)exists.Count : 0;
             }
         }
 

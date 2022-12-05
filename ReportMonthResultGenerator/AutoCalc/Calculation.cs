@@ -73,10 +73,11 @@ namespace ReportMonthResultGenerator.AutoCalc
 
 
 
-            //calculationsList.Add(new AutoCalc.SpisDesert());
-            //calculationsList.Add(new AutoCalc.SpisAlco());
-            //calculationsList.Add(new AutoCalc.SpisDishes());
-            //calculationsList.Add(new AutoCalc.SpisDrinks());
+            calculationsList.Add(new AutoCalc.SpisDesert());
+            calculationsList.Add(new AutoCalc.SpisAlco());
+            calculationsList.Add(new AutoCalc.SpisDishes());
+            calculationsList.Add(new AutoCalc.SpisDrinks());
+            return;
 
             //calculationsList.Add(new AutoCalc.RashMatCalc());
 

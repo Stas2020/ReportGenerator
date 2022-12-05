@@ -226,8 +226,8 @@ namespace ReportMonthResultGenerator
                     //dtE = new DateTime(2022, 11, 19);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2022-11-20 продажи нап/алко на гостя
                     //dtS = new DateTime(2022, 11, 19);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2022-11-20 продажи нап/алко на гостя
 
-                    //dtE = new DateTime(2022, 11, 01); //негатив
-                    //dtS = new DateTime(2022, 12, 02);
+                    dtE = new DateTime(2022, 11, 29); 
+                    dtS = new DateTime(2022, 11, 30);
 
 
 
