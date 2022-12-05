@@ -84,7 +84,7 @@ namespace ReportMonthResultGenerator
                     //DateTime EEndDate = new DateTime(2021, 12, 31);
                     //DateTime EStartDate = new DateTime(2021, 01, 01);
 
-                    DateTime EEndDate = new DateTime(2022, 11, 15);
+                    DateTime EEndDate = new DateTime(2022, 12, 01);
                     DateTime EStartDate = new DateTime(2022, 11, 01);
 
                     //DateTime EStartDate = EEndDate.AddMonths(-1);
@@ -226,8 +226,9 @@ namespace ReportMonthResultGenerator
                     //dtE = new DateTime(2022, 11, 19);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2022-11-20 продажи нап/алко на гостя
                     //dtS = new DateTime(2022, 11, 19);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 2022-11-20 продажи нап/алко на гостя
 
-                    //dtE = new DateTime(2022, 11, 23);
-                    //dtS = new DateTime(2022, 11, 23);
+                    //dtE = new DateTime(2022, 11, 01); //негатив
+                    //dtS = new DateTime(2022, 12, 02);
+
 
 
                     //Console.WriteLine($"Расчет пахаря {dtS.ToShortDateString()} - {dtE.ToShortDateString()}");
